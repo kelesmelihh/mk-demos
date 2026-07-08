@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Doğal Dükkan</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#f7fee7;color:#1a1a1a}
+.demo-bar{position:fixed;top:0;left:0;right:0;background:#0d1f3c;color:#fff;font-size:0.7rem;padding:8px 5%;display:flex;justify-content:space-between;align-items:center;z-index:999}
+.demo-bar a{background:#c0a050;color:#0d1f3c;padding:4px 12px;font-weight:600;font-size:0.68rem;text-decoration:none}
+nav{background:#fff;padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #84cc16;margin-top:33px;position:sticky;top:33px;z-index:100}
+.logo{font-size:1.1rem;font-weight:800;color:#1a1a1a;letter-spacing:-0.5px}
+.logo span{color:#84cc16}
+.nav-links{display:flex;gap:1.5rem}
+.nav-links a{font-size:0.82rem;color:#555;text-decoration:none;font-weight:500}
+.nav-cta{background:#84cc16;color:#fff;padding:9px 20px;font-size:0.8rem;font-weight:700;text-decoration:none;border-radius:2px}
+.hero{padding:80px 5%;background:#84cc1610;min-height:80vh;display:flex;align-items:center}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;width:100%}
+.hero-tag{display:inline-block;background:#84cc16;color:#fff;font-size:0.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;margin-bottom:1.2rem;border-radius:2px}
+.hero h1{font-size:3rem;font-weight:800;color:#1a1a1a;line-height:1.15;margin-bottom:1rem;letter-spacing:-1px}
+.hero h1 em{color:#84cc16;font-style:normal}
+.hero p{color:#555;font-size:0.92rem;line-height:1.8;margin-bottom:2rem;font-weight:400}
+.hero-btns{display:flex;gap:0.75rem}
+.btn-a{background:#84cc16;color:#fff;padding:13px 24px;font-size:0.82rem;font-weight:700;text-decoration:none;border-radius:2px}
+.btn-b{border:2px solid #1a1a1a;color:#1a1a1a;padding:13px 24px;font-size:0.82rem;font-weight:600;text-decoration:none;border-radius:2px}
+.hero-img{height:420px;background:#84cc1620;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:4rem}
+.features{padding:70px 5%;background:#fff}
+.features h2{font-size:1.8rem;font-weight:800;color:#1a1a1a;margin-bottom:2.5rem;text-align:center;letter-spacing:-0.5px}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.feat-card{padding:1.75rem;border:2px solid #f0f0f0;border-radius:4px;transition:border-color .2s}
+.feat-card:hover{border-color:#84cc16}
+.feat-icon{font-size:1.8rem;margin-bottom:0.75rem}
+.feat-title{font-size:0.9rem;font-weight:700;color:#1a1a1a;margin-bottom:0.4rem}
+.feat-desc{font-size:0.8rem;color:#777;line-height:1.6}
+.cta-section{padding:70px 5%;background:#84cc16;text-align:center}
+.cta-section h2{font-size:2rem;font-weight:800;color:#fff;margin-bottom:0.5rem}
+.cta-section p{color:rgba(255,255,255,0.8);font-size:0.9rem;margin-bottom:2rem}
+.cta-btn{background:#fff;color:#84cc16;padding:14px 32px;font-size:0.88rem;font-weight:700;text-decoration:none;display:inline-block;border-radius:2px}
+footer{background:#1a1a1a;padding:2rem 5%;display:flex;justify-content:space-between}
+footer p{color:rgba(255,255,255,0.3);font-size:0.75rem}
+</style></head>
+<body>
+<div class="demo-bar"><span>⚠ Demo — MK Software</span><a href="https://mksoftware.com.tr/#teklif">Teklif al →</a></div>
+<nav><div class="logo">Doğal Dükkan<span>.</span></div><div class="nav-links"><a href="#">Hakkımızda</a><a href="#">Hizmetler</a><a href="#">İletişim</a></div><a href="#" class="nav-cta">Başla</a></nav>
+<section class="hero"><div class="hero-inner"><div>
+<span class="hero-tag">E-Ticaret</span>
+<h1>Organik<br><em>Şimdi</em> Burada</h1>
+<p>Kaliteli hizmet, güvenilir deneyim. Sizi bekliyoruz.</p>
+<div class="hero-btns"><a href="#" class="btn-a">Hemen Başla</a><a href="#" class="btn-b">Daha Fazla</a></div>
+</div><div class="hero-img">✨</div></div></section>
+<section class="features">
+<h2>Neden Bizi Tercih Etmelisiniz?</h2>
+<div class="feat-grid">
+<div class="feat-card"><div class="feat-icon">⚡</div><div class="feat-title">Hızlı Hizmet</div><div class="feat-desc">Zamanınıza saygı duyuyoruz. Hızlı ve güvenilir hizmet garantisi.</div></div>
+<div class="feat-card"><div class="feat-icon">💎</div><div class="feat-title">Kalite Garantisi</div><div class="feat-desc">En yüksek standartlarda hizmet. Memnuniyet garantisi ile.</div></div>
+<div class="feat-card"><div class="feat-icon">🤝</div><div class="feat-title">Güvenilir Ekip</div><div class="feat-desc">Deneyimli profesyonellerden oluşan ekibimiz her zaman yanınızda.</div></div>
+</div></section>
+<section class="cta-section"><h2>Bugün Başlayın</h2><p>Hemen iletişime geçin, size özel teklif hazırlayalım.</p><a href="#" class="cta-btn">İletişime Geç</a></section>
+<footer><p>© 2026 Doğal Dükkan</p><p>Ankara, Türkiye</p></footer>
+</body></html>

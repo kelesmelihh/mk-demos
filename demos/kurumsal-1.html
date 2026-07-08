@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="tr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>İnşa Grup</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#111827}
+.demo-bar{position:fixed;top:0;left:0;right:0;background:#0d1f3c;color:#fff;font-size:0.7rem;padding:8px 5%;display:flex;justify-content:space-between;align-items:center;z-index:999}
+.demo-bar a{background:#c0a050;color:#0d1f3c;padding:4px 12px;font-weight:600;font-size:0.68rem;text-decoration:none}
+nav{background:#111827;padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;margin-top:33px;position:sticky;top:33px;z-index:100}
+.logo{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;color:#fff;letter-spacing:2px;text-transform:uppercase}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{font-size:0.78rem;color:rgba(255,255,255,0.45);text-decoration:none;letter-spacing:0.5px}
+.nav-links a:hover{color:#fff}
+.nav-btn{border:1px solid rgba(255,255,255,0.2);color:#fff;padding:8px 18px;font-size:0.75rem;letter-spacing:1px;text-decoration:none;transition:all .2s}
+.nav-btn:hover{background:#fff;color:#111827}
+.hero{background:#111827;padding:100px 5%;min-height:88vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:center;width:100%;position:relative;z-index:1}
+.hero-tag{font-size:0.65rem;color:#94a3b8;letter-spacing:3px;text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:8px}
+.hero-tag::before{content:'';width:30px;height:1px;background:#64748b}
+.hero h1{font-family:'Syne',sans-serif;font-size:3.2rem;color:#f8fafc;line-height:1.1;margin-bottom:1.5rem;font-weight:800}
+.hero h1 .accent{color:#60a5fa}
+.hero p{color:#94a3b8;font-size:0.88rem;line-height:1.9;margin-bottom:2.5rem;max-width:420px;font-weight:300}
+.hero-stats{display:flex;gap:2.5rem;margin-bottom:2.5rem}
+.stat-num{font-family:'Syne',sans-serif;font-size:2rem;color:#f8fafc;font-weight:700}
+.stat-label{font-size:0.7rem;color:#64748b;letter-spacing:1px;text-transform:uppercase;margin-top:2px}
+.hero-cta{display:flex;gap:1rem}
+.cta-p{background:#60a5fa;color:#111827;padding:12px 24px;font-size:0.82rem;font-weight:600;text-decoration:none;letter-spacing:0.5px}
+.cta-s{border:1px solid rgba(255,255,255,0.15);color:#f8fafc;padding:12px 24px;font-size:0.82rem;text-decoration:none}
+.hero-visual{height:380px;background:linear-gradient(135deg,rgba(96,165,250,0.08),rgba(96,165,250,0.02));border:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center}
+.hero-visual-inner{text-align:center}
+.hero-visual-icon{font-size:4rem;margin-bottom:1rem;display:block}
+.hero-visual-text{font-size:0.8rem;color:rgba(255,255,255,0.2);letter-spacing:1px;text-transform:uppercase}
+.services{padding:80px 5%;background:#f8f9fb}
+.services h2{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:#111827;margin-bottom:3rem;text-align:center}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#e2e8f0}
+.srv-card{background:#fff;padding:2rem;border-bottom:3px solid transparent;transition:border-color .2s}
+.srv-card:hover{border-color:#60a5fa}
+.srv-num{font-family:'Syne',sans-serif;font-size:2.5rem;color:#f1f5f9;font-weight:800;margin-bottom:0.5rem}
+.srv-title{font-size:0.9rem;font-weight:600;color:#111827;margin-bottom:0.5rem}
+.srv-desc{font-size:0.8rem;color:#64748b;line-height:1.7}
+footer{background:#0f172a;padding:2rem 5%;display:flex;justify-content:space-between}
+footer p{color:rgba(255,255,255,0.2);font-size:0.72rem}
+</style></head>
+<body>
+<div class="demo-bar"><span>⚠ Demo — MK Software</span><a href="https://mksoftware.com.tr/#teklif">Teklif al →</a></div>
+<nav><div class="logo">İnşa Grup</div><div class="nav-links"><a href="#">Hakkımızda</a><a href="#">Hizmetler</a><a href="#">Referanslar</a><a href="#">İletişim</a></div><a href="#" class="nav-btn">Teklif Al</a></nav>
+<section class="hero"><div class="hero-grid"><div>
+<div class="hero-tag">Kurumsal • İnşaat</div>
+<h1>Güçlü<br><span class="accent">Çözümler</span><br>Üretiyoruz</h1>
+<div class="hero-stats"><div><div class="stat-num">150+</div><div class="stat-label">Tamamlanan Proje</div></div><div><div class="stat-num">12+</div><div class="stat-label">Yıl Deneyim</div></div></div>
+<p>Sektörün öncü firması olarak müşterilerimize en iyi çözümleri sunmaktan gurur duyuyoruz.</p>
+<div class="hero-cta"><a href="#" class="cta-p">İletişime Geç</a><a href="#" class="cta-s">Daha Fazla Bilgi</a></div>
+</div><div class="hero-visual"><div class="hero-visual-inner"><span class="hero-visual-icon">⚙️</span><div class="hero-visual-text">Kurumsal</div></div></div></div></section>
+<section class="services"><h2>Hizmetlerimiz</h2>
+<div class="srv-grid">
+<div class="srv-card"><div class="srv-num">01</div><div class="srv-title">Danışmanlık</div><div class="srv-desc">Uzman kadromuzla ihtiyacınıza özel çözümler geliştiriyoruz.</div></div>
+<div class="srv-card"><div class="srv-num">02</div><div class="srv-title">Uygulama</div><div class="srv-desc">Projelerinizi en yüksek kalite standartlarında hayata geçiriyoruz.</div></div>
+<div class="srv-card"><div class="srv-num">03</div><div class="srv-title">Destek</div><div class="srv-desc">7/24 teknik destek ve bakım hizmetleriyle yanınızdayız.</div></div>
+</div></section>
+<footer><p>© 2026 İnşa Grup</p><p>Ankara, Türkiye</p></footer>
+</body></html>
