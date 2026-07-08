@@ -4,176 +4,200 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Demo Galerisi — MK Software</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --navy:#0d1f3c;
-  --steel:#3a5a8a;
-  --silver:#b0bec5;
-  --cream:#f5f6f8;
-  --white:#fff;
-  --gold:#c0a050;
-  --border:#e0e4ea;
-}
-body{font-family:'Inter',sans-serif;background:var(--cream);color:#1a2a3a}
+:root{--navy:#0d1f3c;--gold:#c0a050;--cream:#f5f6f8;--border:#e4e8ee;--text:#1a2a3a;--text2:#6a7a8a}
+body{font-family:'Inter',sans-serif;background:#fff;color:var(--text)}
 a{text-decoration:none;color:inherit}
 
+/* TOP BAR */
+.top-bar{background:var(--gold);padding:10px 5%;text-align:center}
+.top-bar p{font-size:.75rem;color:var(--navy);font-weight:600;letter-spacing:.5px}
+.top-bar a{color:var(--navy);border-bottom:1px solid var(--navy)}
+
 /* NAV */
-nav{background:var(--navy);height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;position:sticky;top:0;z-index:100}
-.nav-logo{display:flex;align-items:center;gap:10px}
-.nav-logo span{font-size:0.9rem;font-weight:700;color:#fff;letter-spacing:1px}
-.nav-logo small{font-size:0.55rem;color:var(--silver);letter-spacing:2px;text-transform:uppercase;display:block}
-.nav-cta{background:var(--gold);color:var(--navy);padding:8px 18px;font-size:0.78rem;font-weight:600;letter-spacing:0.5px}
+nav{background:var(--navy);padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.nav-logo{display:flex;align-items:center;gap:12px}
+.nav-logo-circle{width:36px;height:36px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--navy);font-size:.8rem;flex-shrink:0}
+.nav-brand{color:#fff;font-size:.9rem;font-weight:600;letter-spacing:1px}
+.nav-sub{font-size:.55rem;color:rgba(255,255,255,.4);letter-spacing:2px;text-transform:uppercase;display:block;margin-top:-2px}
+.nav-back{color:rgba(255,255,255,.55);font-size:.78rem;transition:color .2s}
+.nav-back:hover{color:#fff}
+.nav-cta{background:var(--gold);color:var(--navy);padding:9px 22px;font-size:.78rem;font-weight:700;letter-spacing:.5px}
 
 /* HERO */
-.hero{background:linear-gradient(135deg,var(--navy) 0%,#1a3a6a 100%);padding:70px 5% 60px;text-align:center;position:relative;overflow:hidden}
+.hero{background:linear-gradient(135deg,var(--navy) 0%,#16305a 100%);padding:70px 5% 60px;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(192,160,80,0.15);border:1px solid rgba(192,160,80,0.3);padding:4px 12px;margin-bottom:1.5rem}
-.hero-badge span{font-size:0.65rem;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);color:#fff;margin-bottom:1rem;font-weight:700}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(192,160,80,.12);border:1px solid rgba(192,160,80,.25);padding:5px 14px;margin-bottom:1.5rem}
+.hero-badge span{font-size:.65rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;color:#fff;margin-bottom:1rem;letter-spacing:-1px;line-height:1.1}
 .hero h1 em{color:var(--gold);font-style:normal}
-.hero p{color:rgba(255,255,255,0.55);font-size:0.9rem;max-width:520px;margin:0 auto 2rem;line-height:1.8}
+.hero p{color:rgba(255,255,255,.5);font-size:.92rem;max-width:540px;margin:0 auto 2.5rem;line-height:1.85;font-weight:300}
+.hero-stats{display:flex;justify-content:center;gap:4rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,.07);margin-top:2rem}
+.hstat strong{display:block;font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:#fff}
+.hstat span{font-size:.65rem;color:rgba(255,255,255,.3);letter-spacing:2px;text-transform:uppercase}
 
 /* FILTERS */
-.filters{padding:2rem 5%;display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--border);background:#fff}
-.filter-label{font-size:0.72rem;color:#8a9aaa;letter-spacing:1px;text-transform:uppercase;margin-right:0.5rem}
-.filter-btn{padding:6px 14px;font-size:0.78rem;border:1px solid var(--border);background:transparent;cursor:pointer;color:#4a5a6a;transition:all .15s;font-family:inherit}
-.filter-btn.active,.filter-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.filter-wrap{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:64px;z-index:99}
+.filters{padding:0 5%;display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.filter-btn{padding:16px 22px;font-size:.78rem;font-weight:500;color:var(--text2);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit}
+.filter-btn:hover{color:var(--text)}
+.filter-btn.active{color:var(--navy);border-bottom-color:var(--navy);font-weight:600}
 
-/* GRID */
-.gallery{padding:3rem 5%;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
-.demo-card{background:#fff;border:1px solid var(--border);overflow:hidden;transition:transform .2s,box-shadow .2s;cursor:pointer}
-.demo-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(13,31,60,0.12)}
-.demo-preview{height:200px;position:relative;overflow:hidden}
-.demo-preview iframe{width:170%;height:170%;transform:scale(0.588);transform-origin:top left;pointer-events:none;border:none}
-.demo-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(13,31,60,0);transition:background .2s}
-.demo-card:hover .demo-overlay{background:rgba(13,31,60,0.5)}
-.demo-overlay-btn{opacity:0;background:#fff;color:var(--navy);padding:10px 20px;font-size:0.8rem;font-weight:600;letter-spacing:0.5px;transition:opacity .2s}
-.demo-card:hover .demo-overlay-btn{opacity:1}
-.demo-info{padding:1.25rem}
-.demo-tags{display:flex;gap:6px;margin-bottom:0.6rem;flex-wrap:wrap}
-.demo-tag{font-size:0.65rem;padding:2px 8px;letter-spacing:1px;text-transform:uppercase}
-.demo-tag-sector{background:#f0f4f8;color:var(--steel)}
-.demo-tag-template{background:rgba(192,160,80,0.1);color:var(--gold)}
-.demo-title{font-size:0.92rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem}
-.demo-desc{font-size:0.78rem;color:#6a7a8a;line-height:1.6;margin-bottom:1rem}
-.demo-actions{display:flex;gap:8px}
-.btn-demo{flex:1;text-align:center;padding:8px;font-size:0.75rem;font-weight:600;letter-spacing:0.5px;background:var(--navy);color:#fff;transition:background .2s}
+/* GALLERY */
+.gallery-wrap{padding:3rem 5%}
+.gallery-count{font-size:.78rem;color:var(--text2);margin-bottom:1.5rem}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
+
+/* CARD */
+.demo-card{border:1px solid var(--border);overflow:hidden;transition:box-shadow .2s,transform .2s;cursor:pointer;background:#fff}
+.demo-card:hover{box-shadow:0 12px 40px rgba(13,31,60,.1);transform:translateY(-3px)}
+.card-preview{height:220px;position:relative;overflow:hidden;background:#f8f9fb}
+.card-preview iframe{width:165%;height:165%;transform:scale(.606);transform-origin:top left;pointer-events:none;border:none}
+.card-overlay{position:absolute;inset:0;background:rgba(13,31,60,0);transition:background .2s;display:flex;align-items:center;justify-content:center}
+.demo-card:hover .card-overlay{background:rgba(13,31,60,.55)}
+.overlay-btn{opacity:0;background:#fff;color:var(--navy);padding:10px 22px;font-size:.78rem;font-weight:700;letter-spacing:.5px;transform:translateY(8px);transition:all .2s}
+.demo-card:hover .overlay-btn{opacity:1;transform:translateY(0)}
+.card-body{padding:1.25rem}
+.card-tags{display:flex;gap:6px;margin-bottom:.6rem;flex-wrap:wrap}
+.tag{font-size:.62rem;font-weight:600;padding:3px 9px;letter-spacing:1px;text-transform:uppercase}
+.tag-sector{background:#f0f4f8;color:var(--navy)}
+.tag-template{background:rgba(192,160,80,.1);color:var(--gold)}
+.card-title{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:.25rem;letter-spacing:-.2px}
+.card-desc{font-size:.78rem;color:var(--text2);line-height:1.6;margin-bottom:1rem}
+.card-actions{display:flex;gap:8px}
+.btn-demo{flex:1;text-align:center;padding:9px;font-size:.72rem;font-weight:700;background:var(--navy);color:#fff;transition:background .2s;letter-spacing:.5px}
 .btn-demo:hover{background:#16305a}
-.btn-teklif{flex:1;text-align:center;padding:8px;font-size:0.75rem;font-weight:500;letter-spacing:0.5px;border:1px solid var(--gold);color:var(--gold);transition:all .2s}
+.btn-teklif{flex:1;text-align:center;padding:9px;font-size:.72rem;font-weight:600;border:1.5px solid var(--gold);color:var(--gold);transition:all .2s;letter-spacing:.5px}
 .btn-teklif:hover{background:var(--gold);color:var(--navy)}
 
+/* CTA */
+.cta-section{background:var(--navy);padding:70px 5%;text-align:center;margin:0 5% 60px}
+.cta-section h2{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:#fff;margin-bottom:.5rem;letter-spacing:-.5px}
+.cta-section p{color:rgba(255,255,255,.45);font-size:.88rem;margin-bottom:2rem;font-weight:300}
+.cta-btn{background:var(--gold);color:var(--navy);padding:14px 32px;font-size:.82rem;font-weight:700;letter-spacing:1px;display:inline-block}
+
 /* FOOTER */
-footer{background:var(--navy);padding:2rem 5%;text-align:center}
-footer p{color:rgba(255,255,255,0.3);font-size:0.75rem}
+footer{background:#0a1422;padding:2rem 5%;text-align:center}
+footer p{font-size:.75rem;color:rgba(255,255,255,.25)}
 footer a{color:var(--gold)}
 </style>
 </head>
 <body>
 
+<div class="top-bar">
+  <p>Beğendiğiniz tasarımı kendi işletmeniz için özelleştiriyoruz — <a href="https://mksoftware.com.tr/#teklif">Ücretsiz teklif alın →</a></p>
+</div>
+
 <nav>
   <div class="nav-logo">
+    <div class="nav-logo-circle">MK</div>
     <div>
-      <span>MK SOFTWARE</span>
-      <small>Demo Galerisi</small>
+      <span class="nav-brand">MK SOFTWARE</span>
+      <span class="nav-sub">Demo Galerisi</span>
     </div>
   </div>
+  <a href="https://mksoftware.com.tr" class="nav-back">← Ana Siteye Dön</a>
   <a href="https://mksoftware.com.tr/#teklif" class="nav-cta">Teklif Al</a>
 </nav>
 
 <section class="hero">
-  <div class="hero-badge"><span>✦ Örnek Çalışmalar</span></div>
-  <h1>İşletmeniz için <em>hazır tasarımlar</em></h1>
-  <p>Beğendiğiniz şablonu seçin, sektörünüze özelleştirelim. Tüm demolar gerçek tıklanabilir sitelerdir.</p>
+  <div class="hero-badge"><span>✦ Tıklanabilir Demo Siteler</span></div>
+  <h1>İşletmeniz için<br><em>hazır tasarımlar</em></h1>
+  <p>Beğendiğiniz şablonu seçin, sektörünüze ve markanıza özelleştirelim. Her demo gerçek bir web sitesidir — tıklayıp inceleyebilirsiniz.</p>
+  <div class="hero-stats">
+    <div class="hstat"><strong>20</strong><span>Demo Site</span></div>
+    <div class="hstat"><strong>5</strong><span>Farklı Şablon</span></div>
+    <div class="hstat"><strong>7</strong><span>Sektör</span></div>
+  </div>
 </section>
 
-<div class="filters">
-  <span class="filter-label">Filtrele:</span>
-  <button class="filter-btn active" onclick="filter('hepsi')">Hepsi</button>
-  <button class="filter-btn" onclick="filter('restoran')">Restoran & Kafe</button>
-  <button class="filter-btn" onclick="filter('eticaret')">E-Ticaret</button>
-  <button class="filter-btn" onclick="filter('saglik')">Sağlık</button>
-  <button class="filter-btn" onclick="filter('kurumsal')">Kurumsal</button>
-  <button class="filter-btn" onclick="filter('guzellik')">Güzellik</button>
-  <button class="filter-btn" onclick="filter('hukuk')">Hukuk</button>
-  <button class="filter-btn" onclick="filter('saas')">SaaS & Tech</button>
+<div class="filter-wrap">
+  <div class="filters">
+    <button class="filter-btn active" onclick="filter(this,'hepsi')">Hepsi (20)</button>
+    <button class="filter-btn" onclick="filter(this,'restoran')">Restoran & Kafe</button>
+    <button class="filter-btn" onclick="filter(this,'eticaret')">E-Ticaret</button>
+    <button class="filter-btn" onclick="filter(this,'saglik')">Sağlık & Klinik</button>
+    <button class="filter-btn" onclick="filter(this,'kurumsal')">Kurumsal</button>
+    <button class="filter-btn" onclick="filter(this,'guzellik')">Güzellik</button>
+    <button class="filter-btn" onclick="filter(this,'hukuk')">Hukuk</button>
+    <button class="filter-btn" onclick="filter(this,'saas')">SaaS & Tech</button>
+  </div>
 </div>
 
-<div class="gallery" id="gallery"></div>
+<div class="gallery-wrap">
+  <div class="gallery-count" id="count">20 demo gösteriliyor</div>
+  <div class="gallery" id="gallery"></div>
+</div>
+
+<div class="cta-section">
+  <h2>Kendi sitenizi yaptıralım mı?</h2>
+  <p>Bu demolardan ilham alarak, markanıza özel bir site hazırlıyoruz. Logo + 1 yıl hosting hediye!</p>
+  <a href="https://mksoftware.com.tr/#teklif" class="cta-btn">Ücretsiz Teklif Alın →</a>
+</div>
 
 <footer>
-  <p>Bu sayfadaki tüm siteler demo amaçlıdır ve gerçek bir işletmeye ait değildir.<br>
-  Kendi sitenizi yaptırmak için <a href="https://mksoftware.com.tr/#teklif">teklif alın</a>.</p>
+  <p>Tüm demolar örnek amaçlıdır, gerçek bir işletmeye ait değildir.<br>
+  Kendi sitenizi yaptırmak için <a href="https://mksoftware.com.tr/#teklif">teklif alın</a> · <a href="https://mksoftware.com.tr">mksoftware.com.tr</a></p>
 </footer>
 
 <script>
 var demos = [
-  {id:'restoran-1',title:'Lezzet Durağı',desc:'Sıcak tonlarda, fotoğraf ağırlıklı restoran sitesi.',sector:'restoran',template:'Şablon A',file:'restoran-1.html'},
-  {id:'restoran-2',title:'Café Noir',desc:'Minimalist, koyu tonlu kahvehane & kafe tasarımı.',sector:'restoran',template:'Şablon B',file:'restoran-2.html'},
-  {id:'restoran-3',title:'Green Bowl',desc:'Canlı renkli, sağlıklı beslenme & salata bar sitesi.',sector:'restoran',template:'Şablon C',file:'restoran-3.html'},
-  {id:'eticaret-1',title:'ModaShop',desc:'Temiz, modern moda e-ticaret sitesi.',sector:'eticaret',template:'Şablon A',file:'eticaret-1.html'},
-  {id:'eticaret-2',title:'TeknoMarket',desc:'Koyu tempalı elektronik mağaza tasarımı.',sector:'eticaret',template:'Şablon B',file:'eticaret-2.html'},
-  {id:'eticaret-3',title:'Doğal Dükkan',desc:'Organik & doğal ürünler e-ticaret sitesi.',sector:'eticaret',template:'Şablon C',file:'eticaret-3.html'},
-  {id:'saglik-1',title:'Vita Klinik',desc:'Güven veren, modern sağlık kliniği sitesi.',sector:'saglik',template:'Şablon A',file:'saglik-1.html'},
-  {id:'saglik-2',title:'DentPlus',desc:'Premium diş kliniği & estetik tasarım.',sector:'saglik',template:'Şablon D',file:'saglik-2.html'},
-  {id:'saglik-3',title:'PsyCore',desc:'Minimal, sakin psikoloji & terapi merkezi sitesi.',sector:'saglik',template:'Şablon E',file:'saglik-3.html'},
-  {id:'kurumsal-1',title:'İnşa Grup',desc:'Güçlü, kurumsal inşaat şirketi sitesi.',sector:'kurumsal',template:'Şablon B',file:'kurumsal-1.html'},
-  {id:'kurumsal-2',title:'Alfa Makina',desc:'Endüstriyel makina & üretim firması sitesi.',sector:'kurumsal',template:'Şablon D',file:'kurumsal-2.html'},
-  {id:'kurumsal-3',title:'ProLojistik',desc:'Modern lojistik & taşımacılık şirketi sitesi.',sector:'kurumsal',template:'Şablon A',file:'kurumsal-3.html'},
-  {id:'guzellik-1',title:'Maison Beauty',desc:'Lüks, zarif güzellik merkezi & spa sitesi.',sector:'guzellik',template:'Şablon E',file:'guzellik-1.html'},
-  {id:'guzellik-2',title:'StudioCut',desc:'Trendy erkek kuaförü & barber shop sitesi.',sector:'guzellik',template:'Şablon B',file:'guzellik-2.html'},
-  {id:'guzellik-3',title:'Glow Studio',desc:'Canlı renkli nail art & güzellik stüdyosu.',sector:'guzellik',template:'Şablon C',file:'guzellik-3.html'},
-  {id:'hukuk-1',title:'Kaya Hukuk',desc:'Kurumsal, güven veren avukatlık bürosu sitesi.',sector:'hukuk',template:'Şablon D',file:'hukuk-1.html'},
-  {id:'hukuk-2',title:'Lex Partners',desc:'Uluslararası hukuk firması — premium tasarım.',sector:'hukuk',template:'Şablon B',file:'hukuk-2.html'},
-  {id:'saas-1',title:'TaskFlow',desc:'Modern proje yönetim SaaS ürün sitesi.',sector:'saas',template:'Şablon C',file:'saas-1.html'},
-  {id:'saas-2',title:'DataPulse',desc:'Koyu tempalı analytics & veri platformu sitesi.',sector:'saas',template:'Şablon B',file:'saas-2.html'},
-  {id:'saas-3',title:'FormEasy',desc:'Minimalist form & anket SaaS ürün sayfası.',sector:'saas',template:'Şablon E',file:'saas-3.html'},
+  {id:'restoran-1',title:'Lezzet Durağı',desc:'Sıcak tonlarda, fotoğraf ağırlıklı fine dining restoran sitesi.',sector:'restoran',template:'Şablon A — Zarif',file:'demos/restoran-1.html'},
+  {id:'restoran-2',title:'Café Noir',desc:'Koyu premium tema, kahvehane & özel kafe için ideal.',sector:'restoran',template:'Şablon B — Koyu',file:'demos/restoran-2.html'},
+  {id:'restoran-3',title:'Green Bowl',desc:'Canlı, enerjik; sağlıklı beslenme & salata bar sitesi.',sector:'restoran',template:'Şablon C — Canlı',file:'demos/restoran-3.html'},
+  {id:'eticaret-1',title:'ModaShop',desc:'Güçlü e-ticaret deneyimi; moda & giyim mağazası.',sector:'eticaret',template:'Şablon E — E-Ticaret',file:'demos/eticaret-1.html'},
+  {id:'eticaret-2',title:'TeknoMarket',desc:'Koyu premium tema; elektronik & teknoloji mağazası.',sector:'eticaret',template:'Şablon B — Koyu',file:'demos/eticaret-2.html'},
+  {id:'eticaret-3',title:'Doğal Dükkan',desc:'Organik & doğal ürünler; sağlıklı yaşam mağazası.',sector:'eticaret',template:'Şablon E — E-Ticaret',file:'demos/eticaret-3.html'},
+  {id:'saglik-1',title:'Vita Klinik',desc:'Zarif, güven veren; genel sağlık kliniği sitesi.',sector:'saglik',template:'Şablon D — Minimalist',file:'demos/saglik-1.html'},
+  {id:'saglik-2',title:'DentPlus',desc:'Modern mavi tema; diş kliniği & estetik merkezi.',sector:'saglik',template:'Şablon B — Koyu',file:'demos/saglik-2.html'},
+  {id:'saglik-3',title:'PsyCore',desc:'Sakin, minimal; psikoloji & terapi merkezi.',sector:'saglik',template:'Şablon D — Minimalist',file:'demos/saglik-3.html'},
+  {id:'kurumsal-1',title:'İnşa Grup',desc:'Güçlü, endüstriyel; inşaat & yapı şirketi sitesi.',sector:'kurumsal',template:'Şablon B — Koyu',file:'demos/kurumsal-1.html'},
+  {id:'kurumsal-2',title:'Alfa Makina',desc:'Kurumsal, ağır sanayi; makina & üretim firması.',sector:'kurumsal',template:'Şablon B — Koyu',file:'demos/kurumsal-2.html'},
+  {id:'kurumsal-3',title:'ProLojistik',desc:'Zarif, minimal; lojistik & taşımacılık şirketi.',sector:'kurumsal',template:'Şablon D — Minimalist',file:'demos/kurumsal-3.html'},
+  {id:'guzellik-1',title:'Maison Beauty',desc:'Lüks, zarif; güzellik merkezi & spa sitesi.',sector:'guzellik',template:'Şablon D — Minimalist',file:'demos/guzellik-1.html'},
+  {id:'guzellik-2',title:'StudioCut',desc:'Premium koyu; erkek kuaförü & barber shop.',sector:'guzellik',template:'Şablon B — Koyu',file:'demos/guzellik-2.html'},
+  {id:'guzellik-3',title:'Glow Studio',desc:'Pembe, enerjik; nail art & güzellik stüdyosu.',sector:'guzellik',template:'Şablon C — Canlı',file:'demos/guzellik-3.html'},
+  {id:'hukuk-1',title:'Kaya Hukuk',desc:'Zarif lacivert; avukatlık bürosu & hukuk danışmanlığı.',sector:'hukuk',template:'Şablon D — Minimalist',file:'demos/hukuk-1.html'},
+  {id:'hukuk-2',title:'Lex Partners',desc:'Koyu altın; uluslararası hukuk & danışmanlık firması.',sector:'hukuk',template:'Şablon B — Koyu',file:'demos/hukuk-2.html'},
+  {id:'saas-1',title:'TaskFlow',desc:'Modern mor; proje yönetimi SaaS ürün sayfası.',sector:'saas',template:'Şablon C — Canlı',file:'demos/saas-1.html'},
+  {id:'saas-2',title:'DataPulse',desc:'Koyu mor; veri analitiği & dashboard platformu.',sector:'saas',template:'Şablon B — Koyu',file:'demos/saas-2.html'},
+  {id:'saas-3',title:'FormEasy',desc:'Teal rengi; form & anket SaaS çözümü.',sector:'saas',template:'Şablon C — Canlı',file:'demos/saas-3.html'},
 ];
 
-var templateColors = {
-  'Şablon A':'#e8f4ff',
-  'Şablon B':'#1a1a2e',
-  'Şablon C':'#fff0f0',
-  'Şablon D':'#1c2839',
-  'Şablon E':'#fafaf8',
-};
-
 var gallery = document.getElementById('gallery');
-var currentFilter = 'hepsi';
+var count = document.getElementById('count');
 
-function render(filter) {
+function render(sector) {
+  var filtered = sector === 'hepsi' ? demos : demos.filter(function(d){return d.sector===sector});
+  count.textContent = filtered.length + ' demo gösteriliyor';
   gallery.innerHTML = '';
-  var filtered = filter === 'hepsi' ? demos : demos.filter(function(d){return d.sector===filter});
   filtered.forEach(function(d) {
     var card = document.createElement('div');
     card.className = 'demo-card';
-    card.setAttribute('data-sector', d.sector);
     card.innerHTML =
-      '<div class="demo-preview" style="background:' + (templateColors[d.template]||'#f0f4f8') + '">' +
-        '<iframe src="demos/' + d.file + '" loading="lazy" scrolling="no"></iframe>' +
-        '<div class="demo-overlay"><span class="demo-overlay-btn">Önizle</span></div>' +
+      '<div class="card-preview">' +
+        '<iframe src="' + d.file + '" loading="lazy" scrolling="no" title="' + d.title + '"></iframe>' +
+        '<div class="card-overlay"><span class="overlay-btn">Demoyu Aç →</span></div>' +
       '</div>' +
-      '<div class="demo-info">' +
-        '<div class="demo-tags">' +
-          '<span class="demo-tag demo-tag-sector">' + d.sector + '</span>' +
-          '<span class="demo-tag demo-tag-template">' + d.template + '</span>' +
-        '</div>' +
-        '<div class="demo-title">' + d.title + '</div>' +
-        '<div class="demo-desc">' + d.desc + '</div>' +
-        '<div class="demo-actions">' +
-          '<a href="demos/' + d.file + '" target="_blank" class="btn-demo">Demoyu Gör</a>' +
-          '<a href="https://mksoftware.com.tr/#teklif?template=' + d.id + '" class="btn-teklif">Teklif Al</a>' +
+      '<div class="card-body">' +
+        '<div class="card-tags"><span class="tag tag-sector">' + d.sector + '</span><span class="tag tag-template">' + d.template + '</span></div>' +
+        '<div class="card-title">' + d.title + '</div>' +
+        '<div class="card-desc">' + d.desc + '</div>' +
+        '<div class="card-actions">' +
+          '<a href="' + d.file + '" target="_blank" class="btn-demo">Demoyu Gör</a>' +
+          '<a href="https://mksoftware.com.tr/#teklif" class="btn-teklif">Bu Şablonla Teklif Al</a>' +
         '</div>' +
       '</div>';
     gallery.appendChild(card);
   });
 }
 
-function filter(sector) {
-  currentFilter = sector;
+function filter(btn, sector) {
   document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active')});
-  event.target.classList.add('active');
+  btn.classList.add('active');
   render(sector);
 }
 
