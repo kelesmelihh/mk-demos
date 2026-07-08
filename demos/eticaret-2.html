@@ -1,62 +1,130 @@
-<!DOCTYPE html><html lang="tr"><head>
+<!DOCTYPE html>
+<html lang="tr"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TeknoMarket</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:#f8f9fb;color:#111827}
-.demo-bar{position:fixed;top:0;left:0;right:0;background:#0d1f3c;color:#fff;font-size:0.7rem;padding:8px 5%;display:flex;justify-content:space-between;align-items:center;z-index:999}
-.demo-bar a{background:#c0a050;color:#0d1f3c;padding:4px 12px;font-weight:600;font-size:0.68rem;text-decoration:none}
-nav{background:#111827;padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;margin-top:33px;position:sticky;top:33px;z-index:100}
-.logo{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;color:#fff;letter-spacing:2px;text-transform:uppercase}
-.nav-links{display:flex;gap:2rem}
-.nav-links a{font-size:0.78rem;color:rgba(255,255,255,0.45);text-decoration:none;letter-spacing:0.5px}
-.nav-links a:hover{color:#fff}
-.nav-btn{border:1px solid rgba(255,255,255,0.2);color:#fff;padding:8px 18px;font-size:0.75rem;letter-spacing:1px;text-decoration:none;transition:all .2s}
-.nav-btn:hover{background:#fff;color:#111827}
-.hero{background:#111827;padding:100px 5%;min-height:88vh;display:flex;align-items:center;position:relative;overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:center;width:100%;position:relative;z-index:1}
-.hero-tag{font-size:0.65rem;color:#94a3b8;letter-spacing:3px;text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:8px}
-.hero-tag::before{content:'';width:30px;height:1px;background:#64748b}
-.hero h1{font-family:'Syne',sans-serif;font-size:3.2rem;color:#f8fafc;line-height:1.1;margin-bottom:1.5rem;font-weight:800}
-.hero h1 .accent{color:#60a5fa}
-.hero p{color:#94a3b8;font-size:0.88rem;line-height:1.9;margin-bottom:2.5rem;max-width:420px;font-weight:300}
-.hero-stats{display:flex;gap:2.5rem;margin-bottom:2.5rem}
-.stat-num{font-family:'Syne',sans-serif;font-size:2rem;color:#f8fafc;font-weight:700}
-.stat-label{font-size:0.7rem;color:#64748b;letter-spacing:1px;text-transform:uppercase;margin-top:2px}
-.hero-cta{display:flex;gap:1rem}
-.cta-p{background:#60a5fa;color:#111827;padding:12px 24px;font-size:0.82rem;font-weight:600;text-decoration:none;letter-spacing:0.5px}
-.cta-s{border:1px solid rgba(255,255,255,0.15);color:#f8fafc;padding:12px 24px;font-size:0.82rem;text-decoration:none}
-.hero-visual{height:380px;background:linear-gradient(135deg,rgba(96,165,250,0.08),rgba(96,165,250,0.02));border:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center}
-.hero-visual-inner{text-align:center}
-.hero-visual-icon{font-size:4rem;margin-bottom:1rem;display:block}
-.hero-visual-text{font-size:0.8rem;color:rgba(255,255,255,0.2);letter-spacing:1px;text-transform:uppercase}
-.services{padding:80px 5%;background:#f8f9fb}
-.services h2{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:#111827;margin-bottom:3rem;text-align:center}
-.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#e2e8f0}
-.srv-card{background:#fff;padding:2rem;border-bottom:3px solid transparent;transition:border-color .2s}
-.srv-card:hover{border-color:#60a5fa}
-.srv-num{font-family:'Syne',sans-serif;font-size:2.5rem;color:#f1f5f9;font-weight:800;margin-bottom:0.5rem}
-.srv-title{font-size:0.9rem;font-weight:600;color:#111827;margin-bottom:0.5rem}
-.srv-desc{font-size:0.8rem;color:#64748b;line-height:1.7}
-footer{background:#0f172a;padding:2rem 5%;display:flex;justify-content:space-between}
-footer p{color:rgba(255,255,255,0.2);font-size:0.72rem}
+body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#e8e8e8}
+a{text-decoration:none;color:inherit}
+.demo-bar{position:fixed;top:0;left:0;right:0;background:#0d1f3c;color:#fff;font-size:.7rem;padding:8px 5%;display:flex;justify-content:space-between;align-items:center;z-index:9999}
+.demo-bar a{background:#c0a050;color:#0d1f3c;padding:5px 14px;font-weight:700;font-size:.68rem}
+nav{position:fixed;top:33px;left:0;right:0;z-index:100;padding:0 5%;height:68px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,.9);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.05)}
+.logo{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:#fff;letter-spacing:3px;text-transform:uppercase}
+.nav-links{display:flex;gap:2.5rem}
+.nav-links a{font-size:.75rem;color:rgba(255,255,255,.45);letter-spacing:1.5px;text-transform:uppercase;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#3b82f6}
+.nav-btn{border:1px solid #3b82f6;color:#3b82f6;padding:9px 22px;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;transition:all .2s}
+.nav-btn:hover{background:#3b82f6;color:#0a0a0a}
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:120px 5% 80px}
+.hero-video{position:absolute;inset:0;background:url('') center/cover;opacity:.25}
+.hero-inner{position:relative;z-index:1;max-width:800px}
+.hero-kicker{display:flex;align-items:center;gap:12px;margin-bottom:2.5rem}
+.hero-kicker span{font-size:.65rem;color:#3b82f6;letter-spacing:4px;text-transform:uppercase}
+.hero-kicker::before{content:'';width:40px;height:1px;background:#3b82f6}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,6vw,5.5rem);font-weight:800;color:#fff;line-height:1.0;margin-bottom:1.5rem;letter-spacing:-2px}
+.hero h1 .hi{color:#3b82f6}
+.hero-desc{font-size:.9rem;color:rgba(255,255,255,.4);line-height:1.9;max-width:520px;margin-bottom:3rem;font-weight:300}
+.hero-actions{display:flex;gap:1.5rem;align-items:center}
+.btn-fill{background:#3b82f6;color:#0a0a0a;padding:14px 32px;font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:opacity .2s}
+.btn-fill:hover{opacity:.85}
+.btn-line{border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);padding:14px 32px;font-size:.78rem;letter-spacing:2px;text-transform:uppercase;transition:all .2s}
+.btn-line:hover{border-color:#fff;color:#fff}
+.hero-stats{display:flex;gap:3.5rem;margin-top:4rem;padding-top:3rem;border-top:1px solid rgba(255,255,255,.07)}
+.hstat-num{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:#fff;line-height:1}
+.hstat-label{font-size:.65rem;color:rgba(255,255,255,.3);letter-spacing:2px;text-transform:uppercase;margin-top:4px}
+.features{padding:100px 5%;display:grid;grid-template-columns:1fr 1fr;gap:0;background:#111}
+.feat-left{padding-right:5rem;border-right:1px solid rgba(255,255,255,.06)}
+.feat-tag{font-size:.65rem;color:#3b82f6;letter-spacing:4px;text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:10px}
+.feat-tag::before{content:'';width:25px;height:1px;background:#3b82f6}
+.feat-left h2{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:#fff;line-height:1.2;margin-bottom:1.5rem;letter-spacing:-0.5px}
+.feat-left p{font-size:.88rem;color:rgba(255,255,255,.4);line-height:1.9;font-weight:300}
+.feat-img{margin-top:2rem;height:300px;background:url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80') center/cover;opacity:.6}
+.feat-right{padding-left:5rem}
+.feat-list{display:flex;flex-direction:column;gap:0}
+.feat-item{padding:1.75rem 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.feat-item-num{font-size:.65rem;color:#3b82f6;letter-spacing:2px;margin-bottom:.75rem}
+.feat-item h3{font-size:.92rem;font-weight:600;color:#fff;margin-bottom:.4rem}
+.feat-item p{font-size:.8rem;color:rgba(255,255,255,.35);line-height:1.7;font-weight:300}
+.cta-strip{background:#3b82f6;padding:60px 5%;display:flex;justify-content:space-between;align-items:center}
+.cta-strip h2{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:#0a0a0a;letter-spacing:-0.5px}
+.cta-strip a{background:#0a0a0a;color:#3b82f6;padding:14px 32px;font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.contact-grid{padding:100px 5%;display:grid;grid-template-columns:1fr 1fr;gap:5rem;background:#0a0a0a}
+.contact-grid h2{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:#fff;margin-bottom:2rem;letter-spacing:-0.5px}
+.cinfo{display:flex;flex-direction:column;gap:1.5rem}
+.cinfo-item label{font-size:.62rem;color:rgba(255,255,255,.25);letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:4px}
+.cinfo-item span,.cinfo-item a{font-size:.88rem;color:rgba(255,255,255,.65);font-weight:300}
+.cform{display:flex;flex-direction:column;gap:0}
+.cform input,.cform textarea{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:14px 16px;font-family:inherit;font-size:.85rem;color:#fff;outline:none;transition:border-color .2s;margin-bottom:-1px}
+.cform input:focus,.cform textarea:focus{border-color:#3b82f6;position:relative;z-index:1}
+.cform textarea{min-height:100px;resize:vertical}
+.cform button{background:#3b82f6;color:#0a0a0a;padding:15px;font-family:inherit;font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;margin-top:1px}
+footer{background:#050505;padding:2rem 5%;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.04)}
+footer p{font-size:.72rem;color:rgba(255,255,255,.18)}
 </style></head>
 <body>
-<div class="demo-bar"><span>⚠ Demo — MK Software</span><a href="https://mksoftware.com.tr/#teklif">Teklif al →</a></div>
-<nav><div class="logo">TeknoMarket</div><div class="nav-links"><a href="#">Hakkımızda</a><a href="#">Hizmetler</a><a href="#">Referanslar</a><a href="#">İletişim</a></div><a href="#" class="nav-btn">Teklif Al</a></nav>
-<section class="hero"><div class="hero-grid"><div>
-<div class="hero-tag">E-Ticaret • Elektronik</div>
-<h1>Güçlü<br><span class="accent">Çözümler</span><br>Üretiyoruz</h1>
-<div class="hero-stats"><div><div class="stat-num">150+</div><div class="stat-label">Tamamlanan Proje</div></div><div><div class="stat-num">12+</div><div class="stat-label">Yıl Deneyim</div></div></div>
-<p>Sektörün öncü firması olarak müşterilerimize en iyi çözümleri sunmaktan gurur duyuyoruz.</p>
-<div class="hero-cta"><a href="#" class="cta-p">İletişime Geç</a><a href="#" class="cta-s">Daha Fazla Bilgi</a></div>
-</div><div class="hero-visual"><div class="hero-visual-inner"><span class="hero-visual-icon">⚙️</span><div class="hero-visual-text">E-Ticaret</div></div></div></div></section>
-<section class="services"><h2>Hizmetlerimiz</h2>
-<div class="srv-grid">
-<div class="srv-card"><div class="srv-num">01</div><div class="srv-title">Danışmanlık</div><div class="srv-desc">Uzman kadromuzla ihtiyacınıza özel çözümler geliştiriyoruz.</div></div>
-<div class="srv-card"><div class="srv-num">02</div><div class="srv-title">Uygulama</div><div class="srv-desc">Projelerinizi en yüksek kalite standartlarında hayata geçiriyoruz.</div></div>
-<div class="srv-card"><div class="srv-num">03</div><div class="srv-title">Destek</div><div class="srv-desc">7/24 teknik destek ve bakım hizmetleriyle yanınızdayız.</div></div>
-</div></section>
-<footer><p>© 2026 TeknoMarket</p><p>Ankara, Türkiye</p></footer>
+<div class="demo-bar"><span>⚠ Bu bir demo sitesidir — MK Software tarafından hazırlanmıştır</span><a href="https://mksoftware.com.tr/#teklif">Bu şablonla teklif al →</a></div>
+<nav>
+  <div class="logo">TeknoMarket</div>
+  <div class="nav-links"><a href="#">Hakkımızda</a><a href="#">Hizmetler</a><a href="#">Referanslar</a><a href="#">İletişim</a></div>
+  <a href="#" class="nav-btn">Teklif Al</a>
+</nav>
+<section class="hero">
+  <div class="hero-video"></div>
+  <div class="hero-inner">
+    <div class="hero-kicker"><span>E-Ticaret • Ankara, 2026</span></div>
+    <h1>Teknolojiyi<br><span class="hi">Farkıyla</span></h1>
+    <p class="hero-desc">Sektörde öncü, kalitede rakipsiz. Müşterilerimizin güvenini kazanmak için her gün daha iyisini yapıyoruz.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-fill">Hemen Başlayın</a>
+      <a href="#" class="btn-line">Daha Fazla Bilgi</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="hstat-num">150+</div><div class="hstat-label">Tamamlanan Proje</div></div>
+      <div><div class="hstat-num">12+</div><div class="hstat-label">Yıl Deneyim</div></div>
+      <div><div class="hstat-num">98%</div><div class="hstat-label">Müşteri Memnuniyeti</div></div>
+    </div>
+  </div>
+</section>
+<section class="features">
+  <div class="feat-left">
+    <div class="feat-tag">Neden Biz</div>
+    <h2>Fark yaratan deneyim ve uzmanlık</h2>
+    <p>Yılların birikimi ve uzman kadromuzla sektörde öne çıkıyoruz. Her müşterimize özel çözümler sunuyor, sonuçları takip ediyoruz.</p>
+    <div class="feat-img"></div>
+  </div>
+  <div class="feat-right">
+    <div class="feat-list">
+      <div class="feat-item"><div class="feat-item-num">01</div><h3>Uzman Kadro</h3><p>Alanında deneyimli profesyonellerden oluşan ekibimiz her projede tam performans gösterir.</p></div>
+      <div class="feat-item"><div class="feat-item-num">02</div><h3>Hızlı Teslimat</h3><p>Belirlenen süre ve bütçe dahilinde, kaliteden ödün vermeden zamanında teslim garantisi.</p></div>
+      <div class="feat-item"><div class="feat-item-num">03</div><h3>Sürekli Destek</h3><p>Proje sonrasında da yanınızdayız. Bakım, güncelleme ve teknik destek hizmetleri sunuyoruz.</p></div>
+      <div class="feat-item"><div class="feat-item-num">04</div><h3>Şeffaf İletişim</h3><p>Her adımda bilginiz dahilinde ilerliyoruz. Gizli maliyet yok, sürpriz yok.</p></div>
+    </div>
+  </div>
+</section>
+<div class="cta-strip">
+  <h2>Projenizi Hayata Geçirelim</h2>
+  <a href="#">Ücretsiz Görüşme Ayarla →</a>
+</div>
+<section class="contact-grid">
+  <div>
+    <h2>İletişime Geçin</h2>
+    <div class="cinfo">
+      <div class="cinfo-item"><label>Telefon</label><span>0312 820 10 13</span></div>
+      <div class="cinfo-item"><label>E-posta</label><a href="#">info@teknomarket.com</a></div>
+      <div class="cinfo-item"><label>Adres</label><span>Kızılay, Ankara, Türkiye</span></div>
+      <div class="cinfo-item"><label>Çalışma Saatleri</label><span>Pzt – Cum: 09:00 – 18:00</span></div>
+    </div>
+  </div>
+  <div>
+    <div class="cform">
+      <input type="text" placeholder="Ad Soyad">
+      <input type="email" placeholder="E-posta">
+      <input type="tel" placeholder="Telefon">
+      <textarea placeholder="Mesajınız..."></textarea>
+      <button>Gönder</button>
+    </div>
+  </div>
+</section>
+<footer><p>© 2026 TeknoMarket. Tüm hakları saklıdır.</p><p>Demo — MK Software</p></footer>
 </body></html>

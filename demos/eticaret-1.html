@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="tr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ModaShop</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',sans-serif;background:#fff;color:#111}
+a{text-decoration:none;color:inherit}
+.demo-bar{position:fixed;top:0;left:0;right:0;background:#0d1f3c;color:#fff;font-size:.7rem;padding:8px 5%;display:flex;justify-content:space-between;align-items:center;z-index:9999}
+.demo-bar a{background:#c0a050;color:#0d1f3c;padding:5px 14px;font-weight:700;font-size:.68rem}
+.top-bar{background:#111;padding:8px 5%;text-align:center;font-size:.72rem;color:rgba(255,255,255,.7);letter-spacing:0.5px;margin-top:33px}
+.top-bar strong{color:#fff}
+nav{background:#fff;border-bottom:2px solid #111;padding:0 5%;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:33px;z-index:100}
+.logo{font-size:1.1rem;font-weight:800;color:#111;letter-spacing:-0.5px}
+.logo em{color:#e85d26;font-style:normal}
+.nav-center{display:flex;gap:2.5rem}
+.nav-center a{font-size:.8rem;color:#555;font-weight:500}
+.nav-center a:hover{color:#111}
+.nav-right{display:flex;gap:1rem;align-items:center}
+.nav-right a{font-size:.78rem;color:#333}
+.nav-cart{background:#111;color:#fff;padding:8px 18px;font-size:.78rem;font-weight:600}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:85vh}
+.hero-left{background:#111;padding:80px 5%;display:flex;flex-direction:column;justify-content:center}
+.hero-left .badge{display:inline-block;background:#e85d26;color:#fff;font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 12px;margin-bottom:1.5rem}
+.hero-left h1{font-size:clamp(2.2rem,4vw,3.8rem);font-weight:800;color:#fff;line-height:1.1;margin-bottom:1.2rem;letter-spacing:-1px}
+.hero-left h1 em{color:#e85d26;font-style:normal}
+.hero-left p{font-size:.88rem;color:rgba(255,255,255,.5);line-height:1.8;margin-bottom:2rem;font-weight:300}
+.hero-btns{display:flex;gap:.75rem}
+.btn-accent{background:#e85d26;color:#fff;padding:13px 26px;font-size:.82rem;font-weight:700}
+.btn-white{background:#fff;color:#111;padding:13px 26px;font-size:.82rem;font-weight:600}
+.hero-right{background:#f5f2ee;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.hero-right-img{width:100%;height:100%;background:url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800&q=80') center/cover}
+.categories{padding:60px 5%;background:#fafafa}
+.categories h2{font-size:1.4rem;font-weight:700;color:#111;margin-bottom:2rem;letter-spacing:-0.5px}
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.cat-item{background:#fff;border:2px solid #f0f0f0;padding:1.5rem;text-align:center;cursor:pointer;transition:border-color .2s}
+.cat-item:hover{border-color:#e85d26}
+.cat-emoji{font-size:2.5rem;display:block;margin-bottom:.75rem}
+.cat-name{font-size:.82rem;font-weight:600;color:#111}
+.cat-count{font-size:.72rem;color:#999;margin-top:3px}
+.products{padding:60px 5%}
+.products-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem}
+.products-header h2{font-size:1.4rem;font-weight:700;color:#111;letter-spacing:-0.5px}
+.products-header a{font-size:.8rem;color:#e85d26;font-weight:600}
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.prod-card{cursor:pointer}
+.prod-img{height:260px;background:center/cover;margin-bottom:1rem;position:relative;overflow:hidden}
+.prod-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.prod-card:hover .prod-img img{transform:scale(1.04)}
+.prod-badge{position:absolute;top:10px;left:10px;background:#e85d26;color:#fff;font-size:.62rem;font-weight:700;letter-spacing:1px;padding:3px 8px}
+.prod-brand{font-size:.68rem;color:#aaa;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
+.prod-name{font-size:.88rem;font-weight:600;color:#111;margin-bottom:6px}
+.prod-price{display:flex;gap:.75rem;align-items:center}
+.prod-price-now{font-size:.95rem;font-weight:700;color:#111}
+.prod-price-old{font-size:.8rem;color:#bbb;text-decoration:line-through}
+.prod-price-badge{font-size:.65rem;color:#e85d26;font-weight:600}
+.banner{margin:0 5%;padding:60px;background:#111;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-bottom:60px}
+.banner h2{font-size:2rem;font-weight:800;color:#fff;letter-spacing:-0.5px;margin-bottom:.5rem}
+.banner p{color:rgba(255,255,255,.5);font-size:.85rem;margin-bottom:1.5rem}
+.banner-img{height:200px;background:url('https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80') center/cover}
+footer{background:#111;padding:3rem 5%;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:2rem}
+.footer-col h4{font-size:.72rem;font-weight:700;color:#fff;letter-spacing:2px;text-transform:uppercase;margin-bottom:1rem}
+.footer-col a{display:block;font-size:.8rem;color:rgba(255,255,255,.4);margin-bottom:.5rem;transition:color .2s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{background:#0a0a0a;padding:1rem 5%;display:flex;justify-content:space-between}
+.footer-bottom p{font-size:.72rem;color:rgba(255,255,255,.2)}
+</style></head>
+<body>
+<div class="demo-bar"><span>⚠ Bu bir demo sitesidir — MK Software tarafından hazırlanmıştır</span><a href="https://mksoftware.com.tr/#teklif">Bu şablonla teklif al →</a></div>
+<div class="top-bar">🚚 <strong>500₺ üzeri alışverişlerde ücretsiz kargo</strong> — Bugün sipariş ver, yarın kapında!</div>
+<nav>
+  <div class="logo">ModaShop<em>.</em></div>
+  <div class="nav-center"><a href="#">Kadın</a><a href="#">Erkek</a><a href="#">Çocuk</a><a href="#">Koleksiyonlar</a><a href="#">İndirim</a></div>
+  <div class="nav-right"><a href="#">🔍</a><a href="#">❤️</a><div class="nav-cart">Sepet (0)</div></div>
+</nav>
+<section class="hero">
+  <div class="hero-left">
+    <span class="badge">Yeni Koleksiyon 2026</span>
+    <h1>Moda<br><em>Yeni Sezon</em><br>Burada</h1>
+    <p>En güncel trendleri keşfedin. Kaliteli ürünler, uygun fiyatlar ve hızlı teslimat ile alışveriş deneyimini yeniden tanımlıyoruz.</p>
+    <div class="hero-btns"><a href="#" class="btn-accent">Alışverişe Başla</a><a href="#" class="btn-white">Koleksiyonu Gör</a></div>
+  </div>
+  <div class="hero-right"><div class="hero-right-img"></div></div>
+</section>
+<section class="categories">
+  <h2>Kategoriler</h2>
+  <div class="cat-grid">
+    <div class="cat-item"><span class="cat-emoji">👗</span><div class="cat-name">Kadın</div><div class="cat-count">1.240 ürün</div></div>
+    <div class="cat-item"><span class="cat-emoji">👔</span><div class="cat-name">Erkek</div><div class="cat-count">890 ürün</div></div>
+    <div class="cat-item"><span class="cat-emoji">👟</span><div class="cat-name">Ayakkabı</div><div class="cat-count">456 ürün</div></div>
+    <div class="cat-item"><span class="cat-emoji">👜</span><div class="cat-name">Aksesuar</div><div class="cat-count">320 ürün</div></div>
+  </div>
+</section>
+<section class="products">
+  <div class="products-header"><h2>Öne Çıkan Ürünler</h2><a href="#">Tümünü Gör →</a></div>
+  <div class="prod-grid">
+    <div class="prod-card"><div class="prod-img" style="background:url('https://images.unsplash.com/photo-1523381294911-8d3cead13475?w=400&q=80') center/cover"><span class="prod-badge">YENİ</span></div><div class="prod-brand">Premium</div><div class="prod-name">Oversize Pamuklu Sweatshirt</div><div class="prod-price"><span class="prod-price-now">₺599</span><span class="prod-price-old">₺849</span><span class="prod-price-badge">%30 İndirim</span></div></div>
+    <div class="prod-card"><div class="prod-img" style="background:url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80') center/cover"><span class="prod-badge">ÇOK SATAN</span></div><div class="prod-brand">Sport</div><div class="prod-name">Air Koşu Ayakkabısı</div><div class="prod-price"><span class="prod-price-now">₺1.299</span></div></div>
+    <div class="prod-card"><div class="prod-img" style="background:url('https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=80') center/cover"></div><div class="prod-brand">Kadın</div><div class="prod-name">Slim Fit Yüksek Bel Jean</div><div class="prod-price"><span class="prod-price-now">₺849</span><span class="prod-price-old">₺1.199</span><span class="prod-price-badge">%29 İndirim</span></div></div>
+    <div class="prod-card"><div class="prod-img" style="background:url('https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&q=80') center/cover"><span class="prod-badge">YENİ</span></div><div class="prod-brand">Aksesuar</div><div class="prod-name">Deri Sırt Çantası</div><div class="prod-price"><span class="prod-price-now">₺1.899</span></div></div>
+  </div>
+</section>
+<div class="banner"><div><h2>Sezon Sonu İndirimi</h2><p>Seçili ürünlerde %50'ye varan indirimler. Stoklar sınırlı!</p><a href="#" class="btn-accent">Fırsatları Gör</a></div><div class="banner-img"></div></div>
+<footer>
+  <div class="footer-col"><h4>ModaShop</h4><a href="#">Hakkımızda</a><a href="#">Kariyer</a><a href="#">Basın</a><a href="#">Sürdürülebilirlik</a></div>
+  <div class="footer-col"><h4>Yardım</h4><a href="#">SSS</a><a href="#">İade & Değişim</a><a href="#">Kargo Takip</a><a href="#">İletişim</a></div>
+  <div class="footer-col"><h4>Hesabım</h4><a href="#">Giriş Yap</a><a href="#">Siparişlerim</a><a href="#">Favorilerim</a><a href="#">Adreslerim</a></div>
+  <div class="footer-col"><h4>Ödeme Yöntemleri</h4><a href="#">Kredi Kartı</a><a href="#">Kapıda Ödeme</a><a href="#">Havale/EFT</a><a href="#">Taksit Seçenekleri</a></div>
+</footer>
+<div class="footer-bottom"><p>© 2026 ModaShop. Tüm hakları saklıdır.</p><p>Demo — MK Software</p></div>
+</body></html>

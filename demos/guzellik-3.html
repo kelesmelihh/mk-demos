@@ -5,56 +5,118 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:#fdf2f8;color:#1a1a1a}
-.demo-bar{position:fixed;top:0;left:0;right:0;background:#0d1f3c;color:#fff;font-size:0.7rem;padding:8px 5%;display:flex;justify-content:space-between;align-items:center;z-index:999}
-.demo-bar a{background:#c0a050;color:#0d1f3c;padding:4px 12px;font-weight:600;font-size:0.68rem;text-decoration:none}
-nav{background:#fff;padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #ec4899;margin-top:33px;position:sticky;top:33px;z-index:100}
-.logo{font-size:1.1rem;font-weight:800;color:#1a1a1a;letter-spacing:-0.5px}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#fff;color:#111}
+a{text-decoration:none;color:inherit}
+.demo-bar{position:fixed;top:0;left:0;right:0;background:#0d1f3c;color:#fff;font-size:.7rem;padding:8px 5%;display:flex;justify-content:space-between;align-items:center;z-index:9999}
+.demo-bar a{background:#c0a050;color:#0d1f3c;padding:5px 14px;font-weight:700;font-size:.68rem}
+nav{position:sticky;top:33px;z-index:100;background:#fff;border-bottom:1px solid #f0f0f0;padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;margin-top:33px}
+.logo{font-size:1.05rem;font-weight:800;color:#111;letter-spacing:-0.5px}
 .logo span{color:#ec4899}
-.nav-links{display:flex;gap:1.5rem}
-.nav-links a{font-size:0.82rem;color:#555;text-decoration:none;font-weight:500}
-.nav-cta{background:#ec4899;color:#fff;padding:9px 20px;font-size:0.8rem;font-weight:700;text-decoration:none;border-radius:2px}
-.hero{padding:80px 5%;background:#ec489910;min-height:80vh;display:flex;align-items:center}
-.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;width:100%}
-.hero-tag{display:inline-block;background:#ec4899;color:#fff;font-size:0.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;margin-bottom:1.2rem;border-radius:2px}
-.hero h1{font-size:3rem;font-weight:800;color:#1a1a1a;line-height:1.15;margin-bottom:1rem;letter-spacing:-1px}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{font-size:.8rem;color:#666;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#111}
+.nav-cta{background:#ec4899;color:#fff;padding:9px 20px;font-size:.8rem;font-weight:700;border-radius:6px;transition:opacity .2s}
+.nav-cta:hover{opacity:.88}
+.hero{padding:80px 5% 100px;background:linear-gradient(135deg,#ec489908 0%,#fff 60%)}
+.hero-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:center}
+.hero-pill{display:inline-flex;align-items:center;gap:6px;background:#ec489915;border:1px solid #ec489930;padding:5px 14px;border-radius:100px;margin-bottom:1.5rem}
+.hero-pill span{font-size:.68rem;color:#ec4899;font-weight:600;letter-spacing:.5px}
+.hero-pill::before{content:'●';font-size:.45rem;color:#ec4899}
+.hero h1{font-size:clamp(2.2rem,4vw,3.5rem);font-weight:800;color:#111;line-height:1.1;margin-bottom:1.2rem;letter-spacing:-1.5px}
 .hero h1 em{color:#ec4899;font-style:normal}
-.hero p{color:#555;font-size:0.92rem;line-height:1.8;margin-bottom:2rem;font-weight:400}
-.hero-btns{display:flex;gap:0.75rem}
-.btn-a{background:#ec4899;color:#fff;padding:13px 24px;font-size:0.82rem;font-weight:700;text-decoration:none;border-radius:2px}
-.btn-b{border:2px solid #1a1a1a;color:#1a1a1a;padding:13px 24px;font-size:0.82rem;font-weight:600;text-decoration:none;border-radius:2px}
-.hero-img{height:420px;background:#ec489920;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:4rem}
-.features{padding:70px 5%;background:#fff}
-.features h2{font-size:1.8rem;font-weight:800;color:#1a1a1a;margin-bottom:2.5rem;text-align:center;letter-spacing:-0.5px}
+.hero-desc{font-size:.92rem;color:#666;line-height:1.85;margin-bottom:2.5rem;font-weight:400}
+.hero-btns{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn-p{background:#ec4899;color:#fff;padding:13px 26px;font-size:.82rem;font-weight:700;border-radius:6px;transition:opacity .2s}
+.btn-p:hover{opacity:.88}
+.btn-s{border:2px solid #e8e8e8;color:#333;padding:13px 26px;font-size:.82rem;font-weight:600;border-radius:6px;transition:border-color .2s}
+.btn-s:hover{border-color:#ec4899;color:#ec4899}
+.hero-trust{display:flex;gap:1.5rem;margin-top:2rem;align-items:center}
+.hero-trust span{font-size:.75rem;color:#999}
+.hero-trust strong{font-size:.82rem;color:#333;font-weight:600}
+.hero-visual{background:#ec489908;border-radius:16px;border:2px solid #ec489915;height:420px;display:flex;align-items:center;justify-content:center;font-size:5rem}
+.features{padding:80px 5%;background:#fafafa}
+.feat-header{text-align:center;margin-bottom:3.5rem}
+.feat-header h2{font-size:2rem;font-weight:800;color:#111;letter-spacing:-0.5px;margin-bottom:.5rem}
+.feat-header p{font-size:.88rem;color:#888}
 .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.feat-card{padding:1.75rem;border:2px solid #f0f0f0;border-radius:4px;transition:border-color .2s}
-.feat-card:hover{border-color:#ec4899}
-.feat-icon{font-size:1.8rem;margin-bottom:0.75rem}
-.feat-title{font-size:0.9rem;font-weight:700;color:#1a1a1a;margin-bottom:0.4rem}
-.feat-desc{font-size:0.8rem;color:#777;line-height:1.6}
-.cta-section{padding:70px 5%;background:#ec4899;text-align:center}
-.cta-section h2{font-size:2rem;font-weight:800;color:#fff;margin-bottom:0.5rem}
-.cta-section p{color:rgba(255,255,255,0.8);font-size:0.9rem;margin-bottom:2rem}
-.cta-btn{background:#fff;color:#ec4899;padding:14px 32px;font-size:0.88rem;font-weight:700;text-decoration:none;display:inline-block;border-radius:2px}
-footer{background:#1a1a1a;padding:2rem 5%;display:flex;justify-content:space-between}
-footer p{color:rgba(255,255,255,0.3);font-size:0.75rem}
+.feat-card{background:#fff;padding:2rem;border-radius:12px;border:1px solid #f0f0f0;transition:box-shadow .2s}
+.feat-card:hover{box-shadow:0 8px 30px rgba(0,0,0,.08)}
+.feat-emoji{font-size:2rem;margin-bottom:1rem;display:block}
+.feat-card h3{font-size:.92rem;font-weight:700;color:#111;margin-bottom:.4rem}
+.feat-card p{font-size:.8rem;color:#888;line-height:1.65}
+.pricing{padding:80px 5%;text-align:center}
+.pricing h2{font-size:2rem;font-weight:800;color:#111;letter-spacing:-0.5px;margin-bottom:.5rem}
+.pricing p{font-size:.88rem;color:#888;margin-bottom:3rem}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:900px;margin:0 auto}
+.price-card{padding:2rem;border:2px solid #f0f0f0;border-radius:12px;text-align:left}
+.price-card.featured{border-color:#ec4899;background:#ec489904}
+.price-plan{font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#999;margin-bottom:.75rem}
+.price-card.featured .price-plan{color:#ec4899}
+.price-amount{font-size:2.5rem;font-weight:800;color:#111;margin-bottom:.25rem}
+.price-amount span{font-size:1rem;font-weight:400;color:#999}
+.price-desc{font-size:.78rem;color:#888;margin-bottom:1.5rem}
+.price-features{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:2rem}
+.price-features li{font-size:.8rem;color:#555;display:flex;align-items:center;gap:8px}
+.price-features li::before{content:'✓';color:#ec4899;font-weight:700;font-size:.8rem}
+.price-btn{width:100%;padding:12px;font-family:inherit;font-size:.8rem;font-weight:700;border-radius:6px;cursor:pointer;border:2px solid #ec4899;background:transparent;color:#ec4899;transition:all .2s}
+.price-card.featured .price-btn{background:#ec4899;color:#fff}
+.cta-section{padding:80px 5%;background:#ec4899;text-align:center;border-radius:16px;margin:0 5% 80px}
+.cta-section h2{font-size:2.2rem;font-weight:800;color:#fff;margin-bottom:.5rem;letter-spacing:-0.5px}
+.cta-section p{color:rgba(255,255,255,.75);font-size:.9rem;margin-bottom:2rem}
+.cta-section a{background:#fff;color:#ec4899;padding:14px 32px;font-size:.82rem;font-weight:700;border-radius:6px;display:inline-block;transition:opacity .2s}
+.cta-section a:hover{opacity:.92}
+footer{background:#111;padding:2.5rem 5%;display:flex;justify-content:space-between;align-items:center}
+footer p{font-size:.75rem;color:rgba(255,255,255,.25)}
+footer .logo{color:#fff}
 </style></head>
 <body>
-<div class="demo-bar"><span>⚠ Demo — MK Software</span><a href="https://mksoftware.com.tr/#teklif">Teklif al →</a></div>
-<nav><div class="logo">Glow Studio<span>.</span></div><div class="nav-links"><a href="#">Hakkımızda</a><a href="#">Hizmetler</a><a href="#">İletişim</a></div><a href="#" class="nav-cta">Başla</a></nav>
-<section class="hero"><div class="hero-inner"><div>
-<span class="hero-tag">Güzellik</span>
-<h1>Nail Art<br><em>Şimdi</em> Burada</h1>
-<p>Kaliteli hizmet, güvenilir deneyim. Sizi bekliyoruz.</p>
-<div class="hero-btns"><a href="#" class="btn-a">Hemen Başla</a><a href="#" class="btn-b">Daha Fazla</a></div>
-</div><div class="hero-img">✨</div></div></section>
+<div class="demo-bar"><span>⚠ Bu bir demo sitesidir — MK Software tarafından hazırlanmıştır</span><a href="https://mksoftware.com.tr/#teklif">Bu şablonla teklif al →</a></div>
+<nav>
+  <div class="logo">Glow Studio<span>.</span></div>
+  <div class="nav-links"><a href="#">Ürün</a><a href="#">Özellikler</a><a href="#">Fiyatlar</a><a href="#">Hakkımızda</a></div>
+  <a href="#" class="nav-cta">Ücretsiz Başla</a>
+</nav>
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-pill"><span>Yeni: Güzellik için özel çözüm!</span></div>
+      <h1>Nail Art & Güzellik için<br><em>En Akıllı</em><br>Platform</h1>
+      <p class="hero-desc">İşletmenizi büyütmek için ihtiyacınız olan her şey tek platformda. Hızlı, güvenilir, ölçeklenebilir.</p>
+      <div class="hero-btns">
+        <a href="#" class="btn-p">Ücretsiz Deneyin</a>
+        <a href="#" class="btn-s">Demo İzle</a>
+      </div>
+      <div class="hero-trust">
+        <span>⭐⭐⭐⭐⭐</span>
+        <strong>500+ işletme kullanıyor</strong>
+      </div>
+    </div>
+    <div class="hero-visual">💅</div>
+  </div>
+</section>
 <section class="features">
-<h2>Neden Bizi Tercih Etmelisiniz?</h2>
-<div class="feat-grid">
-<div class="feat-card"><div class="feat-icon">⚡</div><div class="feat-title">Hızlı Hizmet</div><div class="feat-desc">Zamanınıza saygı duyuyoruz. Hızlı ve güvenilir hizmet garantisi.</div></div>
-<div class="feat-card"><div class="feat-icon">💎</div><div class="feat-title">Kalite Garantisi</div><div class="feat-desc">En yüksek standartlarda hizmet. Memnuniyet garantisi ile.</div></div>
-<div class="feat-card"><div class="feat-icon">🤝</div><div class="feat-title">Güvenilir Ekip</div><div class="feat-desc">Deneyimli profesyonellerden oluşan ekibimiz her zaman yanınızda.</div></div>
-</div></section>
-<section class="cta-section"><h2>Bugün Başlayın</h2><p>Hemen iletişime geçin, size özel teklif hazırlayalım.</p><a href="#" class="cta-btn">İletişime Geç</a></section>
-<footer><p>© 2026 Glow Studio</p><p>Ankara, Türkiye</p></footer>
+  <div class="feat-header">
+    <h2>Neden Glow Studio?</h2>
+    <p>İşletmenizi büyütmek için ihtiyacınız olan tüm özellikler</p>
+  </div>
+  <div class="feat-grid">
+    <div class="feat-card"><span class="feat-emoji">⚡</span><h3>Süper Hızlı</h3><p>Saniyelik işlem süreleri ve yüksek performanslı altyapı ile işlerinizi hızlandırın.</p></div>
+    <div class="feat-card"><span class="feat-emoji">🔒</span><h3>Güvenli & Korumalı</h3><p>En güncel güvenlik protokolleri ile verileriniz her zaman koruma altında.</p></div>
+    <div class="feat-card"><span class="feat-emoji">📊</span><h3>Gerçek Zamanlı Analiz</h3><p>İşletmenizin nabzını anlık takip edin, veriye dayalı kararlar alın.</p></div>
+    <div class="feat-card"><span class="feat-emoji">🔗</span><h3>Kolay Entegrasyon</h3><p>Mevcut araçlarınızla sorunsuz entegrasyon. API desteği ile sınırsız genişleme.</p></div>
+    <div class="feat-card"><span class="feat-emoji">📱</span><h3>Mobil Uyumlu</h3><p>Her cihazda mükemmel deneyim. iOS ve Android uygulamaları ile her yerden erişim.</p></div>
+    <div class="feat-card"><span class="feat-emoji">🎯</span><h3>7/24 Destek</h3><p>Canlı destek, kapsamlı dokümantasyon ve video eğitimlerle her zaman yanınızdayız.</p></div>
+  </div>
+</section>
+<section class="pricing">
+  <h2>Şeffaf Fiyatlandırma</h2>
+  <p>Gizli ücret yok. İstediğiniz zaman iptal.</p>
+  <div class="price-grid">
+    <div class="price-card"><div class="price-plan">Başlangıç</div><div class="price-amount">₺499<span>/ay</span></div><div class="price-desc">Küçük işletmeler için</div><ul class="price-features"><li>5 kullanıcı</li><li>Temel özellikler</li><li>E-posta destek</li><li>1 GB depolama</li></ul><button class="price-btn">Başla</button></div>
+    <div class="price-card featured"><div class="price-plan">Profesyonel</div><div class="price-amount">₺999<span>/ay</span></div><div class="price-desc">Büyüyen işletmeler için</div><ul class="price-features"><li>25 kullanıcı</li><li>Tüm özellikler</li><li>Öncelikli destek</li><li>25 GB depolama</li></ul><button class="price-btn">Başla</button></div>
+    <div class="price-card"><div class="price-plan">Kurumsal</div><div class="price-amount">Özel<span></span></div><div class="price-desc">Büyük kuruluşlar için</div><ul class="price-features"><li>Sınırsız kullanıcı</li><li>Özel özellikler</li><li>Dedike destek</li><li>Sınırsız depolama</li></ul><button class="price-btn">İletişime Geç</button></div>
+  </div>
+</section>
+<div class="cta-section"><h2>Bugün Başlayın</h2><p>14 gün ücretsiz deneyin. Kredi kartı gerekmez.</p><a href="#">Ücretsiz Deneyin →</a></div>
+<footer><div class="logo">Glow Studio<span style="color:#ec4899">.</span></div><p>© 2026 Glow Studio. Tüm hakları saklıdır.</p><p>Demo — MK Software</p></footer>
 </body></html>

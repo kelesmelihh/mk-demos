@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>StudioCut</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#e8e8e8}
+a{text-decoration:none;color:inherit}
+.demo-bar{position:fixed;top:0;left:0;right:0;background:#0d1f3c;color:#fff;font-size:.7rem;padding:8px 5%;display:flex;justify-content:space-between;align-items:center;z-index:9999}
+.demo-bar a{background:#c0a050;color:#0d1f3c;padding:5px 14px;font-weight:700;font-size:.68rem}
+nav{position:fixed;top:33px;left:0;right:0;z-index:100;padding:0 5%;height:68px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,.9);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.05)}
+.logo{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:#fff;letter-spacing:3px;text-transform:uppercase}
+.nav-links{display:flex;gap:2.5rem}
+.nav-links a{font-size:.75rem;color:rgba(255,255,255,.45);letter-spacing:1.5px;text-transform:uppercase;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#111827}
+.nav-btn{border:1px solid #111827;color:#111827;padding:9px 22px;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;transition:all .2s}
+.nav-btn:hover{background:#111827;color:#0a0a0a}
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:120px 5% 80px}
+.hero-video{position:absolute;inset:0;background:url('') center/cover;opacity:.25}
+.hero-inner{position:relative;z-index:1;max-width:800px}
+.hero-kicker{display:flex;align-items:center;gap:12px;margin-bottom:2.5rem}
+.hero-kicker span{font-size:.65rem;color:#111827;letter-spacing:4px;text-transform:uppercase}
+.hero-kicker::before{content:'';width:40px;height:1px;background:#111827}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,6vw,5.5rem);font-weight:800;color:#fff;line-height:1.0;margin-bottom:1.5rem;letter-spacing:-2px}
+.hero h1 .hi{color:#111827}
+.hero-desc{font-size:.9rem;color:rgba(255,255,255,.4);line-height:1.9;max-width:520px;margin-bottom:3rem;font-weight:300}
+.hero-actions{display:flex;gap:1.5rem;align-items:center}
+.btn-fill{background:#111827;color:#0a0a0a;padding:14px 32px;font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:opacity .2s}
+.btn-fill:hover{opacity:.85}
+.btn-line{border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);padding:14px 32px;font-size:.78rem;letter-spacing:2px;text-transform:uppercase;transition:all .2s}
+.btn-line:hover{border-color:#fff;color:#fff}
+.hero-stats{display:flex;gap:3.5rem;margin-top:4rem;padding-top:3rem;border-top:1px solid rgba(255,255,255,.07)}
+.hstat-num{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:#fff;line-height:1}
+.hstat-label{font-size:.65rem;color:rgba(255,255,255,.3);letter-spacing:2px;text-transform:uppercase;margin-top:4px}
+.features{padding:100px 5%;display:grid;grid-template-columns:1fr 1fr;gap:0;background:#111}
+.feat-left{padding-right:5rem;border-right:1px solid rgba(255,255,255,.06)}
+.feat-tag{font-size:.65rem;color:#111827;letter-spacing:4px;text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:10px}
+.feat-tag::before{content:'';width:25px;height:1px;background:#111827}
+.feat-left h2{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:#fff;line-height:1.2;margin-bottom:1.5rem;letter-spacing:-0.5px}
+.feat-left p{font-size:.88rem;color:rgba(255,255,255,.4);line-height:1.9;font-weight:300}
+.feat-img{margin-top:2rem;height:300px;background:url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80') center/cover;opacity:.6}
+.feat-right{padding-left:5rem}
+.feat-list{display:flex;flex-direction:column;gap:0}
+.feat-item{padding:1.75rem 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.feat-item-num{font-size:.65rem;color:#111827;letter-spacing:2px;margin-bottom:.75rem}
+.feat-item h3{font-size:.92rem;font-weight:600;color:#fff;margin-bottom:.4rem}
+.feat-item p{font-size:.8rem;color:rgba(255,255,255,.35);line-height:1.7;font-weight:300}
+.cta-strip{background:#111827;padding:60px 5%;display:flex;justify-content:space-between;align-items:center}
+.cta-strip h2{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:#0a0a0a;letter-spacing:-0.5px}
+.cta-strip a{background:#0a0a0a;color:#111827;padding:14px 32px;font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.contact-grid{padding:100px 5%;display:grid;grid-template-columns:1fr 1fr;gap:5rem;background:#0a0a0a}
+.contact-grid h2{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:#fff;margin-bottom:2rem;letter-spacing:-0.5px}
+.cinfo{display:flex;flex-direction:column;gap:1.5rem}
+.cinfo-item label{font-size:.62rem;color:rgba(255,255,255,.25);letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:4px}
+.cinfo-item span,.cinfo-item a{font-size:.88rem;color:rgba(255,255,255,.65);font-weight:300}
+.cform{display:flex;flex-direction:column;gap:0}
+.cform input,.cform textarea{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:14px 16px;font-family:inherit;font-size:.85rem;color:#fff;outline:none;transition:border-color .2s;margin-bottom:-1px}
+.cform input:focus,.cform textarea:focus{border-color:#111827;position:relative;z-index:1}
+.cform textarea{min-height:100px;resize:vertical}
+.cform button{background:#111827;color:#0a0a0a;padding:15px;font-family:inherit;font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;margin-top:1px}
+footer{background:#050505;padding:2rem 5%;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.04)}
+footer p{font-size:.72rem;color:rgba(255,255,255,.18)}
+</style></head>
+<body>
+<div class="demo-bar"><span>⚠ Bu bir demo sitesidir — MK Software tarafından hazırlanmıştır</span><a href="https://mksoftware.com.tr/#teklif">Bu şablonla teklif al →</a></div>
+<nav>
+  <div class="logo">StudioCut</div>
+  <div class="nav-links"><a href="#">Hakkımızda</a><a href="#">Hizmetler</a><a href="#">Referanslar</a><a href="#">İletişim</a></div>
+  <a href="#" class="nav-btn">Teklif Al</a>
+</nav>
+<section class="hero">
+  <div class="hero-video"></div>
+  <div class="hero-inner">
+    <div class="hero-kicker"><span>Kuaför & Barber • Ankara, 2026</span></div>
+    <h1>Tarzınızın<br><span class="hi">Farkıyla</span></h1>
+    <p class="hero-desc">Sektörde öncü, kalitede rakipsiz. Müşterilerimizin güvenini kazanmak için her gün daha iyisini yapıyoruz.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-fill">Hemen Başlayın</a>
+      <a href="#" class="btn-line">Daha Fazla Bilgi</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="hstat-num">150+</div><div class="hstat-label">Tamamlanan Proje</div></div>
+      <div><div class="hstat-num">12+</div><div class="hstat-label">Yıl Deneyim</div></div>
+      <div><div class="hstat-num">98%</div><div class="hstat-label">Müşteri Memnuniyeti</div></div>
+    </div>
+  </div>
+</section>
+<section class="features">
+  <div class="feat-left">
+    <div class="feat-tag">Neden Biz</div>
+    <h2>Fark yaratan deneyim ve uzmanlık</h2>
+    <p>Yılların birikimi ve uzman kadromuzla sektörde öne çıkıyoruz. Her müşterimize özel çözümler sunuyor, sonuçları takip ediyoruz.</p>
+    <div class="feat-img"></div>
+  </div>
+  <div class="feat-right">
+    <div class="feat-list">
+      <div class="feat-item"><div class="feat-item-num">01</div><h3>Uzman Kadro</h3><p>Alanında deneyimli profesyonellerden oluşan ekibimiz her projede tam performans gösterir.</p></div>
+      <div class="feat-item"><div class="feat-item-num">02</div><h3>Hızlı Teslimat</h3><p>Belirlenen süre ve bütçe dahilinde, kaliteden ödün vermeden zamanında teslim garantisi.</p></div>
+      <div class="feat-item"><div class="feat-item-num">03</div><h3>Sürekli Destek</h3><p>Proje sonrasında da yanınızdayız. Bakım, güncelleme ve teknik destek hizmetleri sunuyoruz.</p></div>
+      <div class="feat-item"><div class="feat-item-num">04</div><h3>Şeffaf İletişim</h3><p>Her adımda bilginiz dahilinde ilerliyoruz. Gizli maliyet yok, sürpriz yok.</p></div>
+    </div>
+  </div>
+</section>
+<div class="cta-strip">
+  <h2>Projenizi Hayata Geçirelim</h2>
+  <a href="#">Ücretsiz Görüşme Ayarla →</a>
+</div>
+<section class="contact-grid">
+  <div>
+    <h2>İletişime Geçin</h2>
+    <div class="cinfo">
+      <div class="cinfo-item"><label>Telefon</label><span>0312 820 10 13</span></div>
+      <div class="cinfo-item"><label>E-posta</label><a href="#">info@studiocut.com</a></div>
+      <div class="cinfo-item"><label>Adres</label><span>Kızılay, Ankara, Türkiye</span></div>
+      <div class="cinfo-item"><label>Çalışma Saatleri</label><span>Pzt – Cum: 09:00 – 18:00</span></div>
+    </div>
+  </div>
+  <div>
+    <div class="cform">
+      <input type="text" placeholder="Ad Soyad">
+      <input type="email" placeholder="E-posta">
+      <input type="tel" placeholder="Telefon">
+      <textarea placeholder="Mesajınız..."></textarea>
+      <button>Gönder</button>
+    </div>
+  </div>
+</section>
+<footer><p>© 2026 StudioCut. Tüm hakları saklıdır.</p><p>Demo — MK Software</p></footer>
+</body></html>
