@@ -1,144 +1,116 @@
 <!DOCTYPE html>
-<html lang="tr"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PsyCore</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:#fafaf8;color:#1c1c1c}
+:root{--accent:#a78bfa;--bg:#060608;--bg2:#0d0d16;--text:#f0f0f5;--dim:#9a9ab0}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text)}
 a{text-decoration:none;color:inherit}
-.demo-bar{position:fixed;top:0;left:0;right:0;background:#0d1f3c;color:#fff;font-size:.7rem;padding:8px 5%;display:flex;justify-content:space-between;align-items:center;z-index:9999}
-.demo-bar a{background:#c0a050;color:#0d1f3c;padding:5px 14px;font-weight:700;font-size:.68rem}
-nav{position:sticky;top:33px;z-index:100;background:#fafaf8;border-bottom:1px solid #e8e4de;padding:0 5%;height:60px;display:flex;align-items:center;justify-content:space-between;margin-top:33px}
-.logo{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:400;font-style:italic;color:#1c1c1c;letter-spacing:0.5px}
-.nav-links{display:flex;gap:2.5rem}
-.nav-links a{font-size:.78rem;color:#888;font-weight:400;transition:color .2s}
-.nav-links a:hover{color:#1c1c1c}
-.nav-book{font-size:.75rem;color:#1c1c1c;border-bottom:1px solid #1c1c1c;padding-bottom:1px}
-.hero{padding:80px 5% 0}
-.hero-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:3rem}
-.hero-left span{font-size:.65rem;color:#aaa;letter-spacing:3px;text-transform:uppercase;display:block;margin-bottom:1.5rem}
-.hero-left h1{font-family:'Fraunces',serif;font-size:clamp(3rem,5.5vw,5rem);font-weight:300;color:#1c1c1c;line-height:1.05;letter-spacing:-1px}
-.hero-left h1 em{font-style:italic;color:#7c3aed}
-.hero-right{padding-bottom:1rem}
-.hero-right p{font-size:.88rem;color:#777;line-height:1.9;font-weight:300;margin-bottom:2rem}
-.hero-right-actions{display:flex;gap:1.5rem;align-items:center}
-.btn-main{background:#1c1c1c;color:#fff;padding:13px 28px;font-size:.78rem;letter-spacing:1px}
-.btn-alt{font-size:.78rem;color:#888;border-bottom:1px solid #ccc;padding-bottom:1px;display:inline-block}
-.hero-img{width:100%;height:500px;background:url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1400&q=80') center/cover;filter:brightness(.92)}
-.hero-caption{text-align:center;padding:1rem;font-size:.7rem;color:#bbb;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid #eee}
-.about{padding:80px 5%;display:grid;grid-template-columns:240px 1fr;gap:6rem}
-.about-sidebar{}
-.about-sidebar h3{font-size:.65rem;color:#aaa;letter-spacing:3px;text-transform:uppercase;margin-bottom:2rem}
-.about-sidebar nav{display:flex;flex-direction:column;gap:.6rem;position:static;border:none;padding:0;height:auto;margin:0}
-.about-sidebar nav a{font-size:.82rem;color:#888;padding:.4rem 0;border-bottom:none;display:block}
-.about-sidebar nav a:hover{color:#1c1c1c}
-.about-main h2{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:300;color:#1c1c1c;line-height:1.3;margin-bottom:2rem}
-.about-main p{font-size:.88rem;color:#666;line-height:1.9;font-weight:300;margin-bottom:1.2rem}
-.about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3rem}
-.about-img-item{background:center/cover;aspect-ratio:3/4}
-.about-img-item:nth-child(1){background-image:url('https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=400&q=80')}
-.about-img-item:nth-child(2){background-image:url('https://images.unsplash.com/photo-1544025162-d76694265947?w=400&q=80')}
-.about-img-item:nth-child(3){background-image:url('https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=400&q=80')}
-.services{padding:80px 5%;background:#f2f0eb}
-.services-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem}
-.services-header h2{font-family:'Fraunces',serif;font-size:2rem;font-weight:300;color:#1c1c1c}
-.services-header p{font-size:.8rem;color:#888;max-width:280px;text-align:right;line-height:1.6}
-.srv-list{}
-.srv-row{display:grid;grid-template-columns:60px 1fr 1fr;gap:2rem;padding:1.5rem 0;border-top:1px solid #e0dbd4;align-items:start}
-.srv-num{font-family:'Fraunces',serif;font-size:1.2rem;color:#ccc;padding-top:2px}
-.srv-title{font-size:.92rem;font-weight:500;color:#1c1c1c}
-.srv-desc{font-size:.8rem;color:#888;line-height:1.7;font-weight:300}
-.contact{padding:80px 5%;display:grid;grid-template-columns:1fr 1fr;gap:6rem}
-.contact h2{font-family:'Fraunces',serif;font-size:2.5rem;font-weight:300;color:#1c1c1c;line-height:1.2;margin-bottom:2.5rem}
-.contact-info{display:flex;flex-direction:column;gap:1.5rem}
-.contact-info div label{font-size:.62rem;color:#aaa;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:4px}
-.contact-info div span,.contact-info div a{font-size:.88rem;color:#555;font-weight:300}
-.contact-form{display:flex;flex-direction:column;gap:0}
-.contact-form input,.contact-form textarea{border:none;border-bottom:1px solid #e0dbd4;padding:14px 0;font-family:inherit;font-size:.85rem;color:#1c1c1c;background:transparent;outline:none;transition:border-color .2s;margin-bottom:0}
-.contact-form input:focus,.contact-form textarea:focus{border-color:#1c1c1c}
-.contact-form textarea{min-height:100px;resize:none;margin-top:1rem}
-.contact-form button{align-self:flex-start;margin-top:1.5rem;background:#1c1c1c;color:#fff;padding:13px 28px;font-family:inherit;font-size:.78rem;letter-spacing:1px;border:none;cursor:pointer}
-footer{padding:2rem 5%;border-top:1px solid #e8e4de;display:flex;justify-content:space-between}
-footer p{font-size:.72rem;color:#bbb}
-</style></head>
+img{max-width:100%;display:block}
+.demo-bar{background:linear-gradient(135deg,var(--accent),#a78bfa);color:#060608;font-size:.68rem;padding:8px 5%;display:flex;justify-content:space-between;align-items:center;font-weight:600}
+.demo-bar a{background:#060608;color:#fff;padding:4px 12px;border-radius:6px;font-weight:700}
+nav{background:var(--bg);padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,.06)}
+.logo{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{font-size:.82rem;color:var(--dim)}
+.nav-cta{background:linear-gradient(135deg,var(--accent),#a78bfa);color:#060608;padding:9px 20px;font-size:.8rem;font-weight:700;border-radius:8px}
+.hamburger{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer}
+.hamburger span{width:20px;height:2px;background:#fff}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:var(--bg);padding:1.5rem 5%;border-top:1px solid rgba(255,255,255,.06);z-index:99}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;padding:.8rem 0;color:var(--dim);border-bottom:1px solid rgba(255,255,255,.06)}
+.hero{min-height:80vh;display:flex;align-items:center;position:relative;padding:60px 5%}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=1200&q=75') center/cover}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,6,8,.75),rgba(6,6,8,.92))}
+.hero-content{position:relative;z-index:1;max-width:640px}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.15);padding:5px 14px;border-radius:100px;margin-bottom:1.5rem;font-size:.68rem;color:var(--dim)}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,6vw,3.2rem);font-weight:700;color:#fff;line-height:1.1;margin-bottom:1.2rem;letter-spacing:-1px}
+.hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--accent),#a78bfa);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--dim);font-size:.92rem;line-height:1.8;margin-bottom:2rem;max-width:480px}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-p{background:linear-gradient(135deg,var(--accent),#a78bfa);color:#060608;padding:14px 28px;font-size:.85rem;font-weight:700;border-radius:8px}
+.btn-s{border:1px solid rgba(255,255,255,.15);color:#fff;padding:14px 28px;font-size:.85rem;border-radius:8px}
+.section{padding:70px 5%}
+.section-label{font-size:.68rem;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.section h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.5rem,4vw,2rem);font-weight:700;margin-bottom:1rem}
+.section p{color:var(--dim);font-size:.9rem;line-height:1.8;max-width:600px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.card{background:var(--bg2);padding:1.75rem;border-radius:12px;border:1px solid rgba(255,255,255,.06)}
+.card h3{font-family:'Space Grotesk',sans-serif;font-size:1rem;margin-bottom:.6rem}
+.card p{font-size:.82rem}
+.gallery-imgs{display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px;margin-top:2rem}
+.gallery-imgs img{width:100%;height:220px;object-fit:cover;border-radius:8px}
+.gallery-imgs img:first-child{height:452px;grid-row:span 2}
+.cta-band{background:linear-gradient(135deg,var(--accent),#a78bfa);padding:60px 5%;text-align:center;color:#060608}
+.cta-band h2{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;margin-bottom:.5rem}
+.cta-band a{background:#060608;color:#fff;padding:13px 30px;font-size:.85rem;font-weight:700;border-radius:8px;display:inline-block;margin-top:1.5rem}
+footer{padding:2.5rem 5%;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+footer p{font-size:.75rem;color:#5a5a70}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .grid3{grid-template-columns:1fr}
+  .gallery-imgs{grid-template-columns:1fr 1fr}
+  .gallery-imgs img:first-child{height:220px;grid-row:span 1;grid-column:span 2}
+  .hero{padding:50px 5%;min-height:70vh}
+  .section{padding:50px 5%}
+}
+</style>
+</head>
 <body>
-<div class="demo-bar"><span>⚠ Bu bir demo sitesidir — MK Software tarafından hazırlanmıştır</span><a href="https://mksoftware.com.tr/#teklif">Bu şablonla teklif al →</a></div>
+<div class="demo-bar"><span>⚠ Demo — MK Software</span><a href="https://mksoftware.com.tr/#teklif">Teklif al →</a></div>
 <nav>
   <div class="logo">PsyCore</div>
-  <div class="nav-links"><a href="#">Hakkımızda</a><a href="#">Hizmetler</a><a href="#">Galeri</a><a href="#">İletişim</a></div>
-  <a href="#" class="nav-book">Randevu Al</a>
+  <div class="nav-links"><a href="#">Hakkımızda</a><a href="#">Hizmetler</a><a href="#">İletişim</a></div>
+  <a href="#" class="nav-cta">Teklif Al</a>
+  <button class="hamburger" onclick="document.getElementById('mm').classList.toggle('open')"><span></span><span></span><span></span></button>
 </nav>
+<div class="mobile-menu" id="mm"><a href="#">Hakkımızda</a><a href="#">Hizmetler</a><a href="#">İletişim</a></div>
+
 <section class="hero">
-  <div class="hero-header">
-    <div class="hero-left">
-      <span>Psikoloji • Ankara, 2026</span>
-      <h1>Zihinsel Sağlığınızın<br>ile <em>zarif</em><br>hizmet</h1>
-    </div>
-    <div class="hero-right">
-      <p>Kalite ve estetiği bir araya getiren anlayışımızla, müşterilerimize en iyi deneyimi sunmak için çalışıyoruz. Her detayda mükemmelliği hedefliyoruz.</p>
-      <div class="hero-right-actions">
-        <a href="#" class="btn-main">Randevu Alın</a>
-        <a href="#" class="btn-alt">Daha fazla bilgi</a>
-      </div>
-    </div>
-  </div>
-  <div class="hero-img"></div>
-  <div class="hero-caption">PsyCore — Psikoloji — Ankara</div>
-</section>
-<section class="about">
-  <div class="about-sidebar">
-    <h3>Hızlı Erişim</h3>
-    <nav>
-      <a href="#">Hakkımızda</a>
-      <a href="#">Hizmetler</a>
-      <a href="#">Galeri</a>
-      <a href="#">Ekibimiz</a>
-      <a href="#">İletişim</a>
-    </nav>
-  </div>
-  <div class="about-main">
-    <h2>Kalite ve özenin buluştuğu adres</h2>
-    <p>Yılların birikimi ve uzman kadromuzla, müşterilerimize en iyi deneyimi sunmak için çalışıyoruz. Her projede kalite standartlarımızdan ödün vermiyoruz.</p>
-    <p>Müşteri memnuniyeti bizim için her şeyin önünde gelir. Sizi dinliyor, ihtiyaçlarınızı anlıyor ve beklentilerinizin ötesine geçiyoruz.</p>
-    <div class="about-grid">
-      <div class="about-img-item"></div>
-      <div class="about-img-item"></div>
-      <div class="about-img-item"></div>
-    </div>
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Psikoloji Merkezi · Ankara, 2026</div>
+    <h1>Zihinsel <em>Sağlığınız</em></h1>
+    <p>Profesyonel destekle iyi hissetmenin yolunu bulun.</p>
+    <div class="hero-btns"><a href="#" class="btn-p">Teklif Al</a><a href="#" class="btn-s">Daha Fazla</a></div>
   </div>
 </section>
-<section class="services">
-  <div class="services-header">
-    <h2>Hizmetlerimiz</h2>
-    <p>Tüm ihtiyaçlarınız için kapsamlı çözümler sunuyoruz</p>
-  </div>
-  <div class="srv-list">
-    <div class="srv-row"><div class="srv-num">01</div><div class="srv-title">Premium Hizmet</div><div class="srv-desc">En üst kalitede, kişiye özel hizmet deneyimi. Her detayda özen ve dikkat.</div></div>
-    <div class="srv-row"><div class="srv-num">02</div><div class="srv-title">Danışmanlık</div><div class="srv-desc">Uzman görüşü ve yol haritası ile doğru kararlar alın.</div></div>
-    <div class="srv-row"><div class="srv-num">03</div><div class="srv-title">Özel Paketler</div><div class="srv-desc">İhtiyacınıza göre kişiselleştirilmiş paket seçenekleri.</div></div>
-    <div class="srv-row"><div class="srv-num">04</div><div class="srv-title">Kurumsal Çözümler</div><div class="srv-desc">Şirketiniz için özel, ölçeklenebilir hizmet modelleri.</div></div>
-  </div>
-</section>
-<section class="contact">
-  <div>
-    <h2>Sizinle<br><em>çalışmaktan<br>mutluluk</em><br>duyarız</h2>
-    <div class="contact-info">
-      <div><label>Telefon</label><span>0312 820 10 13</span></div>
-      <div><label>E-posta</label><a href="#">info@demo.com</a></div>
-      <div><label>Adres</label><span>Kızılay, Ankara, Türkiye</span></div>
-      <div><label>Çalışma Saatleri</label><span>Pzt–Cum: 09:00–18:00</span></div>
-    </div>
-  </div>
-  <div>
-    <div class="contact-form">
-      <input type="text" placeholder="Adınız">
-      <input type="email" placeholder="E-posta adresiniz">
-      <input type="tel" placeholder="Telefon numaranız">
-      <textarea placeholder="Mesajınız..."></textarea>
-      <button>Gönder →</button>
-    </div>
+
+<section class="section">
+  <div class="section-label">Hizmetlerimiz</div>
+  <h2>Neler Sunuyoruz</h2>
+  <p>Müşterilerimize en kaliteli hizmeti sunmak için çalışıyoruz.</p>
+  <div class="grid3">
+    <div class="card"><h3>Kalite Garantisi</h3><p>En yüksek standartlarda hizmet sunuyoruz.</p></div>
+    <div class="card"><h3>Hızlı Teslimat</h3><p>Zamanınıza saygı duyuyor, hızlı hizmet veriyoruz.</p></div>
+    <div class="card"><h3>Uzman Ekip</h3><p>Deneyimli profesyonellerden oluşan kadromuz.</p></div>
   </div>
 </section>
-<footer><p>© 2026 PsyCore. Tüm hakları saklıdır.</p><p>Demo — MK Software</p></footer>
-</body></html>
+
+<section class="section" style="background:var(--bg2)">
+  <div class="section-label">Galeri</div>
+  <h2>Çalışmalarımızdan</h2>
+  <div class="gallery-imgs">
+    <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=1200&q=75" alt="">
+    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=70" alt="">
+    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&q=70" alt="">
+  </div>
+</section>
+
+<div class="cta-band">
+  <h2>Bizimle Çalışmaya Hazır mısınız?</h2>
+  <a href="https://mksoftware.com.tr/#teklif">İletişime Geçin →</a>
+</div>
+
+<footer>
+  <p>© 2026 PsyCore. Demo sitedir.</p>
+  <p>Ankara, Türkiye</p>
+</footer>
+</body>
+</html>

@@ -1,257 +1,116 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Lezzet Durağı — Restoran</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lezzet Durağı</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--gold:#b8860b;--cream:#faf6f0;--dark:#1a0f00;--text:#3d2b1f}
-body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text)}
+:root{--accent:#7c8fff;--bg:#060608;--bg2:#0d0d16;--text:#f0f0f5;--dim:#9a9ab0}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text)}
 a{text-decoration:none;color:inherit}
-.demo-bar{position:fixed;top:0;left:0;right:0;background:#0d1f3c;color:#fff;font-size:0.7rem;padding:8px 5%;display:flex;justify-content:space-between;align-items:center;z-index:9999;letter-spacing:0.5px}
-.demo-bar a{background:#c0a050;color:#0d1f3c;padding:5px 14px;font-weight:700;font-size:0.68rem;text-decoration:none;letter-spacing:1px}
-nav{position:fixed;top:33px;left:0;right:0;z-index:100;padding:0 5%;height:72px;display:flex;align-items:center;justify-content:space-between;transition:background .3s}
-nav.scrolled{background:rgba(26,15,0,0.95);backdrop-filter:blur(8px)}
-.logo{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:#fff;letter-spacing:2px}
-.logo small{display:block;font-size:0.55rem;color:rgba(255,255,255,0.4);letter-spacing:5px;text-transform:uppercase;font-family:'Inter',sans-serif;font-weight:300;margin-top:-4px}
-.nav-links{display:flex;gap:2.5rem}
-.nav-links a{font-size:0.78rem;color:rgba(255,255,255,0.7);letter-spacing:1px;text-transform:uppercase;font-weight:400;transition:color .2s}
-.nav-links a:hover{color:#fff}
-.nav-res{border:1px solid rgba(184,134,11,0.6);color:var(--gold);padding:9px 22px;font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;transition:all .2s}
-.nav-res:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
-
-/* HERO */
-.hero{height:100vh;position:relative;display:flex;align-items:center;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=80') center/cover no-repeat}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.75) 40%,rgba(0,0,0,0.2))}
-.hero-content{position:relative;z-index:1;padding:0 5%;max-width:680px;margin-top:100px}
-.hero-tag{display:inline-flex;align-items:center;gap:10px;margin-bottom:2rem}
-.hero-tag span{font-size:0.65rem;color:var(--gold);letter-spacing:4px;text-transform:uppercase}
-.hero-tag::before{content:'';width:30px;height:1px;background:var(--gold)}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,5vw,5rem);color:#fff;line-height:1.1;font-weight:600;margin-bottom:1.5rem}
-.hero h1 em{font-style:italic;color:var(--gold)}
-.hero p{font-size:0.92rem;color:rgba(255,255,255,0.65);line-height:1.9;max-width:480px;margin-bottom:2.5rem;font-weight:300}
-.hero-btns{display:flex;gap:1rem;align-items:center}
-.btn-gold{background:var(--gold);color:#fff;padding:14px 30px;font-size:0.78rem;letter-spacing:2px;text-transform:uppercase;font-weight:500;transition:background .2s}
-.btn-gold:hover{background:#9a7009}
-.btn-outline{border:1px solid rgba(255,255,255,0.4);color:#fff;padding:14px 30px;font-size:0.78rem;letter-spacing:2px;text-transform:uppercase;transition:all .2s}
-.btn-outline:hover{border-color:#fff}
-.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,0.3);font-size:0.65rem;letter-spacing:2px;text-transform:uppercase}
-.hero-scroll::after{content:'';width:1px;height:40px;background:rgba(255,255,255,0.2)}
-
-/* INFO BAR */
-.info-bar{background:var(--dark);padding:1.25rem 5%;display:flex;justify-content:center;gap:5rem}
-.info-item{text-align:center}
-.info-item label{font-size:0.62rem;color:rgba(255,255,255,0.3);letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:4px}
-.info-item span{font-size:0.82rem;color:rgba(255,255,255,0.7);font-weight:300}
-
-/* ABOUT */
-.about{padding:100px 5%;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
-.about-imgs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.about-img{background:center/cover;border-radius:0}
-.about-img:nth-child(1){grid-row:span 2;background-image:url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80');aspect-ratio:3/4}
-.about-img:nth-child(2){background-image:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&q=80');aspect-ratio:4/3}
-.about-img:nth-child(3){background-image:url('https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=400&q=80');aspect-ratio:4/3}
-.about-tag{font-size:0.65rem;color:var(--gold);letter-spacing:4px;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:10px}
-.about-tag::before{content:'';width:25px;height:1px;background:var(--gold)}
-.about h2{font-family:'Cormorant Garamond',serif;font-size:2.8rem;color:var(--dark);line-height:1.2;margin-bottom:1.5rem;font-weight:600}
-.about p{font-size:0.88rem;color:#6a5040;line-height:1.9;margin-bottom:1rem;font-weight:300}
-.about-stats{display:flex;gap:2.5rem;margin-top:2rem;padding-top:2rem;border-top:1px solid #e8ddd0}
-.stat{text-align:center}
-.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:var(--dark);font-weight:600;display:block;line-height:1}
-.stat-label{font-size:0.65rem;color:#888;letter-spacing:2px;text-transform:uppercase;margin-top:4px}
-
-/* MENU */
-.menu-section{background:var(--dark);padding:100px 5%}
-.menu-header{text-align:center;margin-bottom:4rem}
-.menu-tag{font-size:0.65rem;color:var(--gold);letter-spacing:4px;text-transform:uppercase;margin-bottom:1rem;display:block}
-.menu-header h2{font-family:'Cormorant Garamond',serif;font-size:3rem;color:#fff;font-weight:600}
-.menu-header p{font-size:0.85rem;color:rgba(255,255,255,0.4);margin-top:0.75rem;font-weight:300}
-.menu-tabs{display:flex;justify-content:center;gap:0;margin-bottom:3rem}
-.menu-tab{padding:10px 28px;font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);cursor:pointer;border-bottom:1px solid rgba(255,255,255,0.1);transition:all .2s}
-.menu-tab.active{color:var(--gold);border-bottom-color:var(--gold)}
-.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
-.menu-item{padding:1.75rem 2rem;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
-.menu-item:nth-child(odd){border-right:1px solid rgba(255,255,255,0.05)}
-.menu-item-info h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:#fff;font-weight:400;margin-bottom:4px}
-.menu-item-info p{font-size:0.75rem;color:rgba(255,255,255,0.35);line-height:1.5;font-weight:300;max-width:280px}
-.menu-price{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--gold);font-weight:400;white-space:nowrap;flex-shrink:0}
-
-/* GALLERY */
-.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto}
-.gal-item{overflow:hidden;cursor:pointer}
-.gal-item img{width:100%;height:100%;object-fit:cover;filter:brightness(0.85);transition:all .4s}
-.gal-item:hover img{filter:brightness(1);transform:scale(1.03)}
-.gal-item:nth-child(1){grid-column:span 2;height:350px;background:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80') center/cover}
-.gal-item:nth-child(2){height:350px;background:url('https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=400&q=80') center/cover}
-.gal-item:nth-child(3){height:350px;background:url('https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=400&q=80') center/cover}
-.gal-item:nth-child(4){height:350px;background:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80') center/cover}
-.gal-item:nth-child(5){height:350px;background:url('https://images.unsplash.com/photo-1543353071-873f17a7a088?w=400&q=80') center/cover}
-.gal-item:nth-child(6){height:350px;background:url('https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=800&q=80') center/cover;grid-column:span 2}
-
-/* RESERVE */
-.reserve{padding:100px 5%;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
-.reserve-left h2{font-family:'Cormorant Garamond',serif;font-size:2.8rem;color:var(--dark);font-weight:600;margin-bottom:1rem;line-height:1.2}
-.reserve-left p{font-size:0.88rem;color:#6a5040;line-height:1.9;font-weight:300;margin-bottom:2rem}
-.contact-items{display:flex;flex-direction:column;gap:1.25rem}
-.contact-item{display:flex;gap:1rem;align-items:flex-start}
-.contact-icon{width:36px;height:36px;background:var(--dark);display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0}
-.contact-label{font-size:0.65rem;color:#888;letter-spacing:1px;text-transform:uppercase;margin-bottom:2px}
-.contact-val{font-size:0.85rem;color:var(--dark)}
-.reserve-form{display:flex;flex-direction:column;gap:0}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:0}
-.reserve-form input,.reserve-form select{border:1px solid #e0d5c8;padding:14px 16px;font-family:inherit;font-size:0.85rem;outline:none;background:#fff;color:var(--dark);margin:-0.5px;transition:border-color .2s}
-.reserve-form input:focus,.reserve-form select:focus{border-color:var(--gold);z-index:1;position:relative}
-.reserve-form button{background:var(--dark);color:#fff;padding:16px;font-family:inherit;font-size:0.78rem;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s;margin-top:0}
-.reserve-form button:hover{background:#3d2b1f}
-
-/* FOOTER */
-footer{background:#0d0700;padding:3rem 5%;display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem}
-.footer-brand .logo{font-size:1.5rem}
-.footer-brand p{font-size:0.78rem;color:rgba(255,255,255,0.3);margin-top:1rem;line-height:1.7;font-weight:300}
-.footer-col h4{font-size:0.65rem;color:rgba(255,255,255,0.3);letter-spacing:3px;text-transform:uppercase;margin-bottom:1.25rem}
-.footer-col a{display:block;font-size:0.82rem;color:rgba(255,255,255,0.4);margin-bottom:0.6rem;transition:color .2s}
-.footer-col a:hover{color:#fff}
-.footer-bottom{background:#070300;padding:1rem 5%;display:flex;justify-content:space-between}
-.footer-bottom p{font-size:0.72rem;color:rgba(255,255,255,0.2)}
+img{max-width:100%;display:block}
+.demo-bar{background:linear-gradient(135deg,var(--accent),#a78bfa);color:#060608;font-size:.68rem;padding:8px 5%;display:flex;justify-content:space-between;align-items:center;font-weight:600}
+.demo-bar a{background:#060608;color:#fff;padding:4px 12px;border-radius:6px;font-weight:700}
+nav{background:var(--bg);padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,.06)}
+.logo{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{font-size:.82rem;color:var(--dim)}
+.nav-cta{background:linear-gradient(135deg,var(--accent),#a78bfa);color:#060608;padding:9px 20px;font-size:.8rem;font-weight:700;border-radius:8px}
+.hamburger{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer}
+.hamburger span{width:20px;height:2px;background:#fff}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:var(--bg);padding:1.5rem 5%;border-top:1px solid rgba(255,255,255,.06);z-index:99}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;padding:.8rem 0;color:var(--dim);border-bottom:1px solid rgba(255,255,255,.06)}
+.hero{min-height:80vh;display:flex;align-items:center;position:relative;padding:60px 5%}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=75') center/cover}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,6,8,.75),rgba(6,6,8,.92))}
+.hero-content{position:relative;z-index:1;max-width:640px}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.15);padding:5px 14px;border-radius:100px;margin-bottom:1.5rem;font-size:.68rem;color:var(--dim)}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,6vw,3.2rem);font-weight:700;color:#fff;line-height:1.1;margin-bottom:1.2rem;letter-spacing:-1px}
+.hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--accent),#a78bfa);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--dim);font-size:.92rem;line-height:1.8;margin-bottom:2rem;max-width:480px}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-p{background:linear-gradient(135deg,var(--accent),#a78bfa);color:#060608;padding:14px 28px;font-size:.85rem;font-weight:700;border-radius:8px}
+.btn-s{border:1px solid rgba(255,255,255,.15);color:#fff;padding:14px 28px;font-size:.85rem;border-radius:8px}
+.section{padding:70px 5%}
+.section-label{font-size:.68rem;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.section h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.5rem,4vw,2rem);font-weight:700;margin-bottom:1rem}
+.section p{color:var(--dim);font-size:.9rem;line-height:1.8;max-width:600px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.card{background:var(--bg2);padding:1.75rem;border-radius:12px;border:1px solid rgba(255,255,255,.06)}
+.card h3{font-family:'Space Grotesk',sans-serif;font-size:1rem;margin-bottom:.6rem}
+.card p{font-size:.82rem}
+.gallery-imgs{display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px;margin-top:2rem}
+.gallery-imgs img{width:100%;height:220px;object-fit:cover;border-radius:8px}
+.gallery-imgs img:first-child{height:452px;grid-row:span 2}
+.cta-band{background:linear-gradient(135deg,var(--accent),#a78bfa);padding:60px 5%;text-align:center;color:#060608}
+.cta-band h2{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;margin-bottom:.5rem}
+.cta-band a{background:#060608;color:#fff;padding:13px 30px;font-size:.85rem;font-weight:700;border-radius:8px;display:inline-block;margin-top:1.5rem}
+footer{padding:2.5rem 5%;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+footer p{font-size:.75rem;color:#5a5a70}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .grid3{grid-template-columns:1fr}
+  .gallery-imgs{grid-template-columns:1fr 1fr}
+  .gallery-imgs img:first-child{height:220px;grid-row:span 1;grid-column:span 2}
+  .hero{padding:50px 5%;min-height:70vh}
+  .section{padding:50px 5%}
+}
 </style>
 </head>
 <body>
-<div class="demo-bar"><span>⚠ Bu bir demo sitesidir — MK Software tarafından hazırlanmıştır</span><a href="https://mksoftware.com.tr/#teklif">Bu şablonla teklif al →</a></div>
-<nav id="nav">
-  <div class="logo">LEZZET DURAĞI<small>Fine Dining — Ankara</small></div>
-  <div class="nav-links"><a href="#">Menü</a><a href="#">Hakkımızda</a><a href="#">Galeri</a><a href="#">Etkinlikler</a></div>
-  <a href="#" class="nav-res">Rezervasyon</a>
+<div class="demo-bar"><span>⚠ Demo — MK Software</span><a href="https://mksoftware.com.tr/#teklif">Teklif al →</a></div>
+<nav>
+  <div class="logo">Lezzet Durağı</div>
+  <div class="nav-links"><a href="#">Hakkımızda</a><a href="#">Hizmetler</a><a href="#">İletişim</a></div>
+  <a href="#" class="nav-cta">Teklif Al</a>
+  <button class="hamburger" onclick="document.getElementById('mm').classList.toggle('open')"><span></span><span></span><span></span></button>
 </nav>
+<div class="mobile-menu" id="mm"><a href="#">Hakkımızda</a><a href="#">Hizmetler</a><a href="#">İletişim</a></div>
 
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-tag"><span>Ankara'nın Kalbinde, 1999'dan Beri</span></div>
-    <h1>Her Lokma<br>Bir <em>Hikaye</em><br>Anlatır</h1>
-    <p>Geleneksel Türk mutfağının en seçkin lezzetlerini, zarif bir ambiyansda sunuyoruz. Özel geceleriniz için masanız hazır.</p>
-    <div class="hero-btns">
-      <a href="#" class="btn-gold">Rezervasyon Yap</a>
-      <a href="#" class="btn-outline">Menüyü İncele</a>
-    </div>
+    <div class="hero-tag">Restoran · Ankara, 2026</div>
+    <h1>Her Lokma <em>Bir Hikaye</em></h1>
+    <p>Geleneksel lezzetleri modern bir ambiyansda sunuyoruz.</p>
+    <div class="hero-btns"><a href="#" class="btn-p">Teklif Al</a><a href="#" class="btn-s">Daha Fazla</a></div>
   </div>
-  <div class="hero-scroll">Keşfet</div>
 </section>
 
-<div class="info-bar">
-  <div class="info-item"><label>Çalışma Saatleri</label><span>Salı — Pazar: 12:00 – 23:30</span></div>
-  <div class="info-item"><label>Adres</label><span>Kızılay Mah. Atatürk Bulvarı No:42</span></div>
-  <div class="info-item"><label>Rezervasyon</label><span>0312 820 10 13</span></div>
-  <div class="info-item"><label>Kapasite</label><span>120 Kişilik Salon</span></div>
+<section class="section">
+  <div class="section-label">Hizmetlerimiz</div>
+  <h2>Neler Sunuyoruz</h2>
+  <p>Müşterilerimize en kaliteli hizmeti sunmak için çalışıyoruz.</p>
+  <div class="grid3">
+    <div class="card"><h3>Kalite Garantisi</h3><p>En yüksek standartlarda hizmet sunuyoruz.</p></div>
+    <div class="card"><h3>Hızlı Teslimat</h3><p>Zamanınıza saygı duyuyor, hızlı hizmet veriyoruz.</p></div>
+    <div class="card"><h3>Uzman Ekip</h3><p>Deneyimli profesyonellerden oluşan kadromuz.</p></div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg2)">
+  <div class="section-label">Galeri</div>
+  <h2>Çalışmalarımızdan</h2>
+  <div class="gallery-imgs">
+    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=75" alt="">
+    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=70" alt="">
+    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&q=70" alt="">
+  </div>
+</section>
+
+<div class="cta-band">
+  <h2>Bizimle Çalışmaya Hazır mısınız?</h2>
+  <a href="https://mksoftware.com.tr/#teklif">İletişime Geçin →</a>
 </div>
-
-<section class="about">
-  <div class="about-imgs">
-    <div class="about-img"></div>
-    <div class="about-img"></div>
-    <div class="about-img"></div>
-  </div>
-  <div>
-    <div class="about-tag">Hikayemiz</div>
-    <h2>25 Yıllık Lezzet Geleneği</h2>
-    <p>1999'dan bu yana aynı tutku ve özenle hazırladığımız yemeklerimizle binlerce misafirimize ev sahipliği yaptık. Her tarifimizin arkasında büyükannenin mutfağından gelen bir sır var.</p>
-    <p>Taze ve mevsimsel malzemeler, geleneksel pişirme teknikleri ve modern sunum anlayışımızla lezzeti bir sanata dönüştürüyoruz.</p>
-    <div class="about-stats">
-      <div class="stat"><span class="stat-num">25</span><span class="stat-label">Yıl Deneyim</span></div>
-      <div class="stat"><span class="stat-num">47</span><span class="stat-label">Özgün Tarif</span></div>
-      <div class="stat"><span class="stat-num">120K</span><span class="stat-label">Mutlu Misafir</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="menu-section">
-  <div class="menu-header">
-    <span class="menu-tag">Mutfağımızdan</span>
-    <h2>Seçkin Lezzetler</h2>
-    <p>Tüm yemeklerimiz taze, mevsimsel malzemelerle her gün hazırlanır</p>
-  </div>
-  <div class="menu-tabs">
-    <div class="menu-tab active">Ana Yemekler</div>
-    <div class="menu-tab">Başlangıçlar</div>
-    <div class="menu-tab">Tatlılar</div>
-    <div class="menu-tab">İçecekler</div>
-  </div>
-  <div class="menu-grid">
-    <div class="menu-item"><div class="menu-item-info"><h4>Kuzu İncik Haşlama</h4><p>12 saat düşük ısıda pişirilmiş, kekik aromalı, közlenmiş sebze garnitürü ile</p></div><div class="menu-price">₺485</div></div>
-    <div class="menu-item"><div class="menu-item-info"><h4>Levrek Izgara</h4><p>Taze levrek fileto, limonlu enginar püresi, kapari sosu ile</p></div><div class="menu-price">₺420</div></div>
-    <div class="menu-item"><div class="menu-item-info"><h4>Dana Antrikot</h4><p>Wagyu dana antrikot, trüf yağlı mantar soslu, patates graten ile</p></div><div class="menu-price">₺680</div></div>
-    <div class="menu-item"><div class="menu-item-info"><h4>Mantarlı Risotto</h4><p>Porcini ve trüf mantarı, 24 aylık parmesan, taze maydanoz</p></div><div class="menu-price">₺320</div></div>
-    <div class="menu-item"><div class="menu-item-info"><h4>Karides Güveç</h4><p>Karadeniz enginar taze karides, domates, sarımsak, limon</p></div><div class="menu-price">₺395</div></div>
-    <div class="menu-item"><div class="menu-item-info"><h4>Tavuk Çerkez</h4><p>Geleneksel Çerkes tarifi, ceviz sosu, sarımsak ezmesi ile</p></div><div class="menu-price">₺295</div></div>
-  </div>
-</section>
-
-<div class="gallery">
-  <div class="gal-item"></div>
-  <div class="gal-item"></div>
-  <div class="gal-item"></div>
-  <div class="gal-item"></div>
-  <div class="gal-item"></div>
-  <div class="gal-item"></div>
-</div>
-
-<section class="reserve">
-  <div class="reserve-left">
-    <div class="about-tag">Rezervasyon</div>
-    <h2>Masanızı<br>Bugün Ayırtın</h2>
-    <p>Özel geceleriniz, doğum günleriniz ve iş yemekleriniz için önceden rezervasyon yapmanızı tavsiye ederiz. 10 kişi ve üzeri gruplar için özel menü hazırlıyoruz.</p>
-    <div class="contact-items">
-      <div class="contact-item"><div class="contact-icon">📞</div><div><div class="contact-label">Telefon</div><div class="contact-val">0312 820 10 13</div></div></div>
-      <div class="contact-item"><div class="contact-icon">📍</div><div><div class="contact-label">Adres</div><div class="contact-val">Kızılay Mah. Atatürk Bulvarı No:42, Çankaya / Ankara</div></div></div>
-      <div class="contact-item"><div class="contact-icon">🕐</div><div><div class="contact-label">Çalışma Saatleri</div><div class="contact-val">Sal–Paz: 12:00–23:30 | Pazartesi Kapalı</div></div></div>
-    </div>
-  </div>
-  <div>
-    <div class="reserve-form">
-      <div class="form-row">
-        <input type="text" placeholder="Ad Soyad">
-        <input type="tel" placeholder="Telefon">
-      </div>
-      <div class="form-row">
-        <input type="date">
-        <input type="time">
-      </div>
-      <div class="form-row">
-        <select><option>Kişi Sayısı</option><option>1-2 Kişi</option><option>3-4 Kişi</option><option>5-6 Kişi</option><option>7-10 Kişi</option><option>10+ Kişi</option></select>
-        <select><option>Salon Tercihi</option><option>Ana Salon</option><option>Teras</option><option>Özel Oda</option></select>
-      </div>
-      <input type="text" placeholder="Özel istek veya not (opsiyonel)">
-      <button>Rezervasyon Talebini Gönder</button>
-    </div>
-  </div>
-</section>
 
 <footer>
-  <div class="footer-brand">
-    <div class="logo" style="color:#fff">LEZZET DURAĞI</div>
-    <p>Ankara'nın kalbinde, 25 yıldır aynı tutku ve özenle hizmet veriyoruz.</p>
-  </div>
-  <div class="footer-col">
-    <h4>Hızlı Linkler</h4>
-    <a href="#">Menü</a><a href="#">Hakkımızda</a><a href="#">Galeri</a><a href="#">Etkinlikler</a><a href="#">İletişim</a>
-  </div>
-  <div class="footer-col">
-    <h4>İletişim</h4>
-    <a href="#">0312 820 10 13</a>
-    <a href="#">info@lezzetduragi.com</a>
-    <a href="#">Atatürk Bulvarı No:42</a>
-    <a href="#">Çankaya, Ankara</a>
-  </div>
+  <p>© 2026 Lezzet Durağı. Demo sitedir.</p>
+  <p>Ankara, Türkiye</p>
 </footer>
-<div class="footer-bottom"><p>© 2026 Lezzet Durağı. Tüm hakları saklıdır.</p><p>Bu bir demo sitesidir — MK Software</p></div>
-
-<script>
-window.addEventListener('scroll',function(){
-  var nav=document.getElementById('nav');
-  nav.classList.toggle('scrolled',window.scrollY>50);
-});
-</script>
 </body>
 </html>

@@ -1,122 +1,116 @@
 <!DOCTYPE html>
-<html lang="tr"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FormEasy</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:#fff;color:#111}
+:root{--accent:#4ade80;--bg:#060608;--bg2:#0d0d16;--text:#f0f0f5;--dim:#9a9ab0}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text)}
 a{text-decoration:none;color:inherit}
-.demo-bar{position:fixed;top:0;left:0;right:0;background:#0d1f3c;color:#fff;font-size:.7rem;padding:8px 5%;display:flex;justify-content:space-between;align-items:center;z-index:9999}
-.demo-bar a{background:#c0a050;color:#0d1f3c;padding:5px 14px;font-weight:700;font-size:.68rem}
-nav{position:sticky;top:33px;z-index:100;background:#fff;border-bottom:1px solid #f0f0f0;padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;margin-top:33px}
-.logo{font-size:1.05rem;font-weight:800;color:#111;letter-spacing:-0.5px}
-.logo span{color:#14b8a6}
+img{max-width:100%;display:block}
+.demo-bar{background:linear-gradient(135deg,var(--accent),#a78bfa);color:#060608;font-size:.68rem;padding:8px 5%;display:flex;justify-content:space-between;align-items:center;font-weight:600}
+.demo-bar a{background:#060608;color:#fff;padding:4px 12px;border-radius:6px;font-weight:700}
+nav{background:var(--bg);padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,.06)}
+.logo{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff}
 .nav-links{display:flex;gap:2rem}
-.nav-links a{font-size:.8rem;color:#666;font-weight:500;transition:color .2s}
-.nav-links a:hover{color:#111}
-.nav-cta{background:#14b8a6;color:#fff;padding:9px 20px;font-size:.8rem;font-weight:700;border-radius:6px;transition:opacity .2s}
-.nav-cta:hover{opacity:.88}
-.hero{padding:80px 5% 100px;background:linear-gradient(135deg,#14b8a608 0%,#fff 60%)}
-.hero-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:center}
-.hero-pill{display:inline-flex;align-items:center;gap:6px;background:#14b8a615;border:1px solid #14b8a630;padding:5px 14px;border-radius:100px;margin-bottom:1.5rem}
-.hero-pill span{font-size:.68rem;color:#14b8a6;font-weight:600;letter-spacing:.5px}
-.hero-pill::before{content:'●';font-size:.45rem;color:#14b8a6}
-.hero h1{font-size:clamp(2.2rem,4vw,3.5rem);font-weight:800;color:#111;line-height:1.1;margin-bottom:1.2rem;letter-spacing:-1.5px}
-.hero h1 em{color:#14b8a6;font-style:normal}
-.hero-desc{font-size:.92rem;color:#666;line-height:1.85;margin-bottom:2.5rem;font-weight:400}
-.hero-btns{display:flex;gap:.75rem;flex-wrap:wrap}
-.btn-p{background:#14b8a6;color:#fff;padding:13px 26px;font-size:.82rem;font-weight:700;border-radius:6px;transition:opacity .2s}
-.btn-p:hover{opacity:.88}
-.btn-s{border:2px solid #e8e8e8;color:#333;padding:13px 26px;font-size:.82rem;font-weight:600;border-radius:6px;transition:border-color .2s}
-.btn-s:hover{border-color:#14b8a6;color:#14b8a6}
-.hero-trust{display:flex;gap:1.5rem;margin-top:2rem;align-items:center}
-.hero-trust span{font-size:.75rem;color:#999}
-.hero-trust strong{font-size:.82rem;color:#333;font-weight:600}
-.hero-visual{background:#14b8a608;border-radius:16px;border:2px solid #14b8a615;height:420px;display:flex;align-items:center;justify-content:center;font-size:5rem}
-.features{padding:80px 5%;background:#fafafa}
-.feat-header{text-align:center;margin-bottom:3.5rem}
-.feat-header h2{font-size:2rem;font-weight:800;color:#111;letter-spacing:-0.5px;margin-bottom:.5rem}
-.feat-header p{font-size:.88rem;color:#888}
-.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.feat-card{background:#fff;padding:2rem;border-radius:12px;border:1px solid #f0f0f0;transition:box-shadow .2s}
-.feat-card:hover{box-shadow:0 8px 30px rgba(0,0,0,.08)}
-.feat-emoji{font-size:2rem;margin-bottom:1rem;display:block}
-.feat-card h3{font-size:.92rem;font-weight:700;color:#111;margin-bottom:.4rem}
-.feat-card p{font-size:.8rem;color:#888;line-height:1.65}
-.pricing{padding:80px 5%;text-align:center}
-.pricing h2{font-size:2rem;font-weight:800;color:#111;letter-spacing:-0.5px;margin-bottom:.5rem}
-.pricing p{font-size:.88rem;color:#888;margin-bottom:3rem}
-.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:900px;margin:0 auto}
-.price-card{padding:2rem;border:2px solid #f0f0f0;border-radius:12px;text-align:left}
-.price-card.featured{border-color:#14b8a6;background:#14b8a604}
-.price-plan{font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#999;margin-bottom:.75rem}
-.price-card.featured .price-plan{color:#14b8a6}
-.price-amount{font-size:2.5rem;font-weight:800;color:#111;margin-bottom:.25rem}
-.price-amount span{font-size:1rem;font-weight:400;color:#999}
-.price-desc{font-size:.78rem;color:#888;margin-bottom:1.5rem}
-.price-features{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:2rem}
-.price-features li{font-size:.8rem;color:#555;display:flex;align-items:center;gap:8px}
-.price-features li::before{content:'✓';color:#14b8a6;font-weight:700;font-size:.8rem}
-.price-btn{width:100%;padding:12px;font-family:inherit;font-size:.8rem;font-weight:700;border-radius:6px;cursor:pointer;border:2px solid #14b8a6;background:transparent;color:#14b8a6;transition:all .2s}
-.price-card.featured .price-btn{background:#14b8a6;color:#fff}
-.cta-section{padding:80px 5%;background:#14b8a6;text-align:center;border-radius:16px;margin:0 5% 80px}
-.cta-section h2{font-size:2.2rem;font-weight:800;color:#fff;margin-bottom:.5rem;letter-spacing:-0.5px}
-.cta-section p{color:rgba(255,255,255,.75);font-size:.9rem;margin-bottom:2rem}
-.cta-section a{background:#fff;color:#14b8a6;padding:14px 32px;font-size:.82rem;font-weight:700;border-radius:6px;display:inline-block;transition:opacity .2s}
-.cta-section a:hover{opacity:.92}
-footer{background:#111;padding:2.5rem 5%;display:flex;justify-content:space-between;align-items:center}
-footer p{font-size:.75rem;color:rgba(255,255,255,.25)}
-footer .logo{color:#fff}
-</style></head>
+.nav-links a{font-size:.82rem;color:var(--dim)}
+.nav-cta{background:linear-gradient(135deg,var(--accent),#a78bfa);color:#060608;padding:9px 20px;font-size:.8rem;font-weight:700;border-radius:8px}
+.hamburger{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer}
+.hamburger span{width:20px;height:2px;background:#fff}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:var(--bg);padding:1.5rem 5%;border-top:1px solid rgba(255,255,255,.06);z-index:99}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;padding:.8rem 0;color:var(--dim);border-bottom:1px solid rgba(255,255,255,.06)}
+.hero{min-height:80vh;display:flex;align-items:center;position:relative;padding:60px 5%}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=75') center/cover}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,6,8,.75),rgba(6,6,8,.92))}
+.hero-content{position:relative;z-index:1;max-width:640px}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.15);padding:5px 14px;border-radius:100px;margin-bottom:1.5rem;font-size:.68rem;color:var(--dim)}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,6vw,3.2rem);font-weight:700;color:#fff;line-height:1.1;margin-bottom:1.2rem;letter-spacing:-1px}
+.hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--accent),#a78bfa);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--dim);font-size:.92rem;line-height:1.8;margin-bottom:2rem;max-width:480px}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-p{background:linear-gradient(135deg,var(--accent),#a78bfa);color:#060608;padding:14px 28px;font-size:.85rem;font-weight:700;border-radius:8px}
+.btn-s{border:1px solid rgba(255,255,255,.15);color:#fff;padding:14px 28px;font-size:.85rem;border-radius:8px}
+.section{padding:70px 5%}
+.section-label{font-size:.68rem;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.section h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.5rem,4vw,2rem);font-weight:700;margin-bottom:1rem}
+.section p{color:var(--dim);font-size:.9rem;line-height:1.8;max-width:600px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.card{background:var(--bg2);padding:1.75rem;border-radius:12px;border:1px solid rgba(255,255,255,.06)}
+.card h3{font-family:'Space Grotesk',sans-serif;font-size:1rem;margin-bottom:.6rem}
+.card p{font-size:.82rem}
+.gallery-imgs{display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px;margin-top:2rem}
+.gallery-imgs img{width:100%;height:220px;object-fit:cover;border-radius:8px}
+.gallery-imgs img:first-child{height:452px;grid-row:span 2}
+.cta-band{background:linear-gradient(135deg,var(--accent),#a78bfa);padding:60px 5%;text-align:center;color:#060608}
+.cta-band h2{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;margin-bottom:.5rem}
+.cta-band a{background:#060608;color:#fff;padding:13px 30px;font-size:.85rem;font-weight:700;border-radius:8px;display:inline-block;margin-top:1.5rem}
+footer{padding:2.5rem 5%;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+footer p{font-size:.75rem;color:#5a5a70}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .grid3{grid-template-columns:1fr}
+  .gallery-imgs{grid-template-columns:1fr 1fr}
+  .gallery-imgs img:first-child{height:220px;grid-row:span 1;grid-column:span 2}
+  .hero{padding:50px 5%;min-height:70vh}
+  .section{padding:50px 5%}
+}
+</style>
+</head>
 <body>
-<div class="demo-bar"><span>⚠ Bu bir demo sitesidir — MK Software tarafından hazırlanmıştır</span><a href="https://mksoftware.com.tr/#teklif">Bu şablonla teklif al →</a></div>
+<div class="demo-bar"><span>⚠ Demo — MK Software</span><a href="https://mksoftware.com.tr/#teklif">Teklif al →</a></div>
 <nav>
-  <div class="logo">FormEasy<span>.</span></div>
-  <div class="nav-links"><a href="#">Ürün</a><a href="#">Özellikler</a><a href="#">Fiyatlar</a><a href="#">Hakkımızda</a></div>
-  <a href="#" class="nav-cta">Ücretsiz Başla</a>
+  <div class="logo">FormEasy</div>
+  <div class="nav-links"><a href="#">Hakkımızda</a><a href="#">Hizmetler</a><a href="#">İletişim</a></div>
+  <a href="#" class="nav-cta">Teklif Al</a>
+  <button class="hamburger" onclick="document.getElementById('mm').classList.toggle('open')"><span></span><span></span><span></span></button>
 </nav>
+<div class="mobile-menu" id="mm"><a href="#">Hakkımızda</a><a href="#">Hizmetler</a><a href="#">İletişim</a></div>
+
 <section class="hero">
-  <div class="hero-inner">
-    <div>
-      <div class="hero-pill"><span>Yeni: SaaS için özel çözüm!</span></div>
-      <h1>Form & Anket için<br><em>En Akıllı</em><br>Platform</h1>
-      <p class="hero-desc">İşletmenizi büyütmek için ihtiyacınız olan her şey tek platformda. Hızlı, güvenilir, ölçeklenebilir.</p>
-      <div class="hero-btns">
-        <a href="#" class="btn-p">Ücretsiz Deneyin</a>
-        <a href="#" class="btn-s">Demo İzle</a>
-      </div>
-      <div class="hero-trust">
-        <span>⭐⭐⭐⭐⭐</span>
-        <strong>500+ işletme kullanıyor</strong>
-      </div>
-    </div>
-    <div class="hero-visual">📋</div>
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Form & Anket · Ankara, 2026</div>
+    <h1>Formlar <em>Kolaylaşıyor</em></h1>
+    <p>Anket ve form oluşturmanın en kolay yolu.</p>
+    <div class="hero-btns"><a href="#" class="btn-p">Teklif Al</a><a href="#" class="btn-s">Daha Fazla</a></div>
   </div>
 </section>
-<section class="features">
-  <div class="feat-header">
-    <h2>Neden FormEasy?</h2>
-    <p>İşletmenizi büyütmek için ihtiyacınız olan tüm özellikler</p>
-  </div>
-  <div class="feat-grid">
-    <div class="feat-card"><span class="feat-emoji">⚡</span><h3>Süper Hızlı</h3><p>Saniyelik işlem süreleri ve yüksek performanslı altyapı ile işlerinizi hızlandırın.</p></div>
-    <div class="feat-card"><span class="feat-emoji">🔒</span><h3>Güvenli & Korumalı</h3><p>En güncel güvenlik protokolleri ile verileriniz her zaman koruma altında.</p></div>
-    <div class="feat-card"><span class="feat-emoji">📊</span><h3>Gerçek Zamanlı Analiz</h3><p>İşletmenizin nabzını anlık takip edin, veriye dayalı kararlar alın.</p></div>
-    <div class="feat-card"><span class="feat-emoji">🔗</span><h3>Kolay Entegrasyon</h3><p>Mevcut araçlarınızla sorunsuz entegrasyon. API desteği ile sınırsız genişleme.</p></div>
-    <div class="feat-card"><span class="feat-emoji">📱</span><h3>Mobil Uyumlu</h3><p>Her cihazda mükemmel deneyim. iOS ve Android uygulamaları ile her yerden erişim.</p></div>
-    <div class="feat-card"><span class="feat-emoji">🎯</span><h3>7/24 Destek</h3><p>Canlı destek, kapsamlı dokümantasyon ve video eğitimlerle her zaman yanınızdayız.</p></div>
+
+<section class="section">
+  <div class="section-label">Hizmetlerimiz</div>
+  <h2>Neler Sunuyoruz</h2>
+  <p>Müşterilerimize en kaliteli hizmeti sunmak için çalışıyoruz.</p>
+  <div class="grid3">
+    <div class="card"><h3>Kalite Garantisi</h3><p>En yüksek standartlarda hizmet sunuyoruz.</p></div>
+    <div class="card"><h3>Hızlı Teslimat</h3><p>Zamanınıza saygı duyuyor, hızlı hizmet veriyoruz.</p></div>
+    <div class="card"><h3>Uzman Ekip</h3><p>Deneyimli profesyonellerden oluşan kadromuz.</p></div>
   </div>
 </section>
-<section class="pricing">
-  <h2>Şeffaf Fiyatlandırma</h2>
-  <p>Gizli ücret yok. İstediğiniz zaman iptal.</p>
-  <div class="price-grid">
-    <div class="price-card"><div class="price-plan">Başlangıç</div><div class="price-amount">₺499<span>/ay</span></div><div class="price-desc">Küçük işletmeler için</div><ul class="price-features"><li>5 kullanıcı</li><li>Temel özellikler</li><li>E-posta destek</li><li>1 GB depolama</li></ul><button class="price-btn">Başla</button></div>
-    <div class="price-card featured"><div class="price-plan">Profesyonel</div><div class="price-amount">₺999<span>/ay</span></div><div class="price-desc">Büyüyen işletmeler için</div><ul class="price-features"><li>25 kullanıcı</li><li>Tüm özellikler</li><li>Öncelikli destek</li><li>25 GB depolama</li></ul><button class="price-btn">Başla</button></div>
-    <div class="price-card"><div class="price-plan">Kurumsal</div><div class="price-amount">Özel<span></span></div><div class="price-desc">Büyük kuruluşlar için</div><ul class="price-features"><li>Sınırsız kullanıcı</li><li>Özel özellikler</li><li>Dedike destek</li><li>Sınırsız depolama</li></ul><button class="price-btn">İletişime Geç</button></div>
+
+<section class="section" style="background:var(--bg2)">
+  <div class="section-label">Galeri</div>
+  <h2>Çalışmalarımızdan</h2>
+  <div class="gallery-imgs">
+    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=75" alt="">
+    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=70" alt="">
+    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&q=70" alt="">
   </div>
 </section>
-<div class="cta-section"><h2>Bugün Başlayın</h2><p>14 gün ücretsiz deneyin. Kredi kartı gerekmez.</p><a href="#">Ücretsiz Deneyin →</a></div>
-<footer><div class="logo">FormEasy<span style="color:#14b8a6">.</span></div><p>© 2026 FormEasy. Tüm hakları saklıdır.</p><p>Demo — MK Software</p></footer>
-</body></html>
+
+<div class="cta-band">
+  <h2>Bizimle Çalışmaya Hazır mısınız?</h2>
+  <a href="https://mksoftware.com.tr/#teklif">İletişime Geçin →</a>
+</div>
+
+<footer>
+  <p>© 2026 FormEasy. Demo sitedir.</p>
+  <p>Ankara, Türkiye</p>
+</footer>
+</body>
+</html>
