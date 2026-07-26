@@ -4,85 +4,87 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Demo Galerisi — MK Software</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--navy:#0d1f3c;--gold:#c0a050;--cream:#f5f6f8;--border:#e4e8ee;--text:#1a2a3a;--text2:#6a7a8a}
-body{font-family:'Inter',sans-serif;background:#fff;color:var(--text)}
+:root{
+  --bg:#060608;--bg-elevated:#0d0d16;--accent:#7c8fff;--accent2:#a78bfa;
+  --text:#f0f0f5;--text-dim:#9a9ab0;--text-dimmer:#5a5a70;--border:#1c1c28;
+}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text)}
 a{text-decoration:none;color:inherit}
+.font-mono{font-family:'JetBrains Mono',monospace}
+.font-display{font-family:'Space Grotesk',sans-serif}
+.grad-text{background:linear-gradient(135deg,#7c8fff,#a78bfa,#7c8fff);-webkit-background-clip:text;background-clip:text;color:transparent}
 
 /* TOP BAR */
-.top-bar{background:var(--gold);padding:10px 5%;text-align:center}
-.top-bar p{font-size:.75rem;color:var(--navy);font-weight:600;letter-spacing:.5px}
-.top-bar a{color:var(--navy);border-bottom:1px solid var(--navy)}
+.top-bar{background:linear-gradient(135deg,#7c8fff,#a78bfa);padding:10px 5%;text-align:center}
+.top-bar p{font-size:.78rem;color:#060608;font-weight:600}
+.top-bar a{color:#060608;text-decoration:underline}
 
 /* NAV */
-nav{background:var(--navy);padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.nav-logo{display:flex;align-items:center;gap:12px}
-.nav-logo-circle{width:36px;height:36px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--navy);font-size:.8rem;flex-shrink:0}
-.nav-brand{color:#fff;font-size:.9rem;font-weight:600;letter-spacing:1px}
-.nav-sub{font-size:.55rem;color:rgba(255,255,255,.4);letter-spacing:2px;text-transform:uppercase;display:block;margin-top:-2px}
-.nav-back{color:rgba(255,255,255,.55);font-size:.78rem;transition:color .2s}
-.nav-back:hover{color:#fff}
-.nav-cta{background:var(--gold);color:var(--navy);padding:9px 22px;font-size:.78rem;font-weight:700;letter-spacing:.5px}
+nav{background:var(--bg);padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo img{width:36px;height:36px;border-radius:8px;object-fit:contain}
+.nav-brand{font-size:.88rem;font-weight:700;color:#fff}
+.nav-sub{font-size:.58rem;color:var(--text-dimmer);letter-spacing:1px;text-transform:uppercase;display:block;margin-top:-2px}
+.nav-back{color:var(--text-dim);font-size:.82rem}
+.nav-cta{background:linear-gradient(135deg,#7c8fff,#a78bfa);color:#060608;padding:9px 18px;font-size:.8rem;font-weight:700;border-radius:8px}
+.nav-desktop{display:flex;align-items:center;gap:1.5rem}
+@media(max-width:640px){.nav-back{display:none}}
 
 /* HERO */
-.hero{background:linear-gradient(135deg,var(--navy) 0%,#16305a 100%);padding:70px 5% 60px;text-align:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(192,160,80,.12);border:1px solid rgba(192,160,80,.25);padding:5px 14px;margin-bottom:1.5rem}
-.hero-badge span{font-size:.65rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase}
-.hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;color:#fff;margin-bottom:1rem;letter-spacing:-1px;line-height:1.1}
-.hero h1 em{color:var(--gold);font-style:normal}
-.hero p{color:rgba(255,255,255,.5);font-size:.92rem;max-width:540px;margin:0 auto 2.5rem;line-height:1.85;font-weight:300}
-.hero-stats{display:flex;justify-content:center;gap:4rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,.07);margin-top:2rem}
-.hstat strong{display:block;font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:#fff}
-.hstat span{font-size:.65rem;color:rgba(255,255,255,.3);letter-spacing:2px;text-transform:uppercase}
+.hero{padding:60px 5% 50px;text-align:center;position:relative;overflow:hidden}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(124,143,255,.25);padding:5px 14px;margin-bottom:1.5rem;border-radius:100px;background:rgba(124,143,255,.05)}
+.hero-badge span{font-size:.68rem;color:var(--accent);letter-spacing:1px}
+.hero h1{font-size:clamp(1.8rem,5vw,2.8rem);font-weight:700;margin-bottom:1rem;letter-spacing:-1px}
+.hero p{color:var(--text-dim);font-size:.9rem;max-width:480px;margin:0 auto 2rem;line-height:1.8}
+.hero-stats{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;padding-top:2rem;border-top:1px solid var(--border);margin-top:1.5rem}
+.hstat strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700}
+.hstat span{font-size:.62rem;color:var(--text-dimmer);letter-spacing:1px}
 
 /* FILTERS */
-.filter-wrap{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:64px;z-index:99}
+.filter-wrap{background:var(--bg);border-bottom:1px solid var(--border);position:sticky;top:64px;z-index:99}
 .filters{padding:0 5%;display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
 .filters::-webkit-scrollbar{display:none}
-.filter-btn{padding:16px 22px;font-size:.78rem;font-weight:500;color:var(--text2);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit}
-.filter-btn:hover{color:var(--text)}
-.filter-btn.active{color:var(--navy);border-bottom-color:var(--navy);font-weight:600}
+.filter-btn{padding:14px 18px;font-size:.78rem;color:var(--text-dim);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit}
+.filter-btn.active{color:#fff;border-bottom-color:var(--accent);font-weight:600}
 
 /* GALLERY */
-.gallery-wrap{padding:3rem 5%}
-.gallery-count{font-size:.78rem;color:var(--text2);margin-bottom:1.5rem}
-.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
+.gallery-wrap{padding:2rem 5% 3rem}
+.gallery-count{font-size:.78rem;color:var(--text-dimmer);margin-bottom:1.2rem}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem}
+@media(max-width:640px){.gallery{grid-template-columns:1fr}}
 
 /* CARD */
-.demo-card{border:1px solid var(--border);overflow:hidden;transition:box-shadow .2s,transform .2s;cursor:pointer;background:#fff}
-.demo-card:hover{box-shadow:0 12px 40px rgba(13,31,60,.1);transform:translateY(-3px)}
-.card-preview{height:220px;position:relative;overflow:hidden;background:#f8f9fb}
-.card-preview iframe{width:165%;height:165%;transform:scale(.606);transform-origin:top left;pointer-events:none;border:none}
-.card-overlay{position:absolute;inset:0;background:rgba(13,31,60,0);transition:background .2s;display:flex;align-items:center;justify-content:center}
-.demo-card:hover .card-overlay{background:rgba(13,31,60,.55)}
-.overlay-btn{opacity:0;background:#fff;color:var(--navy);padding:10px 22px;font-size:.78rem;font-weight:700;letter-spacing:.5px;transform:translateY(8px);transition:all .2s}
-.demo-card:hover .overlay-btn{opacity:1;transform:translateY(0)}
-.card-body{padding:1.25rem}
+.demo-card{border:1px solid var(--border);overflow:hidden;background:var(--bg-elevated);border-radius:10px;transition:border-color .2s,transform .2s}
+.demo-card:hover{border-color:rgba(124,143,255,.35);transform:translateY(-3px)}
+.card-preview{height:190px;position:relative;overflow:hidden;background:#0a0a12}
+.card-preview iframe{width:200%;height:200%;transform:scale(0.5);transform-origin:top left;pointer-events:none;border:none}
+.card-overlay{position:absolute;inset:0;background:rgba(6,6,8,0);transition:background .2s;display:flex;align-items:center;justify-content:center}
+.demo-card:hover .card-overlay{background:rgba(6,6,8,.6)}
+.overlay-btn{opacity:0;background:linear-gradient(135deg,#7c8fff,#a78bfa);color:#060608;padding:9px 20px;font-size:.76rem;font-weight:700;border-radius:8px;transition:opacity .2s}
+.demo-card:hover .overlay-btn{opacity:1}
+.card-body{padding:1.1rem}
 .card-tags{display:flex;gap:6px;margin-bottom:.6rem;flex-wrap:wrap}
-.tag{font-size:.62rem;font-weight:600;padding:3px 9px;letter-spacing:1px;text-transform:uppercase}
-.tag-sector{background:#f0f4f8;color:var(--navy)}
-.tag-template{background:rgba(192,160,80,.1);color:var(--gold)}
-.card-title{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:.25rem;letter-spacing:-.2px}
-.card-desc{font-size:.78rem;color:var(--text2);line-height:1.6;margin-bottom:1rem}
+.tag{font-size:.6rem;font-weight:600;padding:2px 8px;border-radius:4px}
+.tag-sector{background:rgba(124,143,255,.1);color:var(--accent)}
+.tag-template{background:rgba(167,139,250,.1);color:var(--accent2)}
+.card-title{font-size:.92rem;font-weight:700;color:#fff;margin-bottom:.25rem;font-family:'Space Grotesk',sans-serif}
+.card-desc{font-size:.76rem;color:var(--text-dim);line-height:1.6;margin-bottom:.9rem}
 .card-actions{display:flex;gap:8px}
-.btn-demo{flex:1;text-align:center;padding:9px;font-size:.72rem;font-weight:700;background:var(--navy);color:#fff;transition:background .2s;letter-spacing:.5px}
-.btn-demo:hover{background:#16305a}
-.btn-teklif{flex:1;text-align:center;padding:9px;font-size:.72rem;font-weight:600;border:1.5px solid var(--gold);color:var(--gold);transition:all .2s;letter-spacing:.5px}
-.btn-teklif:hover{background:var(--gold);color:var(--navy)}
+.btn-demo{flex:1;text-align:center;padding:9px;font-size:.72rem;font-weight:700;background:var(--bg);border:1px solid var(--border);color:#fff;border-radius:6px}
+.btn-teklif{flex:1;text-align:center;padding:9px;font-size:.72rem;font-weight:700;background:linear-gradient(135deg,#7c8fff,#a78bfa);color:#060608;border-radius:6px}
 
 /* CTA */
-.cta-section{background:var(--navy);padding:70px 5%;text-align:center;margin:0 5% 60px}
-.cta-section h2{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:#fff;margin-bottom:.5rem;letter-spacing:-.5px}
-.cta-section p{color:rgba(255,255,255,.45);font-size:.88rem;margin-bottom:2rem;font-weight:300}
-.cta-btn{background:var(--gold);color:var(--navy);padding:14px 32px;font-size:.82rem;font-weight:700;letter-spacing:1px;display:inline-block}
+.cta-section{background:var(--bg-elevated);padding:60px 5%;text-align:center;margin:0 5% 60px;border-radius:16px;border:1px solid var(--border)}
+.cta-section h2{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:700;margin-bottom:.5rem}
+.cta-section p{color:var(--text-dim);font-size:.86rem;margin-bottom:1.8rem}
+.cta-btn{background:linear-gradient(135deg,#7c8fff,#a78bfa);color:#060608;padding:13px 28px;font-size:.82rem;font-weight:700;display:inline-block;border-radius:8px}
 
-/* FOOTER */
-footer{background:#0a1422;padding:2rem 5%;text-align:center}
-footer p{font-size:.75rem;color:rgba(255,255,255,.25)}
-footer a{color:var(--gold)}
+footer{padding:2rem 5%;text-align:center;border-top:1px solid var(--border)}
+footer p{font-size:.75rem;color:var(--text-dimmer)}
+footer a{color:var(--accent)}
 </style>
 </head>
 <body>
@@ -93,37 +95,39 @@ footer a{color:var(--gold)}
 
 <nav>
   <div class="nav-logo">
-    <div class="nav-logo-circle">MK</div>
+    <img src="https://mksoftware.com.tr/logo.png" alt="MK Software">
     <div>
-      <span class="nav-brand">MK SOFTWARE</span>
+      <span class="nav-brand">MK Software</span>
       <span class="nav-sub">Demo Galerisi</span>
     </div>
   </div>
-  <a href="https://mksoftware.com.tr" class="nav-back">← Ana Siteye Dön</a>
-  <a href="https://mksoftware.com.tr/#teklif" class="nav-cta">Teklif Al</a>
+  <div class="nav-desktop">
+    <a href="https://mksoftware.com.tr" class="nav-back">← Ana Site</a>
+    <a href="https://mksoftware.com.tr/#teklif" class="nav-cta">Teklif Al</a>
+  </div>
 </nav>
 
 <section class="hero">
   <div class="hero-badge"><span>✦ Tıklanabilir Demo Siteler</span></div>
-  <h1>İşletmeniz için<br><em>hazır tasarımlar</em></h1>
-  <p>Beğendiğiniz şablonu seçin, sektörünüze ve markanıza özelleştirelim. Her demo gerçek bir web sitesidir — tıklayıp inceleyebilirsiniz.</p>
+  <h1>İşletmeniz için <span class="grad-text">hazır tasarımlar</span></h1>
+  <p>Beğendiğiniz şablonu seçin, sektörünüze ve markanıza özelleştirelim. Her demo gerçek bir web sitesidir.</p>
   <div class="hero-stats">
-    <div class="hstat"><strong>20</strong><span>Demo Site</span></div>
-    <div class="hstat"><strong>5</strong><span>Farklı Şablon</span></div>
-    <div class="hstat"><strong>7</strong><span>Sektör</span></div>
+    <div class="hstat"><strong>20</strong><span>DEMO SİTE</span></div>
+    <div class="hstat"><strong>5</strong><span>ŞABLON</span></div>
+    <div class="hstat"><strong>7</strong><span>SEKTÖR</span></div>
   </div>
 </section>
 
 <div class="filter-wrap">
-  <div class="filters">
-    <button class="filter-btn active" onclick="filter(this,'hepsi')">Hepsi (20)</button>
-    <button class="filter-btn" onclick="filter(this,'restoran')">Restoran & Kafe</button>
-    <button class="filter-btn" onclick="filter(this,'eticaret')">E-Ticaret</button>
-    <button class="filter-btn" onclick="filter(this,'saglik')">Sağlık & Klinik</button>
-    <button class="filter-btn" onclick="filter(this,'kurumsal')">Kurumsal</button>
-    <button class="filter-btn" onclick="filter(this,'guzellik')">Güzellik</button>
-    <button class="filter-btn" onclick="filter(this,'hukuk')">Hukuk</button>
-    <button class="filter-btn" onclick="filter(this,'saas')">SaaS & Tech</button>
+  <div class="filters" id="filters">
+    <button class="filter-btn active" data-f="hepsi">Hepsi (20)</button>
+    <button class="filter-btn" data-f="restoran">Restoran & Kafe</button>
+    <button class="filter-btn" data-f="eticaret">E-Ticaret</button>
+    <button class="filter-btn" data-f="saglik">Sağlık</button>
+    <button class="filter-btn" data-f="kurumsal">Kurumsal</button>
+    <button class="filter-btn" data-f="guzellik">Güzellik</button>
+    <button class="filter-btn" data-f="hukuk">Hukuk</button>
+    <button class="filter-btn" data-f="saas">SaaS & Tech</button>
   </div>
 </div>
 
@@ -139,32 +143,31 @@ footer a{color:var(--gold)}
 </div>
 
 <footer>
-  <p>Tüm demolar örnek amaçlıdır, gerçek bir işletmeye ait değildir.<br>
-  Kendi sitenizi yaptırmak için <a href="https://mksoftware.com.tr/#teklif">teklif alın</a> · <a href="https://mksoftware.com.tr">mksoftware.com.tr</a></p>
+  <p>Tüm demolar örnek amaçlıdır. <a href="https://mksoftware.com.tr">mksoftware.com.tr</a></p>
 </footer>
 
 <script>
 var demos = [
-  {id:'restoran-1',title:'Lezzet Durağı',desc:'Sıcak tonlarda, fotoğraf ağırlıklı fine dining restoran sitesi.',sector:'restoran',template:'Şablon A — Zarif',file:'demos/restoran-1.html'},
-  {id:'restoran-2',title:'Café Noir',desc:'Koyu premium tema, kahvehane & özel kafe için ideal.',sector:'restoran',template:'Şablon B — Koyu',file:'demos/restoran-2.html'},
-  {id:'restoran-3',title:'Green Bowl',desc:'Canlı, enerjik; sağlıklı beslenme & salata bar sitesi.',sector:'restoran',template:'Şablon C — Canlı',file:'demos/restoran-3.html'},
-  {id:'eticaret-1',title:'ModaShop',desc:'Güçlü e-ticaret deneyimi; moda & giyim mağazası.',sector:'eticaret',template:'Şablon E — E-Ticaret',file:'demos/eticaret-1.html'},
-  {id:'eticaret-2',title:'TeknoMarket',desc:'Koyu premium tema; elektronik & teknoloji mağazası.',sector:'eticaret',template:'Şablon B — Koyu',file:'demos/eticaret-2.html'},
-  {id:'eticaret-3',title:'Doğal Dükkan',desc:'Organik & doğal ürünler; sağlıklı yaşam mağazası.',sector:'eticaret',template:'Şablon E — E-Ticaret',file:'demos/eticaret-3.html'},
-  {id:'saglik-1',title:'Vita Klinik',desc:'Zarif, güven veren; genel sağlık kliniği sitesi.',sector:'saglik',template:'Şablon D — Minimalist',file:'demos/saglik-1.html'},
-  {id:'saglik-2',title:'DentPlus',desc:'Modern mavi tema; diş kliniği & estetik merkezi.',sector:'saglik',template:'Şablon B — Koyu',file:'demos/saglik-2.html'},
-  {id:'saglik-3',title:'PsyCore',desc:'Sakin, minimal; psikoloji & terapi merkezi.',sector:'saglik',template:'Şablon D — Minimalist',file:'demos/saglik-3.html'},
-  {id:'kurumsal-1',title:'İnşa Grup',desc:'Güçlü, endüstriyel; inşaat & yapı şirketi sitesi.',sector:'kurumsal',template:'Şablon B — Koyu',file:'demos/kurumsal-1.html'},
-  {id:'kurumsal-2',title:'Alfa Makina',desc:'Kurumsal, ağır sanayi; makina & üretim firması.',sector:'kurumsal',template:'Şablon B — Koyu',file:'demos/kurumsal-2.html'},
-  {id:'kurumsal-3',title:'ProLojistik',desc:'Zarif, minimal; lojistik & taşımacılık şirketi.',sector:'kurumsal',template:'Şablon D — Minimalist',file:'demos/kurumsal-3.html'},
-  {id:'guzellik-1',title:'Maison Beauty',desc:'Lüks, zarif; güzellik merkezi & spa sitesi.',sector:'guzellik',template:'Şablon D — Minimalist',file:'demos/guzellik-1.html'},
-  {id:'guzellik-2',title:'StudioCut',desc:'Premium koyu; erkek kuaförü & barber shop.',sector:'guzellik',template:'Şablon B — Koyu',file:'demos/guzellik-2.html'},
-  {id:'guzellik-3',title:'Glow Studio',desc:'Pembe, enerjik; nail art & güzellik stüdyosu.',sector:'guzellik',template:'Şablon C — Canlı',file:'demos/guzellik-3.html'},
-  {id:'hukuk-1',title:'Kaya Hukuk',desc:'Zarif lacivert; avukatlık bürosu & hukuk danışmanlığı.',sector:'hukuk',template:'Şablon D — Minimalist',file:'demos/hukuk-1.html'},
-  {id:'hukuk-2',title:'Lex Partners',desc:'Koyu altın; uluslararası hukuk & danışmanlık firması.',sector:'hukuk',template:'Şablon B — Koyu',file:'demos/hukuk-2.html'},
-  {id:'saas-1',title:'TaskFlow',desc:'Modern mor; proje yönetimi SaaS ürün sayfası.',sector:'saas',template:'Şablon C — Canlı',file:'demos/saas-1.html'},
-  {id:'saas-2',title:'DataPulse',desc:'Koyu mor; veri analitiği & dashboard platformu.',sector:'saas',template:'Şablon B — Koyu',file:'demos/saas-2.html'},
-  {id:'saas-3',title:'FormEasy',desc:'Teal rengi; form & anket SaaS çözümü.',sector:'saas',template:'Şablon C — Canlı',file:'demos/saas-3.html'},
+  {id:'restoran-1',title:'Lezzet Durağı',desc:'Zarif, fotoğraf ağırlıklı fine dining restoran sitesi.',sector:'restoran',template:'Zarif',file:'demos/restoran-1.html'},
+  {id:'restoran-2',title:'Café Noir',desc:'Koyu premium tema, özel kafe için ideal.',sector:'restoran',template:'Koyu',file:'demos/restoran-2.html'},
+  {id:'restoran-3',title:'Green Bowl',desc:'Canlı, sağlıklı beslenme & salata bar sitesi.',sector:'restoran',template:'Canlı',file:'demos/restoran-3.html'},
+  {id:'eticaret-1',title:'ModaShop',desc:'Güçlü e-ticaret deneyimi, moda mağazası.',sector:'eticaret',template:'E-Ticaret',file:'demos/eticaret-1.html'},
+  {id:'eticaret-2',title:'TeknoMarket',desc:'Koyu premium tema, elektronik mağazası.',sector:'eticaret',template:'Koyu',file:'demos/eticaret-2.html'},
+  {id:'eticaret-3',title:'Doğal Dükkan',desc:'Organik ürünler, sağlıklı yaşam mağazası.',sector:'eticaret',template:'E-Ticaret',file:'demos/eticaret-3.html'},
+  {id:'saglik-1',title:'Vita Klinik',desc:'Zarif, güven veren sağlık kliniği sitesi.',sector:'saglik',template:'Minimal',file:'demos/saglik-1.html'},
+  {id:'saglik-2',title:'DentPlus',desc:'Modern mavi tema, diş kliniği sitesi.',sector:'saglik',template:'Koyu',file:'demos/saglik-2.html'},
+  {id:'saglik-3',title:'PsyCore',desc:'Sakin, minimal psikoloji merkezi.',sector:'saglik',template:'Minimal',file:'demos/saglik-3.html'},
+  {id:'kurumsal-1',title:'İnşa Grup',desc:'Güçlü, endüstriyel inşaat şirketi sitesi.',sector:'kurumsal',template:'Koyu',file:'demos/kurumsal-1.html'},
+  {id:'kurumsal-2',title:'Alfa Makina',desc:'Ağır sanayi, makina üretim firması.',sector:'kurumsal',template:'Koyu',file:'demos/kurumsal-2.html'},
+  {id:'kurumsal-3',title:'ProLojistik',desc:'Zarif, minimal lojistik şirketi.',sector:'kurumsal',template:'Minimal',file:'demos/kurumsal-3.html'},
+  {id:'guzellik-1',title:'Maison Beauty',desc:'Lüks güzellik merkezi & spa sitesi.',sector:'guzellik',template:'Minimal',file:'demos/guzellik-1.html'},
+  {id:'guzellik-2',title:'StudioCut',desc:'Premium koyu, erkek kuaförü.',sector:'guzellik',template:'Koyu',file:'demos/guzellik-2.html'},
+  {id:'guzellik-3',title:'Glow Studio',desc:'Pembe, enerjik nail art stüdyosu.',sector:'guzellik',template:'Canlı',file:'demos/guzellik-3.html'},
+  {id:'hukuk-1',title:'Kaya Hukuk',desc:'Zarif lacivert, avukatlık bürosu.',sector:'hukuk',template:'Minimal',file:'demos/hukuk-1.html'},
+  {id:'hukuk-2',title:'Lex Partners',desc:'Koyu altın, hukuk danışmanlığı.',sector:'hukuk',template:'Koyu',file:'demos/hukuk-2.html'},
+  {id:'saas-1',title:'TaskFlow',desc:'Modern mor, proje yönetimi SaaS.',sector:'saas',template:'Canlı',file:'demos/saas-1.html'},
+  {id:'saas-2',title:'DataPulse',desc:'Koyu mor, veri analitiği platformu.',sector:'saas',template:'Koyu',file:'demos/saas-2.html'},
+  {id:'saas-3',title:'FormEasy',desc:'Teal rengi, form & anket çözümü.',sector:'saas',template:'Canlı',file:'demos/saas-3.html'},
 ];
 
 var gallery = document.getElementById('gallery');
@@ -188,18 +191,20 @@ function render(sector) {
         '<div class="card-desc">' + d.desc + '</div>' +
         '<div class="card-actions">' +
           '<a href="' + d.file + '" target="_blank" class="btn-demo">Demoyu Gör</a>' +
-          '<a href="https://mksoftware.com.tr/#teklif" class="btn-teklif">Bu Şablonla Teklif Al</a>' +
+          '<a href="https://mksoftware.com.tr/#teklif" class="btn-teklif">Teklif Al</a>' +
         '</div>' +
       '</div>';
     gallery.appendChild(card);
   });
 }
 
-function filter(btn, sector) {
-  document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active')});
-  btn.classList.add('active');
-  render(sector);
-}
+document.getElementById('filters').addEventListener('click', function(e){
+  if(e.target.classList.contains('filter-btn')){
+    document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active')});
+    e.target.classList.add('active');
+    render(e.target.dataset.f);
+  }
+});
 
 render('hepsi');
 </script>
