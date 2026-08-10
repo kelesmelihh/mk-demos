@@ -112,15 +112,15 @@ footer a{color:var(--accent)}
   <h1>İşletmeniz için <span class="grad-text">hazır tasarımlar</span></h1>
   <p>Beğendiğiniz şablonu seçin, sektörünüze ve markanıza özelleştirelim. Her demo gerçek bir web sitesidir.</p>
   <div class="hero-stats">
-    <div class="hstat"><strong>20</strong><span>DEMO SİTE</span></div>
-    <div class="hstat"><strong>5</strong><span>ŞABLON</span></div>
-    <div class="hstat"><strong>7</strong><span>SEKTÖR</span></div>
+    <div class="hstat"><strong>40</strong><span>DEMO SİTE</span></div>
+    <div class="hstat"><strong>13</strong><span>ŞABLON</span></div>
+    <div class="hstat"><strong>14</strong><span>SEKTÖR</span></div>
   </div>
 </section>
 
 <div class="filter-wrap">
   <div class="filters" id="filters">
-    <button class="filter-btn active" data-f="hepsi">Hepsi (20)</button>
+    <button class="filter-btn active" data-f="hepsi">Hepsi (40)</button>
     <button class="filter-btn" data-f="restoran">Restoran & Kafe</button>
     <button class="filter-btn" data-f="eticaret">E-Ticaret</button>
     <button class="filter-btn" data-f="saglik">Sağlık</button>
@@ -128,11 +128,18 @@ footer a{color:var(--accent)}
     <button class="filter-btn" data-f="guzellik">Güzellik</button>
     <button class="filter-btn" data-f="hukuk">Hukuk</button>
     <button class="filter-btn" data-f="saas">SaaS & Tech</button>
+    <button class="filter-btn" data-f="emlak">Emlak</button>
+    <button class="filter-btn" data-f="egitim">Eğitim</button>
+    <button class="filter-btn" data-f="fitness">Fitness</button>
+    <button class="filter-btn" data-f="otel">Otel & Turizm</button>
+    <button class="filter-btn" data-f="etkinlik">Etkinlik & Düğün</button>
+    <button class="filter-btn" data-f="mimarlik">Mimarlık</button>
+    <button class="filter-btn" data-f="otomotiv">Otomotiv</button>
   </div>
 </div>
 
 <div class="gallery-wrap">
-  <div class="gallery-count" id="count">20 demo gösteriliyor</div>
+  <div class="gallery-count" id="count">40 demo gösteriliyor</div>
   <div class="gallery" id="gallery"></div>
 </div>
 
@@ -168,6 +175,26 @@ var demos = [
   {id:'saas-1',title:'TaskFlow',desc:'Modern mor, proje yönetimi SaaS.',sector:'saas',template:'Canlı',file:'demos/saas-1.html'},
   {id:'saas-2',title:'DataPulse',desc:'Koyu mor, veri analitiği platformu.',sector:'saas',template:'Koyu',file:'demos/saas-2.html'},
   {id:'saas-3',title:'FormEasy',desc:'Teal rengi, form & anket çözümü.',sector:'saas',template:'Canlı',file:'demos/saas-3.html'},
+  {id:'emlak-1',title:'Zirve Emlak',desc:'Cesur diyagonal tasarım, prestijli gayrimenkul.',sector:'emlak',template:'Cesur',file:'demos/emlak-1.html'},
+  {id:'emlak-2',title:'Meşe Gayrimenkul',desc:'Editöryel dergi tarzı, butik emlak danışmanlığı.',sector:'emlak',template:'Editöryel',file:'demos/emlak-2.html'},
+  {id:'emlak-3',title:'Liman Emlak',desc:'Bento galeri düzeni, modern gayrimenkul.',sector:'emlak',template:'Modern',file:'demos/emlak-3.html'},
+  {id:'egitim-1',title:'Parlak Akademi',desc:'Dev tipografi, minimal online eğitim.',sector:'egitim',template:'Minimal',file:'demos/egitim-1.html'},
+  {id:'egitim-2',title:'Kodla Akademi',desc:'Yan menülü portal, yazılım eğitim platformu.',sector:'egitim',template:'Portal',file:'demos/egitim-2.html'},
+  {id:'egitim-3',title:'Ufuk Kurs Merkezi',desc:'Gradyan mesh, enerjik sınav hazırlık kursu.',sector:'egitim',template:'Enerjik',file:'demos/egitim-3.html'},
+  {id:'fitness-1',title:'Force Gym',desc:'Üyelik paketleri odaklı, neon spor salonu.',sector:'fitness',template:'Üyelik',file:'demos/fitness-1.html'},
+  {id:'fitness-2',title:'Iron Club',desc:'Neo-brütalist, ham ve sert ağırlık salonu.',sector:'fitness',template:'Ham',file:'demos/fitness-2.html'},
+  {id:'fitness-3',title:'Pulse Studio',desc:'Diyagonal koyu tema, fonksiyonel antrenman stüdyosu.',sector:'fitness',template:'Karanlık',file:'demos/fitness-3.html'},
+  {id:'otel-1',title:'Mavi Koy Resort',desc:'Editöryel lüks tatil köyü sitesi.',sector:'otel',template:'Lüks',file:'demos/otel-1.html'},
+  {id:'otel-2',title:'Palmiye Otel',desc:'Bento galeri, tropikal tatil köyü.',sector:'otel',template:'Tropikal',file:'demos/otel-2.html'},
+  {id:'otel-3',title:'Orman Evi',desc:'Dev tipografi, sade doğa oteli.',sector:'otel',template:'Sade',file:'demos/otel-3.html'},
+  {id:'etkinlik-1',title:'Solmaz Organizasyon',desc:'Yan menülü, zarif düğün & etkinlik ajansı.',sector:'etkinlik',template:'Zarif',file:'demos/etkinlik-1.html'},
+  {id:'etkinlik-2',title:'Beyaz Perde',desc:'Romantik gradyan, düğün planlama ajansı.',sector:'etkinlik',template:'Romantik',file:'demos/etkinlik-2.html'},
+  {id:'etkinlik-3',title:'Altın Davet',desc:'Paket odaklı, kurumsal etkinlik planlama.',sector:'etkinlik',template:'Paketler',file:'demos/etkinlik-3.html'},
+  {id:'mimarlik-1',title:'Beton Stüdyo',desc:'Neo-brütalist, cesur mimarlık ofisi.',sector:'mimarlik',template:'Brütalist',file:'demos/mimarlik-1.html'},
+  {id:'mimarlik-2',title:'Atölye Mimarlık',desc:'Diyagonal siyah-beyaz, minimal tasarım ofisi.',sector:'mimarlik',template:'Minimal',file:'demos/mimarlik-2.html'},
+  {id:'mimarlik-3',title:'Taş & Toprak Mimarlık',desc:'Editöryel dergi tarzı, sürdürülebilir mimarlık.',sector:'mimarlik',template:'Dergi',file:'demos/mimarlik-3.html'},
+  {id:'otomotiv-1',title:'Prestij Motors',desc:'Bento galeri, premium otomobil galerisi.',sector:'otomotiv',template:'Showroom',file:'demos/otomotiv-1.html'},
+  {id:'otomotiv-2',title:'Krom Oto Servis',desc:'Dev tipografi, minimal yetkili servis.',sector:'otomotiv',template:'Servis',file:'demos/otomotiv-2.html'},
 ];
 
 var gallery = document.getElementById('gallery');
