@@ -57,6 +57,14 @@ nav{padding:24px 6%;display:flex;justify-content:space-between;align-items:cente
 .gallery-band{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
 .gallery-band img{width:100%;height:280px;object-fit:cover}
 
+.faq-list{max-width:760px}
+.faq-item{border-top:1px solid var(--line);padding:1.3rem 0}
+.faq-item:last-child{border-bottom:1px solid var(--line)}
+.faq-item summary{cursor:pointer;font-weight:600;font-size:.9rem;list-style:none;display:flex;justify-content:space-between}
+.faq-item summary::after{content:'+';color:var(--teal);font-size:1.2rem}
+.faq-item[open] summary::after{content:'−'}
+.faq-item p{color:var(--dim);font-size:.83rem;line-height:1.75;margin-top:.8rem}
+
 .reviews{background:var(--sand);padding:90px 6%}
 .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;max-width:1100px;margin:3rem auto 0}
 .review-card{background:#fff;border-radius:14px;padding:1.8rem}
@@ -169,6 +177,19 @@ footer p{font-size:.78rem;color:var(--dim)}
     <div class="review-card"><div class="stars">★★★★★</div><p>"Manzara ve hizmet mükemmeldi, kesinlikle tekrar geleceğiz."</p><strong>— Deniz K.</strong></div>
     <div class="review-card"><div class="stars">★★★★★</div><p>"Oda çok temiz ve konforluydu, personel çok ilgiliydi."</p><strong>— Murat A.</strong></div>
     <div class="review-card"><div class="stars">★★★★★</div><p>"Balayı için mükemmel bir seçimdi, her şey harikaydı."</p><strong>— Elif & Can</strong></div>
+  </div>
+</section>
+
+<section class="section" id="sss">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Sıkça Sorulan Sorular</div>
+    <h2 class="serif">Merak Edilenler</h2>
+  </div>
+  <div class="faq-list">
+    <details class="faq-item"><summary>Evcil hayvan kabul ediyor musunuz?</summary><p>Belirli oda kategorilerinde küçük evcil hayvanlarınızla konaklayabilirsiniz, lütfen önceden bildirin.</p></details>
+    <details class="faq-item"><summary>Check-in / check-out saatleri nedir?</summary><p>Giriş saat 14:00, çıkış saat 12:00'dir. Erken giriş/geç çıkış müsaitliğe göre sağlanabilir.</p></details>
+    <details class="faq-item"><summary>Ücretsiz iptal yapabilir miyim?</summary><p>Giriş tarihinden 7 gün öncesine kadar ücretsiz iptal hakkınız bulunuyor.</p></details>
+    <details class="faq-item"><summary>Havalimanı transferi sağlıyor musunuz?</summary><p>Evet, ek ücretle Bodrum Milas Havalimanı'ndan özel transfer düzenliyoruz.</p></details>
   </div>
 </section>
 

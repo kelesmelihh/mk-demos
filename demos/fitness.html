@@ -60,6 +60,14 @@ tr:hover td{background:rgba(212,255,63,.05)}
 .class-card h3{font-family:'Archivo Black',sans-serif;font-size:1.1rem;text-transform:uppercase;margin-bottom:.6rem}
 .class-card p{color:var(--dim);font-size:.85rem;line-height:1.7}
 
+.faq-list{max-width:760px}
+.faq-item{border-top:2px solid var(--line);padding:1.3rem 0}
+.faq-item:last-child{border-bottom:2px solid var(--line)}
+.faq-item summary{cursor:pointer;font-weight:800;font-size:.9rem;text-transform:uppercase;list-style:none;display:flex;justify-content:space-between}
+.faq-item summary::after{content:'+';color:var(--lime);font-size:1.2rem}
+.faq-item[open] summary::after{content:'−'}
+.faq-item p{color:var(--dim);font-size:.83rem;line-height:1.75;margin-top:.8rem;text-transform:none}
+
 .pricing{background:var(--paper);padding:90px 6%}
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;max-width:1050px;margin:3rem auto 0}
 .plan{border:2px solid var(--line);padding:2.4rem 2rem;text-align:center}
@@ -152,6 +160,27 @@ footer p{font-size:.78rem;color:var(--dim)}
     <div class="class-card"><div class="ic">🧘</div><h3>Yoga & Pilates</h3><p>Esneklik, denge ve zihinsel toparlanma.</p></div>
     <div class="class-card"><div class="ic">🚴</div><h3>Spin</h3><p>Yüksek enerjili grup bisiklet dersleri.</p></div>
     <div class="class-card"><div class="ic">🏋️</div><h3>Güç Antrenmanı</h3><p>Serbest ağırlık ve makine antrenmanları.</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Üyelerimiz</div>
+    <h2 class="disp">Dönüşüm Hikayeleri</h2>
+  </div>
+  <div class="classes-grid">
+    <div class="class-card"><p style="color:var(--dim);font-size:.9rem;line-height:1.8;font-style:italic">"6 ayda 12 kilo verdim, antrenörlerim her adımda yanımdaydı."</p><h3 style="margin-top:1.2rem;font-size:.95rem">— Barış K.</h3></div>
+    <div class="class-card"><p style="color:var(--dim);font-size:.9rem;line-height:1.8;font-style:italic">"Crossfit dersleri hayatımı değiştirdi, artık maraton koşuyorum."</p><h3 style="margin-top:1.2rem;font-size:.95rem">— Gizem T.</h3></div>
+    <div class="class-card"><p style="color:var(--dim);font-size:.9rem;line-height:1.8;font-style:italic">"7/24 açık olması iş programıma çok uygun, hiç bahanem kalmadı."</p><h3 style="margin-top:1.2rem;font-size:.95rem">— Emre S.</h3></div>
+  </div>
+</section>
+
+<section class="section" id="sss">
+  <div class="sec-head"><div class="sec-eyebrow">SSS</div><h2 class="disp">Sıkça Sorulan Sorular</h2></div>
+  <div class="faq-list">
+    <details class="faq-item"><summary>Üyeliği dondurabilir miyim?</summary><p>Evet, sağlık raporu ile yıllık üyeliklerde 1 aya kadar dondurma hakkınız var.</p></details>
+    <details class="faq-item"><summary>Kişisel antrenör seçebilir miyim?</summary><p>Pro ve Elite paketlerde antrenörünüzü tercihinize göre atayabiliyoruz.</p></details>
+    <details class="faq-item"><summary>Deneme dersi var mı?</summary><p>Evet, ilk ziyaretinizde istediğiniz bir derse ücretsiz katılabilirsiniz.</p></details>
   </div>
 </section>
 

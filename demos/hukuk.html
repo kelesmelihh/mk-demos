@@ -54,6 +54,19 @@ nav{padding:26px 6%;display:flex;justify-content:space-between;align-items:cente
 .partner-card h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;margin-bottom:.3rem}
 .partner-card span{font-size:.78rem;color:var(--gold)}
 
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
+.testi-card{background:var(--navy);padding:2rem}
+.testi-card p{color:#c5c9d4;font-size:.85rem;line-height:1.85;font-style:italic;margin-bottom:1rem}
+.testi-card strong{font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:.95rem}
+
+.faq-list{max-width:800px}
+.faq-item{border-top:1px solid var(--line);padding:1.4rem 0}
+.faq-item:last-child{border-bottom:1px solid var(--line)}
+.faq-item summary{cursor:pointer;font-weight:600;font-size:.92rem;list-style:none;display:flex;justify-content:space-between;color:#e8e6df}
+.faq-item summary::after{content:'+';color:var(--gold);font-size:1.2rem}
+.faq-item[open] summary::after{content:'−'}
+.faq-item p{color:var(--dim);font-size:.85rem;line-height:1.8;margin-top:.9rem}
+
 .process{padding:90px 6%;max-width:1000px;margin:0 auto}
 .pflow{display:flex;flex-direction:column;margin-top:3rem}
 .pstep{display:grid;grid-template-columns:80px 1fr;gap:2rem;padding:2rem 0;border-top:1px solid var(--line)}
@@ -74,6 +87,7 @@ footer p{font-size:.78rem;color:var(--dim)}
 @media(max-width:900px){
   .areas-grid{grid-template-columns:1fr 1fr}
   .partners-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
 }
 @media(max-width:768px){
   .nav-links,.nav-cta{display:none}
@@ -148,6 +162,30 @@ footer p{font-size:.78rem;color:var(--dim)}
         <span>Ortak — Uyuşmazlık Çözümü</span>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="practice-areas">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Müvekkil Görüşleri</div>
+    <h2 class="serif">Bize Güvenenler</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card"><p>"Şirket birleşme sürecimizde titiz ve şeffaf bir yaklaşımla yanımızda oldular."</p><strong>— X Holding CEO'su</strong></div>
+    <div class="testi-card"><p>"İş hukuku davamda net bir strateji sundular, sonuç beklentimin üzerindeydi."</p><strong>— Bir Kurumsal Müvekkil</strong></div>
+    <div class="testi-card"><p>"Gayrimenkul uyuşmazlığımızı hızlı ve profesyonelce çözdüler."</p><strong>— Bir Bireysel Müvekkil</strong></div>
+  </div>
+</section>
+
+<section class="practice-areas" id="sss">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Sıkça Sorulan Sorular</div>
+    <h2 class="serif">Merak Edilenler</h2>
+  </div>
+  <div class="faq-list">
+    <details class="faq-item"><summary>İlk görüşme gerçekten ücretsiz mi?</summary><p>Evet, durumunuzu değerlendirdiğimiz ilk görüşme herhangi bir ücret gerektirmez.</p></details>
+    <details class="faq-item"><summary>Dava sürecinde ne sıklıkla bilgilendirilirim?</summary><p>Her önemli gelişmede sizinle iletişime geçer, düzenli durum raporları sunarız.</p></details>
+    <details class="faq-item"><summary>Şehir dışından da hizmet alabilir miyim?</summary><p>Evet, çoğu süreci online görüşme ve dijital belge paylaşımıyla yürütebiliyoruz.</p></details>
   </div>
 </section>
 

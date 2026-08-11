@@ -60,6 +60,20 @@ nav{padding:20px 6%;display:flex;justify-content:space-between;align-items:cente
 .doc-card h3{font-size:1rem;font-weight:700;margin-bottom:.3rem}
 .doc-card span{font-size:.8rem;color:var(--teal);font-weight:600}
 
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.testi-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:1.8rem}
+.testi-card .stars{color:var(--teal);margin-bottom:.8rem}
+.testi-card p{color:var(--dim);font-size:.85rem;line-height:1.75;font-style:italic;margin-bottom:.8rem}
+.testi-card strong{font-size:.85rem;font-weight:700}
+
+.faq-list{max-width:760px}
+.faq-item{border-top:1px solid var(--line);padding:1.3rem 0}
+.faq-item:last-child{border-bottom:1px solid var(--line)}
+.faq-item summary{cursor:pointer;font-weight:700;font-size:.9rem;list-style:none;display:flex;justify-content:space-between}
+.faq-item summary::after{content:'+';color:var(--teal);font-size:1.2rem}
+.faq-item[open] summary::after{content:'−'}
+.faq-item p{color:var(--dim);font-size:.83rem;line-height:1.75;margin-top:.8rem}
+
 .process{background:#fff;padding:80px 6%}
 .process-inner{max-width:1100px;margin:0 auto}
 .process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3rem}
@@ -85,6 +99,7 @@ footer p{font-size:.78rem;color:var(--dim)}
   .services-grid{grid-template-columns:1fr 1fr}
   .doctors{grid-template-columns:1fr}
   .process-steps{grid-template-columns:1fr 1fr}
+  .testi-grid{grid-template-columns:1fr}
 }
 @media(max-width:768px){
   .nav-links,.nav-cta{display:none}
@@ -164,6 +179,28 @@ footer p{font-size:.78rem;color:var(--dim)}
       <h3>Dt. Zeynep Arslan</h3>
       <span>Pedodonti</span>
     </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Hasta Yorumları</div>
+    <h2>Bizi Tercih Edenler</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card"><div class="stars">★★★★★</div><p>"İmplant tedavim çok konforlu geçti, hiç ağrı hissetmedim."</p><strong>— Fatma S.</strong></div>
+    <div class="testi-card"><div class="stars">★★★★★</div><p>"Çocuğum artık dişçiden korkmuyor, Dt. Zeynep hanıma çok teşekkürler."</p><strong>— Ahmet Y.</strong></div>
+    <div class="testi-card"><div class="stars">★★★★★</div><p>"Gülüş tasarımı sonrası özgüvenim tamamen değişti."</p><strong>— Selin K.</strong></div>
+  </div>
+</section>
+
+<section class="section" id="sss">
+  <div class="sec-head"><div class="sec-eyebrow">SSS</div><h2>Sıkça Sorulan Sorular</h2></div>
+  <div class="faq-list">
+    <details class="faq-item"><summary>Randevu almadan gelebilir miyim?</summary><p>Acil durumlar dışında randevu almanızı öneririz, bekleme sürenizi kısaltır.</p></details>
+    <details class="faq-item"><summary>SGK kapsamında tedavi yapıyor musunuz?</summary><p>Evet, SGK anlaşmalı olduğumuz için birçok tedavi SGK kapsamında yapılabilir.</p></details>
+    <details class="faq-item"><summary>Taksitli ödeme imkanı var mı?</summary><p>Anlaşmalı bankalar aracılığıyla 12 aya kadar taksit imkanı sunuyoruz.</p></details>
+    <details class="faq-item"><summary>İlk muayene ücretli mi?</summary><p>İlk muayene ve dijital röntgen değerlendirmesi ücretsizdir.</p></details>
   </div>
 </section>
 

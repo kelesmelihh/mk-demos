@@ -66,6 +66,20 @@ nav{padding:24px 6%;display:flex;justify-content:space-between;align-items:cente
 .calc-result .lbl{font-size:.7rem;color:var(--gold);margin-bottom:.4rem}
 .calc-result .val{font-family:'Fraunces',serif;font-size:1.8rem;font-weight:600}
 
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.testi-card{background:#fff;border-radius:16px;padding:1.8rem;box-shadow:0 8px 24px -12px rgba(0,0,0,.1)}
+.testi-card .stars{color:var(--gold);margin-bottom:.8rem}
+.testi-card p{color:var(--dim);font-size:.85rem;line-height:1.8;font-style:italic;margin-bottom:1rem}
+.testi-card strong{font-family:'Fraunces',serif;font-size:.9rem}
+
+.faq-list{max-width:760px}
+.faq-item{border-top:1px solid var(--line);padding:1.3rem 0}
+.faq-item:last-child{border-bottom:1px solid var(--line)}
+.faq-item summary{cursor:pointer;font-weight:600;font-size:.9rem;list-style:none;display:flex;justify-content:space-between}
+.faq-item summary::after{content:'+';color:var(--gold);font-size:1.2rem}
+.faq-item[open] summary::after{content:'−'}
+.faq-item p{color:var(--dim);font-size:.83rem;line-height:1.75;margin-top:.8rem}
+
 .agent{display:grid;grid-template-columns:.7fr 1.3fr;gap:3rem;align-items:center}
 .agent-img{aspect-ratio:1;border-radius:20px;overflow:hidden}
 .agent-img img{width:100%;height:100%;object-fit:cover}
@@ -82,6 +96,7 @@ footer p{font-size:.78rem;color:var(--dim)}
   .search-bar{grid-template-columns:1fr 1fr}
   .listings{grid-template-columns:1fr}
   .calc,.agent{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
 }
 @media(max-width:768px){
   .nav-links,.nav-cta{display:none}
@@ -205,6 +220,28 @@ function calc(){
       <p>15 yıllık gayrimenkul deneyimiyle, size en doğru yatırımı bulmak için buradayım. Boğaz hattı ve şehir merkezi projelerinde uzmanım.</p>
       <a href="#" class="btn-p" style="display:inline-block">Görüşme Ayarla</a>
     </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="sec-head">
+    <div><div class="sec-eyebrow">Müşteri Yorumları</div><h2 class="serif">Bize Güvenenler</h2></div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card"><div class="stars">★★★★★</div><p>"Ayşe hanım tüm süreçte çok şeffaftı, aradığımız evi 3 haftada bulduk."</p><strong>— Cem & Deniz T.</strong></div>
+    <div class="testi-card"><div class="stars">★★★★★</div><p>"Yatırım amaçlı aldığımız daire beklentimizin üzerinde değer kazandı."</p><strong>— Murat B.</strong></div>
+    <div class="testi-card"><div class="stars">★★★★★</div><p>"Tapu sürecinde yaşadığımız her soruya anında cevap aldık."</p><strong>— Zehra K.</strong></div>
+  </div>
+</section>
+
+<section class="section" id="sss">
+  <div class="sec-head">
+    <div><div class="sec-eyebrow">SSS</div><h2 class="serif">Sıkça Sorulan Sorular</h2></div>
+  </div>
+  <div class="faq-list">
+    <details class="faq-item"><summary>Yabancı uyruklu alıcılara hizmet veriyor musunuz?</summary><p>Evet, yabancı yatırımcılar için tapu ve izin süreçlerinde tam destek sağlıyoruz.</p></details>
+    <details class="faq-item"><summary>Ekspertiz raporu size mi ait?</summary><p>Her mülk için bağımsız bir ekspertiz kurumundan rapor alıyor, raporu sizinle paylaşıyoruz.</p></details>
+    <details class="faq-item"><summary>Komisyon oranınız nedir?</summary><p>Standart piyasa oranlarını uyguluyoruz, detaylar ilk görüşmede netleştirilir.</p></details>
   </div>
 </section>
 

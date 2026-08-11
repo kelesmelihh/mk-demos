@@ -68,6 +68,19 @@ nav{padding:22px 6%;display:flex;justify-content:space-between;align-items:cente
 .feat-card h3{font-size:1rem;font-weight:600;margin-bottom:.6rem}
 .feat-card p{font-size:.85rem;color:var(--dim);line-height:1.7}
 
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.testi-card{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:1.8rem}
+.testi-card p{color:var(--dim);font-size:.85rem;line-height:1.8;margin-bottom:1rem}
+.testi-card strong{font-family:'Space Grotesk',sans-serif;font-size:.85rem;color:var(--cyan)}
+
+.faq-list{max-width:760px}
+.faq-item{border-top:1px solid var(--line);padding:1.3rem 0}
+.faq-item:last-child{border-bottom:1px solid var(--line)}
+.faq-item summary{cursor:pointer;font-weight:600;font-size:.9rem;list-style:none;display:flex;justify-content:space-between}
+.faq-item summary::after{content:'+';color:var(--cyan);font-size:1.2rem}
+.faq-item[open] summary::after{content:'−'}
+.faq-item p{color:var(--dim);font-size:.83rem;line-height:1.75;margin-top:.8rem}
+
 .pricing{background:var(--bg2);padding:90px 6%}
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;max-width:1050px;margin:3rem auto 0}
 .plan{background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:2.4rem 2rem}
@@ -95,6 +108,7 @@ footer p{font-size:.78rem;color:var(--dim)}
   .dash-main{grid-template-columns:1fr 1fr}
   .dash-chart{grid-column:span 2}
   .feat-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
   .plans{grid-template-columns:1fr}
   .plan.feat{transform:none}
 }
@@ -169,6 +183,28 @@ footer p{font-size:.78rem;color:var(--dim)}
     <div class="feat-card"><div class="ic">👥</div><h3>Ekip İşbirliği</h3><p>Görev atama, yorum ve bildirimler tek yerde.</p></div>
     <div class="feat-card"><div class="ic">🔒</div><h3>Kurumsal Güvenlik</h3><p>SSO, rol bazlı erişim ve veri şifreleme.</p></div>
     <div class="feat-card"><div class="ic">📱</div><h3>Mobil Erişim</h3><p>iOS ve Android uygulamalarıyla her yerden yönetin.</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Müşterilerimiz</div>
+    <h2>Ekipler Akışım'a Güveniyor</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card"><p>"Manuel süreçlerimizin %70'ini otomatikleştirdik, ekibimiz artık asıl işine odaklanıyor."</p><strong>— Operasyon Direktörü</strong></div>
+    <div class="testi-card"><p>"Kurulumu 1 günden az sürdü, hemen sonuç almaya başladık."</p><strong>— Kurucu Ortak</strong></div>
+    <div class="testi-card"><p>"Entegrasyonlar sayesinde tüm araçlarımız artık tek panelde."</p><strong>— IT Yöneticisi</strong></div>
+  </div>
+</section>
+
+<section class="section" id="sss">
+  <div class="sec-head"><div class="sec-eyebrow">SSS</div><h2>Sıkça Sorulan Sorular</h2></div>
+  <div class="faq-list">
+    <details class="faq-item"><summary>Kredi kartı bilgisi gerekiyor mu?</summary><p>Hayır, 14 günlük ücretsiz deneme için kredi kartı bilgisi istemiyoruz.</p></details>
+    <details class="faq-item"><summary>Mevcut araçlarımla entegre olur mu?</summary><p>Evet, Slack, Google Workspace ve 50'den fazla popüler araçla doğrudan entegrasyon sunuyoruz.</p></details>
+    <details class="faq-item"><summary>Verilerim güvende mi?</summary><p>Tüm veriler şifrelenir, SOC 2 uyumlu altyapıda saklanır.</p></details>
+    <details class="faq-item"><summary>İstediğim zaman iptal edebilir miyim?</summary><p>Evet, taahhüt yok — istediğiniz zaman aboneliğinizi iptal edebilirsiniz.</p></details>
   </div>
 </section>
 

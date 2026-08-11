@@ -63,6 +63,20 @@ nav{padding:22px 6%;display:flex;justify-content:space-between;align-items:cente
 .chef .sec-eyebrow{color:#d9a066}
 .chef p{color:#c9c0b2;line-height:1.9;margin-bottom:1rem}
 
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.testi-card{background:#fff;border:1px solid var(--line);padding:2rem;border-radius:4px}
+.testi-card .stars{color:var(--ember);margin-bottom:1rem;font-size:.9rem}
+.testi-card p{color:var(--dim);font-size:.88rem;line-height:1.8;font-style:italic;margin-bottom:1rem}
+.testi-card strong{font-family:'Fraunces',serif;font-size:.95rem}
+
+.faq-list{max-width:800px;margin:0 auto}
+.faq-item{border-top:1px solid var(--line);padding:1.4rem 0}
+.faq-item:last-child{border-bottom:1px solid var(--line)}
+.faq-item summary{cursor:pointer;font-weight:600;font-size:.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.faq-item summary::after{content:'+';color:var(--ember);font-size:1.3rem}
+.faq-item[open] summary::after{content:'−'}
+.faq-item p{color:var(--dim);font-size:.85rem;line-height:1.8;margin-top:1rem}
+
 .reserve{background:var(--ember);color:#fff;padding:80px 6%;text-align:center}
 .reserve h2{font-size:clamp(1.8rem,3.4vw,2.4rem);margin-bottom:1rem}
 .reserve-form{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:800px;margin:2.5rem auto 0}
@@ -76,6 +90,7 @@ footer p{font-size:.78rem;color:var(--dim)}
   .hero{grid-template-columns:1fr}
   .menu-wrap{grid-template-columns:1fr;gap:2.5rem}
   .chef{grid-template-columns:1fr;padding:40px 30px}
+  .testi-grid{grid-template-columns:1fr}
 }
 @media(max-width:768px){
   .nav-links,.nav-cta{display:none}
@@ -165,6 +180,31 @@ footer p{font-size:.78rem;color:var(--dim)}
       <p>Köz, 2006'dan beri Ankara'da aynı ocakta, aynı sabırla pişiyor. Kullandığımız her malzeme yerel üreticilerden, her tarif kuşaklar boyunca aktarılmış.</p>
       <p>Amacımız hızlı değil, doğru pişirmek. Bu yüzden bazı yemeklerimiz saatler alıyor — ama tabağa geldiğinde farkı hissedeceksiniz.</p>
     </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Misafirlerimiz</div>
+    <h2 class="serif">Ne Diyorlar</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card"><div class="stars">★★★★★</div><p>"Etli ekmek ve külbastı inanılmazdı. Servis de çok samimiydi, tekrar geleceğiz."</p><strong>— Merve K.</strong></div>
+    <div class="testi-card"><div class="stars">★★★★★</div><p>"Ankara'da yediğim en iyi Anadolu mutfağı. Ali Nazik'i mutlaka deneyin."</p><strong>— Onur T.</strong></div>
+    <div class="testi-card"><div class="stars">★★★★★</div><p>"Doğum günü yemeğimiz için seçtik, hem lezzet hem atmosfer mükemmeldi."</p><strong>— Aslı & Kerem</strong></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0" id="sss">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Sıkça Sorulan Sorular</div>
+    <h2 class="serif">Merak Edilenler</h2>
+  </div>
+  <div class="faq-list">
+    <details class="faq-item"><summary>Rezervasyon olmadan gelebilir miyim?</summary><p>Hafta içi genellikle yer bulunuyor, ancak hafta sonları rezervasyon önemle tavsiye edilir.</p></details>
+    <details class="faq-item"><summary>Vejetaryen seçenekleriniz var mı?</summary><p>Evet, başlangıçlarımızın çoğu ve bazı ana yemeklerimiz vejetaryen dostudur.</p></details>
+    <details class="faq-item"><summary>Özel etkinlik için mekanı kiralayabilir miyiz?</summary><p>50 kişiye kadar özel etkinlikler için mekanımızı organize edebiliyoruz, bizimle iletişime geçin.</p></details>
+    <details class="faq-item"><summary>Otopark imkanı var mı?</summary><p>Restoranımızın hemen yanında ücretli vale hizmeti bulunmaktadır.</p></details>
   </div>
 </section>
 
