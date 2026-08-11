@@ -35,9 +35,12 @@ nav{padding:0 6%;height:70px;display:flex;align-items:center;justify-content:spa
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.4rem;padding:0 6% 100px;max-width:1300px;margin:0 auto}
 .card{background:var(--bg2);border:1px solid var(--border-soft);border-radius:16px;overflow:hidden;transition:all .3s cubic-bezier(.16,1,.3,1);cursor:pointer}
 .card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 16px 40px -12px rgba(61,123,255,.3)}
-.card-preview{height:180px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.card-preview .cap{position:relative;z-index:1;text-align:center;padding:0 20px}
-.card-preview .cap-title{font-family:'Fraunces',serif;font-size:1.3rem;color:#fff}
+.card-preview{height:190px;position:relative;overflow:hidden}
+.card-preview img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.card:hover .card-preview img{transform:scale(1.07)}
+.card-preview-overlay{position:absolute;inset:0}
+.card-preview .cap{position:absolute;bottom:14px;left:18px;right:18px;z-index:1}
+.card-preview .cap-title{font-family:'Fraunces',serif;font-size:1.25rem;color:#fff;font-weight:500}
 .card-body{padding:1.4rem}
 .card-tags{display:flex;gap:6px;margin-bottom:.8rem}
 .tag{font-size:.62rem;padding:3px 10px;border-radius:100px;font-family:'IBM Plex Mono',monospace;letter-spacing:.3px}
@@ -96,16 +99,16 @@ footer p{font-size:.75rem;color:var(--text-dimmer)}
 
 <script>
 const demos = [
-  {id:'restoran', title:'Köz', desc:'Anadolu ateş mutfağı — editöryel serif tasarım, gerçek menü ve rezervasyon formu.', style:'Editöryel', color:'#c1440e', file:'demos/restoran.html'},
-  {id:'eticaret', title:'Atelier Nr.7', desc:'Minimal moda e-ticaret — ürün gridi, sepet, bülten kaydı.', style:'Minimal', color:'#a8875f', file:'demos/eticaret.html'},
-  {id:'saglik', title:'Beyaz Gülüş', desc:'Diş kliniği — güven odaklı tasarım, doktor profilleri, randevu formu.', style:'Klinik', color:'#0e7c86', file:'demos/saglik.html'},
-  {id:'hukuk', title:'Erdem & Ortakları', desc:'Hukuk bürosu — lacivert/altın otoriter tasarım, ortak profilleri.', style:'Otoriter', color:'#a9862f', file:'demos/hukuk.html'},
-  {id:'saas', title:'Akışım', desc:'İş otomasyon SaaS — canlı CSS dashboard mockup, fiyat katmanları.', style:'Tech', color:'#8b5cf6', file:'demos/saas.html'},
-  {id:'emlak', title:'Zirve Gayrimenkul', desc:'Lüks emlak — ilan gridi, çalışan kredi hesaplayıcı, danışman profili.', style:'Lüks', color:'#c9a961', file:'demos/emlak.html'},
-  {id:'fitness', title:'Nova Fitness', desc:'Spor salonu — neo-brütalist tasarım, haftalık ders programı tablosu.', style:'Brütalist', color:'#d4ff3f', file:'demos/fitness.html'},
-  {id:'otel', title:'Liman Butik Otel', desc:'Bodrum resort — tam ekran hero, oda kategorileri, rezervasyon widget\'ı.', style:'Resort', color:'#1a5f5a', file:'demos/otel.html'},
-  {id:'etkinlik', title:'Beyaz Zambak', desc:'Düğün planlama — romantik pudra tonları, portföy galerisi, paketler.', style:'Romantik', color:'#a8615a', file:'demos/etkinlik.html'},
-  {id:'mimarlik', title:'Form & Zemin', desc:'Mimarlık atölyesi — beton/turuncu editöryel, numaralı proje indeksi.', style:'Endüstriyel', color:'#ff5a2e', file:'demos/mimarlik.html'},
+  {id:'restoran', title:'Köz', desc:'Anadolu ateş mutfağı — editöryel serif tasarım, gerçek menü ve rezervasyon formu.', style:'Editöryel', color:'#c1440e', file:'demos/restoran.html', img:'https://images.unsplash.com/photo-1663530761401-15eefb544889?auto=format&fit=crop&w=700&q=75'},
+  {id:'eticaret', title:'Atelier Nr.7', desc:'Minimal moda e-ticaret — ürün gridi, sepet, bülten kaydı.', style:'Minimal', color:'#a8875f', file:'demos/eticaret.html', img:'https://images.unsplash.com/photo-1613728455120-d00493b5e77e?auto=format&fit=crop&w=700&q=75'},
+  {id:'saglik', title:'Beyaz Gülüş', desc:'Diş kliniği — güven odaklı tasarım, doktor profilleri, randevu formu.', style:'Klinik', color:'#0e7c86', file:'demos/saglik.html', img:'https://images.unsplash.com/photo-1519494140681-8b17d830a3e9?auto=format&fit=crop&w=700&q=75'},
+  {id:'hukuk', title:'Erdem & Ortakları', desc:'Hukuk bürosu — lacivert/altın otoriter tasarım, ortak profilleri.', style:'Otoriter', color:'#a9862f', file:'demos/hukuk.html', img:'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=700&q=75'},
+  {id:'saas', title:'Akışım', desc:'İş otomasyon SaaS — canlı CSS dashboard mockup, fiyat katmanları.', style:'Tech', color:'#8b5cf6', file:'demos/saas.html', img:'https://images.unsplash.com/photo-1759752394755-1241472b589d?auto=format&fit=crop&w=700&q=75'},
+  {id:'emlak', title:'Zirve Gayrimenkul', desc:'Lüks emlak — ilan gridi, çalışan kredi hesaplayıcı, danışman profili.', style:'Lüks', color:'#c9a961', file:'demos/emlak.html', img:'https://images.unsplash.com/photo-1756435292384-1bf32eff7baf?auto=format&fit=crop&w=700&q=75'},
+  {id:'fitness', title:'Nova Fitness', desc:'Spor salonu — neo-brütalist tasarım, haftalık ders programı tablosu.', style:'Brütalist', color:'#d4ff3f', file:'demos/fitness.html', img:'https://images.unsplash.com/photo-1672344048213-76b6e77304bd?auto=format&fit=crop&w=700&q=75'},
+  {id:'otel', title:'Liman Butik Otel', desc:'Bodrum resort — tam ekran hero, oda kategorileri, rezervasyon widget\'ı.', style:'Resort', color:'#1a5f5a', file:'demos/otel.html', img:'https://images.unsplash.com/photo-1781255276587-2470a25ea4ba?auto=format&fit=crop&w=700&q=75'},
+  {id:'etkinlik', title:'Beyaz Zambak', desc:'Düğün planlama — romantik pudra tonları, portföy galerisi, paketler.', style:'Romantik', color:'#a8615a', file:'demos/etkinlik.html', img:'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=700&q=75'},
+  {id:'mimarlik', title:'Form & Zemin', desc:'Mimarlık atölyesi — beton/turuncu editöryel, numaralı proje indeksi.', style:'Endüstriyel', color:'#ff5a2e', file:'demos/mimarlik.html', img:'https://images.unsplash.com/photo-1761600577013-7fc9f5f03f66?auto=format&fit=crop&w=700&q=75'},
 ];
 
 const grid = document.getElementById('grid');
@@ -116,8 +119,10 @@ function render(filter) {
   count.textContent = filtered.length + ' demo gösteriliyor';
   grid.innerHTML = filtered.map(d => `
     <a class="card" href="${d.file}" target="_blank">
-      <div class="card-preview" style="background:linear-gradient(135deg, ${d.color}22, ${d.color}05)">
-        <div class="cap"><div class="cap-title" style="color:${d.color}">${d.title}</div></div>
+      <div class="card-preview">
+        <img src="${d.img}" alt="${d.title}" loading="lazy">
+        <div class="card-preview-overlay" style="background:linear-gradient(180deg, transparent 30%, ${d.color}dd 100%)"></div>
+        <div class="cap"><div class="cap-title">${d.title}</div></div>
       </div>
       <div class="card-body">
         <div class="card-tags">
