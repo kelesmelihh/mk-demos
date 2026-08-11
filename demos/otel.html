@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liman Butik Otel — Bodrum</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--teal:#1a5f5a;--sand:#e8dcc8;--paper:#fdfbf7;--ink:#1e2422;--dim:#6b756f;--line:rgba(0,0,0,.1)}
+body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink)}
+a{text-decoration:none;color:inherit}
+.serif{font-family:'Fraunces',serif}
+.demo-bar{background:var(--teal);color:#fff;font-size:.68rem;padding:8px 5%;display:flex;justify-content:space-between;align-items:center;font-weight:600}
+.demo-bar a{background:var(--ink);color:#fff;padding:4px 12px;font-weight:700}
+
+nav{padding:24px 6%;display:flex;justify-content:space-between;align-items:center;position:absolute;top:0;left:0;right:0;z-index:10}
+.logo{font-family:'Fraunces',serif;font-style:italic;font-size:1.4rem;color:#fff}
+.nav-links{display:flex;gap:2.2rem}
+.nav-links a{font-size:.82rem;color:#fff}
+.nav-cta{background:#fff;color:var(--teal);padding:11px 24px;font-size:.8rem;font-weight:600}
+.hamburger{display:none;background:none;border:none;flex-direction:column;gap:5px;cursor:pointer}
+.hamburger span{width:22px;height:2px;background:#fff}
+.mmenu{display:none}
+
+.hero{position:relative;height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.15) 40%,rgba(0,0,0,.5))}
+.hero-content{position:relative;z-index:1;color:#fff;max-width:700px;padding:0 6%}
+.hero-tag{font-size:.72rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:1.4rem;opacity:.9}
+.hero h1{font-size:clamp(2.6rem,6vw,4.5rem);font-style:italic;font-weight:500;line-height:1.1;margin-bottom:1.6rem}
+
+.booking-widget{background:#fff;border-radius:16px;padding:1.6rem;display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px;max-width:800px;margin:-45px auto 0;position:relative;z-index:5;box-shadow:0 30px 60px -20px rgba(0,0,0,.25)}
+.booking-widget input,.booking-widget select{padding:12px 14px;border:1px solid var(--line);border-radius:8px;font-size:.85rem;font-family:inherit;color:var(--ink)}
+.booking-widget button{background:var(--teal);color:#fff;border:none;border-radius:8px;padding:12px 28px;font-weight:600;font-size:.85rem;cursor:pointer}
+
+.section{padding:100px 6%;max-width:1300px;margin:0 auto}
+.sec-head{text-align:center;margin-bottom:3.5rem}
+.sec-eyebrow{font-size:.72rem;letter-spacing:2px;color:var(--teal);text-transform:uppercase;margin-bottom:1rem}
+.sec-head h2{font-family:'Fraunces',serif;font-size:clamp(1.8rem,3.4vw,2.6rem)}
+
+.amenities{display:grid;grid-template-columns:repeat(6,1fr);gap:1.2rem;text-align:center}
+.amenity .ic{font-size:1.8rem;margin-bottom:.8rem}
+.amenity span{font-size:.78rem;color:var(--dim)}
+
+.rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.room-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 8px 24px -10px rgba(0,0,0,.1)}
+.room-img{aspect-ratio:4/3;overflow:hidden}
+.room-img img{width:100%;height:100%;object-fit:cover}
+.room-body{padding:1.6rem}
+.room-body h3{font-family:'Fraunces',serif;font-size:1.1rem;margin-bottom:.6rem}
+.room-body p{font-size:.8rem;color:var(--dim);line-height:1.7;margin-bottom:1rem}
+.room-price{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:1rem}
+.room-price .val{font-family:'Fraunces',serif;font-size:1.3rem;color:var(--teal)}
+.room-price a{font-size:.78rem;text-decoration:underline}
+
+.gallery-band{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.gallery-band img{width:100%;height:280px;object-fit:cover}
+
+.reviews{background:var(--sand);padding:90px 6%}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;max-width:1100px;margin:3rem auto 0}
+.review-card{background:#fff;border-radius:14px;padding:1.8rem}
+.review-card .stars{color:var(--teal);margin-bottom:1rem}
+.review-card p{font-size:.85rem;color:var(--dim);line-height:1.8;font-style:italic;margin-bottom:1rem}
+.review-card strong{font-size:.85rem}
+
+footer{padding:3rem 6%;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--line)}
+footer p{font-size:.78rem;color:var(--dim)}
+
+@media(max-width:900px){
+  .amenities{grid-template-columns:repeat(3,1fr)}
+  .rooms{grid-template-columns:1fr}
+  .gallery-band{grid-template-columns:1fr 1fr}
+  .reviews-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .mmenu.open{display:block;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--paper);z-index:60;padding:6rem 6% 2rem}
+  .mmenu a{display:block;padding:1rem 0;border-bottom:1px solid var(--line);font-size:1.1rem}
+  .booking-widget{grid-template-columns:1fr;margin:20px 6% 0}
+  .section{padding:60px 6%}
+  .amenities{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<div class="demo-bar"><span>⚠ Demo — MK Software</span><a href="https://mksoftware.com.tr/#teklif">Teklif al →</a></div>
+
+<nav>
+  <div class="logo">Liman</div>
+  <div class="nav-links"><a href="#odalar">Odalar</a><a href="#olanaklar">Olanaklar</a><a href="#yorumlar">Yorumlar</a></div>
+  <a href="#rezervasyon" class="nav-cta">Rezervasyon</a>
+  <button class="hamburger" onclick="document.getElementById('mm').classList.toggle('open')"><span></span><span></span><span></span></button>
+</nav>
+<div class="mmenu" id="mm"><a href="#odalar">Odalar</a><a href="#olanaklar">Olanaklar</a><a href="#yorumlar">Yorumlar</a></div>
+
+<section class="hero">
+  <img src="https://images.unsplash.com/photo-1781255276587-2470a25ea4ba?auto=format&fit=crop&w=1600&q=75" alt="">
+  <div class="hero-content">
+    <div class="hero-tag">Bodrum · Türkbükü</div>
+    <h1 class="serif">Huzuru yeniden keşfedin</h1>
+  </div>
+</section>
+
+<div class="booking-widget" id="rezervasyon">
+  <input type="date" placeholder="Giriş">
+  <input type="date" placeholder="Çıkış">
+  <select><option>2 Yetişkin</option><option>2 Yetişkin, 1 Çocuk</option><option>4 Yetişkin</option></select>
+  <button>Müsaitlik Kontrol Et</button>
+</div>
+
+<section class="section">
+  <div class="amenities">
+    <div class="amenity"><div class="ic">🏊</div><span>Sonsuzluk Havuzu</span></div>
+    <div class="amenity"><div class="ic">🏖</div><span>Özel Plaj</span></div>
+    <div class="amenity"><div class="ic">🧖</div><span>Spa & Wellness</span></div>
+    <div class="amenity"><div class="ic">🍽</div><span>À la carte Restoran</div></div>
+    <div class="amenity"><div class="ic">🚤</div><span>Tekne Turu</span></div>
+    <div class="amenity"><div class="ic">📶</div><span>Ücretsiz Wi-Fi</span></div>
+  </div>
+</section>
+
+<section class="section" id="odalar">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Konaklama</div>
+    <h2 class="serif">Oda Kategorilerimiz</h2>
+  </div>
+  <div class="rooms">
+    <div class="room-card">
+      <div class="room-img"><img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=500&q=75" alt=""></div>
+      <div class="room-body">
+        <h3>Deniz Manzaralı Oda</h3>
+        <p>32 m², balkonlu, çift kişilik yatak, deniz manzarası</p>
+        <div class="room-price"><span class="val">₺4.200</span><a href="#">Detaylar →</a></div>
+      </div>
+    </div>
+    <div class="room-card">
+      <div class="room-img"><img src="https://images.unsplash.com/photo-1706097898543-a42a9121e426?auto=format&fit=crop&w=500&q=75" alt=""></div>
+      <div class="room-body">
+        <h3>Junior Suit</h3>
+        <p>48 m², oturma alanlı, jakuzili teras</p>
+        <div class="room-price"><span class="val">₺6.800</span><a href="#">Detaylar →</a></div>
+      </div>
+    </div>
+    <div class="room-card">
+      <div class="room-img"><img src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?auto=format&fit=crop&w=500&q=75" alt=""></div>
+      <div class="room-body">
+        <h3>Villa Suit</h3>
+        <p>85 m², özel havuzlu, tam donanımlı mutfak</p>
+        <div class="room-price"><span class="val">₺12.500</span><a href="#">Detaylar →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-band" id="olanaklar">
+  <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600&q=75" alt="">
+  <img src="https://images.unsplash.com/photo-1781255276587-2470a25ea4ba?auto=format&fit=crop&w=600&q=75" alt="">
+  <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=75" alt="">
+</section>
+
+<section class="reviews" id="yorumlar">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Misafir Yorumları</div>
+    <h2 class="serif">Bizi Ziyaret Edenler</h2>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card"><div class="stars">★★★★★</div><p>"Manzara ve hizmet mükemmeldi, kesinlikle tekrar geleceğiz."</p><strong>— Deniz K.</strong></div>
+    <div class="review-card"><div class="stars">★★★★★</div><p>"Oda çok temiz ve konforluydu, personel çok ilgiliydi."</p><strong>— Murat A.</strong></div>
+    <div class="review-card"><div class="stars">★★★★★</div><p>"Balayı için mükemmel bir seçimdi, her şey harikaydı."</p><strong>— Elif & Can</strong></div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Liman Butik Otel. Demo sitedir.</p>
+  <p>Türkbükü, Bodrum · 0252 XXX XX XX</p>
+</footer>
+</body>
+</html>

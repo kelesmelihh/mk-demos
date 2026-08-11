@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOVA FITNESS — Sınırlarını Zorla</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--lime:#d4ff3f;--ink:#0a0a0a;--paper:#131313;--dim:#9a9a9a;--line:rgba(255,255,255,.1)}
+body{font-family:'Inter',sans-serif;background:var(--ink);color:#fff}
+a{text-decoration:none;color:inherit}
+.disp{font-family:'Archivo Black',sans-serif}
+.demo-bar{background:var(--lime);color:var(--ink);font-size:.68rem;padding:8px 5%;display:flex;justify-content:space-between;align-items:center;font-weight:800}
+.demo-bar a{background:var(--ink);color:var(--lime);padding:4px 12px;font-weight:800}
+
+nav{padding:22px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid var(--lime)}
+.logo{font-family:'Archivo Black',sans-serif;font-size:1.2rem;letter-spacing:1px}
+.logo span{color:var(--lime)}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{font-size:.82rem;font-weight:700;text-transform:uppercase}
+.nav-cta{background:var(--lime);color:var(--ink);padding:12px 24px;font-weight:800;font-size:.8rem;text-transform:uppercase}
+.hamburger{display:none;background:none;border:none;flex-direction:column;gap:5px;cursor:pointer}
+.hamburger span{width:24px;height:3px;background:var(--lime)}
+.mmenu{display:none}
+
+.hero{position:relative;padding:70px 6%;display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;overflow:hidden}
+.hero-tag{display:inline-block;background:var(--lime);color:var(--ink);padding:6px 16px;font-weight:800;font-size:.72rem;text-transform:uppercase;margin-bottom:1.6rem}
+.hero h1{font-family:'Archivo Black',sans-serif;font-size:clamp(2.6rem,6vw,4.5rem);line-height:.95;margin-bottom:1.6rem;text-transform:uppercase}
+.hero h1 span{color:var(--lime);-webkit-text-stroke:2px var(--lime)}
+.hero p{color:var(--dim);font-size:1rem;line-height:1.8;margin-bottom:2rem;max-width:440px}
+.hero-btns{display:flex;gap:1rem}
+.btn-p{background:var(--lime);color:var(--ink);padding:16px 32px;font-weight:800;font-size:.82rem;text-transform:uppercase;box-shadow:6px 6px 0 #fff}
+.btn-s{border:2px solid #fff;padding:16px 32px;font-weight:800;font-size:.82rem;text-transform:uppercase}
+.hero-img{position:relative;aspect-ratio:4/5;border:3px solid var(--lime);overflow:hidden;box-shadow:12px 12px 0 rgba(212,255,63,.25)}
+.hero-img img{width:100%;height:100%;object-fit:cover;filter:contrast(1.1) grayscale(20%)}
+
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);border-top:3px solid var(--lime);border-bottom:3px solid var(--lime)}
+.stat-item{padding:2rem;text-align:center;border-right:1px solid var(--line)}
+.stat-item:last-child{border-right:none}
+.stat-item strong{font-family:'Archivo Black',sans-serif;font-size:2.2rem;color:var(--lime);display:block}
+.stat-item span{font-size:.68rem;color:var(--dim);text-transform:uppercase;letter-spacing:1px}
+
+.section{padding:90px 6%;max-width:1300px;margin:0 auto}
+.sec-head{margin-bottom:3rem}
+.sec-eyebrow{color:var(--lime);font-weight:800;font-size:.75rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:.8rem}
+.sec-head h2{font-family:'Archivo Black',sans-serif;font-size:clamp(1.8rem,3.6vw,2.6rem);text-transform:uppercase}
+
+.schedule{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:700px}
+th{background:var(--lime);color:var(--ink);padding:14px;font-size:.75rem;text-transform:uppercase;text-align:left;font-weight:800}
+td{padding:16px 14px;border-bottom:1px solid var(--line);font-size:.85rem}
+td.time{color:var(--lime);font-weight:700;white-space:nowrap}
+tr:hover td{background:rgba(212,255,63,.05)}
+
+.classes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.class-card{border:2px solid var(--line);padding:2rem;transition:border-color .3s}
+.class-card:hover{border-color:var(--lime)}
+.class-card .ic{font-size:2rem;margin-bottom:1rem}
+.class-card h3{font-family:'Archivo Black',sans-serif;font-size:1.1rem;text-transform:uppercase;margin-bottom:.6rem}
+.class-card p{color:var(--dim);font-size:.85rem;line-height:1.7}
+
+.pricing{background:var(--paper);padding:90px 6%}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;max-width:1050px;margin:3rem auto 0}
+.plan{border:2px solid var(--line);padding:2.4rem 2rem;text-align:center}
+.plan.feat{border-color:var(--lime);background:rgba(212,255,63,.04)}
+.plan-name{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:1.1rem;margin-bottom:1rem}
+.plan-price{font-family:'Archivo Black',sans-serif;font-size:2.6rem;color:var(--lime);margin-bottom:.3rem}
+.plan-price span{font-size:.8rem;color:var(--dim)}
+.plan ul{list-style:none;margin:1.6rem 0;text-align:left}
+.plan li{padding:.6rem 0;border-bottom:1px solid var(--line);font-size:.85rem;color:var(--dim)}
+.plan-btn{display:block;background:var(--lime);color:var(--ink);padding:14px;font-weight:800;text-transform:uppercase;font-size:.8rem;margin-top:1.5rem}
+
+.cta-band{text-align:center;padding:90px 6%;border-top:3px solid var(--lime)}
+.cta-band h2{font-family:'Archivo Black',sans-serif;font-size:clamp(1.8rem,4vw,3rem);text-transform:uppercase;margin-bottom:1.4rem}
+
+footer{padding:3rem 6%;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--line)}
+footer p{font-size:.78rem;color:var(--dim)}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .stats-bar{grid-template-columns:1fr 1fr}
+  .classes-grid{grid-template-columns:1fr}
+  .plans{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .mmenu.open{display:block;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--ink);z-index:60;padding:6rem 6% 2rem}
+  .mmenu a{display:block;padding:1rem 0;border-bottom:1px solid var(--line);font-size:1.2rem;text-transform:uppercase;font-weight:800}
+  .section{padding:60px 6%}
+}
+</style>
+</head>
+<body>
+<div class="demo-bar"><span>⚠ Demo — MK Software</span><a href="https://mksoftware.com.tr/#teklif">Teklif al →</a></div>
+
+<nav>
+  <div class="logo">NOVA<span>.</span></div>
+  <div class="nav-links"><a href="#program">Program</a><a href="#dersler">Dersler</a><a href="#uyelik">Üyelik</a></div>
+  <a href="#uyelik" class="nav-cta">Üye Ol</a>
+  <button class="hamburger" onclick="document.getElementById('mm').classList.toggle('open')"><span></span><span></span><span></span></button>
+</nav>
+<div class="mmenu" id="mm"><a href="#program">Program</a><a href="#dersler">Dersler</a><a href="#uyelik">Üyelik</a></div>
+
+<section class="hero">
+  <div>
+    <div class="hero-tag">Ankara · 7/24 Açık</div>
+    <h1 class="disp">Sınırlarını<br><span>Zorla</span></h1>
+    <p>Modern ekipmanlar, uzman antrenörler ve motive edici bir topluluk. Nova'da her antrenman bir öncekinden daha güçlü.</p>
+    <div class="hero-btns">
+      <a href="#uyelik" class="btn-p">Üyelik Başlat</a>
+      <a href="#program" class="btn-s">Programı Gör</a>
+    </div>
+  </div>
+  <div class="hero-img"><img src="https://images.unsplash.com/photo-1672344048213-76b6e77304bd?auto=format&fit=crop&w=900&q=75" alt=""></div>
+</section>
+
+<div class="stats-bar">
+  <div class="stat-item"><strong>2,400+</strong><span>Aktif Üye</span></div>
+  <div class="stat-item"><strong>18</strong><span>Uzman Antrenör</span></div>
+  <div class="stat-item"><strong>32</strong><span>Haftalık Ders</span></div>
+  <div class="stat-item"><strong>7/24</strong><span>Erişim</span></div>
+</div>
+
+<section class="section" id="program">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Haftalık Program</div>
+    <h2 class="disp">Ders Programı</h2>
+  </div>
+  <div class="schedule">
+    <table>
+      <tr><th>Saat</th><th>Pazartesi</th><th>Çarşamba</th><th>Cuma</th><th>Cumartesi</th></tr>
+      <tr><td class="time">07:00</td><td>HIIT</td><td>Crossfit</td><td>HIIT</td><td>Fonksiyonel</td></tr>
+      <tr><td class="time">09:00</td><td>Güç Antrenmanı</td><td>Yoga</td><td>Güç Antrenmanı</td><td>Boks</td></tr>
+      <tr><td class="time">12:00</td><td>Pilates</td><td>Spin</td><td>Pilates</td><td>Crossfit</td></tr>
+      <tr><td class="time">18:00</td><td>Crossfit</td><td>HIIT</td><td>Crossfit</td><td>-</td></tr>
+      <tr><td class="time">20:00</td><td>Boks</td><td>Güç Antrenmanı</td><td>Spin</td><td>-</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="section" id="dersler">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Ders Kategorileri</div>
+    <h2 class="disp">Neler Sunuyoruz</h2>
+  </div>
+  <div class="classes-grid">
+    <div class="class-card"><div class="ic">🔥</div><h3>HIIT</h3><p>Yüksek tempolu interval antrenmanlarla maksimum yağ yakımı.</p></div>
+    <div class="class-card"><div class="ic">💪</div><h3>Crossfit</h3><p>Fonksiyonel hareketlerle tüm vücut gücü ve dayanıklılık.</p></div>
+    <div class="class-card"><div class="ic">🥊</div><h3>Boks</h3><p>Teknik antrenman ve kondisyon bir arada.</p></div>
+    <div class="class-card"><div class="ic">🧘</div><h3>Yoga & Pilates</h3><p>Esneklik, denge ve zihinsel toparlanma.</p></div>
+    <div class="class-card"><div class="ic">🚴</div><h3>Spin</h3><p>Yüksek enerjili grup bisiklet dersleri.</p></div>
+    <div class="class-card"><div class="ic">🏋️</div><h3>Güç Antrenmanı</h3><p>Serbest ağırlık ve makine antrenmanları.</p></div>
+  </div>
+</section>
+
+<section class="pricing" id="uyelik">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Üyelik Planları</div>
+    <h2 class="disp">Sana Uygun Planı Seç</h2>
+  </div>
+  <div class="plans">
+    <div class="plan">
+      <div class="plan-name">Temel</div>
+      <div class="plan-price">₺799<span>/ay</span></div>
+      <ul><li>Sınırsız salon girişi</li><li>Soyunma odası kullanımı</li><li>Ücretsiz üyelik değerlendirmesi</li></ul>
+      <a href="#" class="plan-btn">Seç</a>
+    </div>
+    <div class="plan feat">
+      <div class="plan-name">Pro</div>
+      <div class="plan-price">₺1.299<span>/ay</span></div>
+      <ul><li>Temel plan + tüm dersler</li><li>Haftada 1 kişisel antrenman</li><li>Beslenme danışmanlığı</li></ul>
+      <a href="#" class="plan-btn">Seç</a>
+    </div>
+    <div class="plan">
+      <div class="plan-name">Elite</div>
+      <div class="plan-price">₺2.199<span>/ay</span></div>
+      <ul><li>Pro plan + sınırsız kişisel antrenman</li><li>Öncelikli ders rezervasyonu</li><li>Aylık vücut analizi</li></ul>
+      <a href="#" class="plan-btn">Seç</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <h2 class="disp">Bugün Başla</h2>
+  <a href="#" class="btn-p" style="display:inline-block">İlk Dersin Bizden</a>
+</section>
+
+<footer>
+  <p>© 2026 Nova Fitness. Demo sitedir.</p>
+  <p>Çankaya, Ankara · 0312 XXX XX XX</p>
+</footer>
+</body>
+</html>

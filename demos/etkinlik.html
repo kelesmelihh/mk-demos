@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beyaz Zambak — Düğün & Etkinlik Planlama</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--blush:#e8c4c0;--rose:#a8615a;--ink:#2b201f;--paper:#fdf7f5;--dim:#8a7570;--line:rgba(0,0,0,.08)}
+body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink)}
+a{text-decoration:none;color:inherit}
+.serif{font-family:'Cormorant Garamond',serif}
+.demo-bar{background:var(--rose);color:#fff;font-size:.68rem;padding:8px 5%;display:flex;justify-content:space-between;align-items:center;font-weight:600}
+.demo-bar a{background:var(--ink);color:#fff;padding:4px 12px;font-weight:700}
+
+nav{padding:26px 6%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:var(--paper);z-index:50;border-bottom:1px solid var(--line)}
+.logo{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.6rem;color:var(--rose)}
+.nav-links{display:flex;gap:2.4rem}
+.nav-links a{font-size:.8rem;letter-spacing:.3px}
+.nav-cta{border:1px solid var(--rose);color:var(--rose);padding:11px 24px;font-size:.8rem}
+.hamburger{display:none;background:none;border:none;flex-direction:column;gap:5px;cursor:pointer}
+.hamburger span{width:22px;height:2px;background:var(--rose)}
+.mmenu{display:none}
+
+.hero{padding:80px 6%;text-align:center;max-width:800px;margin:0 auto}
+.hero-tag{font-size:.72rem;letter-spacing:3px;color:var(--rose);text-transform:uppercase;margin-bottom:1.6rem}
+.hero h1{font-size:clamp(2.6rem,6vw,4.3rem);font-style:italic;font-weight:500;line-height:1.15;margin-bottom:1.8rem}
+.hero p{color:var(--dim);font-size:.98rem;line-height:1.9;max-width:520px;margin:0 auto 2.4rem}
+.hero-btns{display:flex;gap:1rem;justify-content:center}
+.btn-p{background:var(--rose);color:#fff;padding:16px 34px;font-size:.83rem}
+.btn-s{border:1px solid var(--ink);padding:16px 34px;font-size:.83rem}
+
+.hero-gallery{display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:10px;padding:0 6%;max-width:1200px;margin:0 auto}
+.hero-gallery img{width:100%;height:100%;object-fit:cover}
+.hero-gallery .tall{aspect-ratio:3/4}
+.hero-gallery .short{aspect-ratio:3/4;align-self:end}
+
+.section{padding:100px 6%;max-width:1200px;margin:0 auto}
+.sec-head{text-align:center;margin-bottom:3.5rem}
+.sec-eyebrow{font-size:.72rem;letter-spacing:2px;color:var(--rose);text-transform:uppercase;margin-bottom:1rem}
+.sec-head h2{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.9rem,3.6vw,2.8rem);font-weight:500}
+
+.services-list{max-width:800px;margin:0 auto}
+.svc-row{display:grid;grid-template-columns:100px 1fr;gap:2rem;padding:2rem 0;border-top:1px solid var(--line);align-items:start}
+.svc-row:last-child{border-bottom:1px solid var(--line)}
+.svc-row .num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2.2rem;color:var(--blush)}
+.svc-row h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;margin-bottom:.5rem}
+.svc-row p{color:var(--dim);font-size:.88rem;line-height:1.8;max-width:500px}
+
+.portfolio{columns:3;column-gap:12px}
+.portfolio img{width:100%;margin-bottom:12px;border-radius:4px;display:block}
+
+.packages{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.pkg{background:#fff;border:1px solid var(--line);border-radius:16px;padding:2.4rem 2rem;text-align:center}
+.pkg.feat{border-color:var(--rose);background:linear-gradient(180deg,#fff,var(--blush) 400%)}
+.pkg h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;margin-bottom:.6rem}
+.pkg .price{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--rose);margin-bottom:1.4rem}
+.pkg ul{list-style:none;text-align:left;margin-bottom:1.6rem}
+.pkg li{padding:.6rem 0;border-bottom:1px solid var(--line);font-size:.82rem;color:var(--dim)}
+.pkg-btn{display:block;background:var(--rose);color:#fff;padding:13px;border-radius:100px;font-size:.82rem}
+
+.inquiry{background:var(--ink);color:#fff;padding:80px 6%;text-align:center}
+.inquiry h2{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.9rem,3.6vw,2.6rem);margin-bottom:1rem}
+.iform{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:700px;margin:2.5rem auto 0}
+.iform input,.iform select{padding:14px;border:none;font-size:.85rem;font-family:inherit;border-radius:4px}
+.iform button{grid-column:span 3;background:var(--rose);color:#fff;padding:15px;border:none;font-weight:600;font-size:.85rem;cursor:pointer;border-radius:4px}
+
+footer{padding:3rem 6%;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--line)}
+footer p{font-size:.78rem;color:var(--dim)}
+
+@media(max-width:900px){
+  .hero-gallery{grid-template-columns:1fr 1fr}
+  .hero-gallery .short:last-child{display:none}
+  .portfolio{columns:2}
+  .packages{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .mmenu.open{display:block;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--paper);z-index:60;padding:6rem 6% 2rem}
+  .mmenu a{display:block;padding:1rem 0;border-bottom:1px solid var(--line);font-size:1.1rem}
+  .iform{grid-template-columns:1fr}
+  .iform button{grid-column:span 1}
+  .section{padding:60px 6%}
+}
+</style>
+</head>
+<body>
+<div class="demo-bar"><span>⚠ Demo — MK Software</span><a href="https://mksoftware.com.tr/#teklif">Teklif al →</a></div>
+
+<nav>
+  <div class="logo">Beyaz Zambak</div>
+  <div class="nav-links"><a href="#hizmetler">Hizmetler</a><a href="#portfoy">Portföy</a><a href="#paketler">Paketler</a></div>
+  <a href="#teklif" class="nav-cta">Teklif Al</a>
+  <button class="hamburger" onclick="document.getElementById('mm').classList.toggle('open')"><span></span><span></span><span></span></button>
+</nav>
+<div class="mmenu" id="mm"><a href="#hizmetler">Hizmetler</a><a href="#portfoy">Portföy</a><a href="#paketler">Paketler</a></div>
+
+<section class="hero">
+  <div class="hero-tag">İstanbul · Butik Organizasyon</div>
+  <h1 class="serif">Hayalinizdeki günü<br>birlikte tasarlıyoruz</h1>
+  <p>Düğünden nişana, kurumsal lansmandan özel davetlere — her detayla titizlikle ilgileniyoruz.</p>
+  <div class="hero-btns">
+    <a href="#teklif" class="btn-p">Teklif Alın</a>
+    <a href="#portfoy" class="btn-s">Portföyümüz</a>
+  </div>
+</section>
+
+<div class="hero-gallery">
+  <img class="short" src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=500&q=75" alt="">
+  <img class="tall" src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=700&q=80" alt="">
+  <img class="short" src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=500&q=75" alt="">
+</div>
+
+<section class="section" id="hizmetler">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Hizmetlerimiz</div>
+    <h2 class="serif">Baştan Sona Organizasyon</h2>
+  </div>
+  <div class="services-list">
+    <div class="svc-row"><div class="num">01</div><div><h3>Konsept & Dekorasyon</h3><p>Hayalinizdeki temaya uygun mekan ve dekor tasarımı, çiçek düzenlemesi.</p></div></div>
+    <div class="svc-row"><div class="num">02</div><div><h3>Mekan Seçimi</h3><p>Bütçenize ve tarzınıza uygun en doğru mekanı sizinle birlikte buluyoruz.</p></div></div>
+    <div class="svc-row"><div class="num">03</div><div><h3>Catering Yönetimi</h3><p>Damak zevkinize uygun menü seçimi ve servis planlaması.</p></div></div>
+    <div class="svc-row"><div class="num">04</div><div><h3>Gün Koordinasyonu</h3><p>Etkinlik günü her şey planlandığı gibi ilerlesin diye orada oluyoruz.</p></div></div>
+  </div>
+</section>
+
+<section class="section" id="portfoy">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Portföyümüz</div>
+    <h2 class="serif">Tasarladığımız Anlar</h2>
+  </div>
+  <div class="portfolio">
+    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=500&q=75" alt="">
+    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=500&h=350&q=75" alt="">
+    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=500&h=650&q=75" alt="">
+  </div>
+</section>
+
+<section class="section" id="paketler">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Paketlerimiz</div>
+    <h2 class="serif">Her Bütçeye Uygun Çözüm</h2>
+  </div>
+  <div class="packages">
+    <div class="pkg">
+      <h3>Zarafet</h3>
+      <div class="price">₺45.000'den</div>
+      <ul><li>Mekan koordinasyonu</li><li>Temel dekorasyon</li><li>Gün koordinasyonu</li></ul>
+      <a href="#teklif" class="pkg-btn">Teklif İste</a>
+    </div>
+    <div class="pkg feat">
+      <h3>Prestij</h3>
+      <div class="price">₺95.000'den</div>
+      <ul><li>Tam konsept tasarım</li><li>Premium dekorasyon</li><li>Catering yönetimi</li><li>Fotoğraf & video yönlendirme</li></ul>
+      <a href="#teklif" class="pkg-btn">Teklif İste</a>
+    </div>
+    <div class="pkg">
+      <h3>İmza Seri</h3>
+      <div class="price">Özel Teklif</div>
+      <ul><li>Sınırsız özelleştirme</li><li>Özel mekan anlaşmaları</li><li>Tam kapsamlı ekip</li></ul>
+      <a href="#teklif" class="pkg-btn">Teklif İste</a>
+    </div>
+  </div>
+</section>
+
+<section class="inquiry" id="teklif">
+  <h2 class="serif">Hayalinizdeki Günü Konuşalım</h2>
+  <form class="iform" onsubmit="event.preventDefault();this.innerHTML='<div style=\'grid-column:span 3;padding:1rem\'>✓ Talebiniz alındı, teşekkürler!</div>'">
+    <input type="text" placeholder="Adınız" required>
+    <input type="tel" placeholder="Telefon" required>
+    <select required><option value="">Etkinlik Türü</option><option>Düğün</option><option>Nişan</option><option>Kurumsal Etkinlik</option><option>Özel Davet</option></select>
+    <button type="submit">Teklif Talep Et</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2026 Beyaz Zambak. Demo sitedir.</p>
+  <p>Nişantaşı, İstanbul · 0212 XXX XX XX</p>
+</footer>
+</body>
+</html>

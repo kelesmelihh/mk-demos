@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beyaz Gülüş Diş Kliniği</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--teal:#0e7c86;--teal-dark:#075a62;--paper:#f7fbfb;--ink:#122224;--dim:#5c7377;--line:#dfe9ea}
+body{font-family:'Manrope',sans-serif;background:var(--paper);color:var(--ink)}
+a{text-decoration:none;color:inherit}
+.demo-bar{background:var(--teal);color:#fff;font-size:.68rem;padding:8px 5%;display:flex;justify-content:space-between;align-items:center;font-weight:600}
+.demo-bar a{background:var(--ink);color:#fff;padding:4px 12px;border-radius:6px;font-weight:700}
+
+.topbar{background:var(--ink);color:#cfe8ea;text-align:center;padding:7px;font-size:.72rem}
+nav{padding:20px 6%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:var(--paper);z-index:50;border-bottom:1px solid var(--line)}
+.logo{font-weight:800;font-size:1.1rem;display:flex;align-items:center;gap:8px}
+.logo .dot{width:10px;height:10px;background:var(--teal);border-radius:50%}
+.nav-links{display:flex;gap:2.2rem}
+.nav-links a{font-size:.85rem;color:var(--dim);font-weight:500}
+.nav-cta{background:var(--teal);color:#fff;padding:11px 24px;border-radius:100px;font-size:.82rem;font-weight:700}
+.hamburger{display:none;background:none;border:none;flex-direction:column;gap:5px;cursor:pointer}
+.hamburger span{width:22px;height:2px;background:var(--ink);border-radius:2px}
+.mmenu{display:none}
+
+.hero{padding:70px 6%;display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;max-width:1300px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#e3f3f3;color:var(--teal-dark);padding:8px 16px;border-radius:100px;font-size:.75rem;font-weight:700;margin-bottom:1.5rem}
+.hero h1{font-size:clamp(2.1rem,4.5vw,3.2rem);font-weight:800;line-height:1.15;margin-bottom:1.3rem}
+.hero h1 span{color:var(--teal)}
+.hero p{color:var(--dim);font-size:.95rem;line-height:1.85;max-width:440px;margin-bottom:2rem}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.btn-p{background:var(--teal);color:#fff;padding:15px 30px;border-radius:100px;font-size:.85rem;font-weight:700}
+.btn-s{border:1px solid var(--line);padding:15px 30px;border-radius:100px;font-size:.85rem;font-weight:600}
+.hero-stats{display:flex;gap:2.5rem}
+.hero-stats strong{font-size:1.6rem;font-weight:800;display:block;color:var(--teal-dark)}
+.hero-stats span{font-size:.72rem;color:var(--dim)}
+.hero-img{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/5}
+.hero-img img{width:100%;height:100%;object-fit:cover}
+.float-card{position:absolute;bottom:20px;left:20px;background:#fff;border-radius:16px;padding:16px 20px;box-shadow:0 12px 30px rgba(0,0,0,.12);display:flex;align-items:center;gap:12px}
+.float-card .ic{width:40px;height:40px;background:#e3f3f3;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.float-card strong{display:block;font-size:.85rem}
+.float-card span{font-size:.7rem;color:var(--dim)}
+
+.section{padding:80px 6%;max-width:1300px;margin:0 auto}
+.sec-head{text-align:center;margin-bottom:3rem}
+.sec-eyebrow{color:var(--teal);font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:.8rem}
+.sec-head h2{font-size:clamp(1.6rem,3.2vw,2.2rem);font-weight:800}
+
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+.svc-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:2rem}
+.svc-card .ic{width:52px;height:52px;background:#e3f3f3;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.2rem}
+.svc-card h3{font-size:1rem;font-weight:700;margin-bottom:.6rem}
+.svc-card p{font-size:.82rem;color:var(--dim);line-height:1.7}
+
+.doctors{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.doc-card{text-align:center}
+.doc-img{aspect-ratio:1;border-radius:20px;overflow:hidden;margin-bottom:1.2rem}
+.doc-img img{width:100%;height:100%;object-fit:cover}
+.doc-card h3{font-size:1rem;font-weight:700;margin-bottom:.3rem}
+.doc-card span{font-size:.8rem;color:var(--teal);font-weight:600}
+
+.process{background:#fff;padding:80px 6%}
+.process-inner{max-width:1100px;margin:0 auto}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3rem}
+.pstep{text-align:center;position:relative}
+.pstep .num{width:48px;height:48px;background:var(--teal);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;margin:0 auto 1rem}
+.pstep h4{font-size:.9rem;font-weight:700;margin-bottom:.5rem}
+.pstep p{font-size:.78rem;color:var(--dim);line-height:1.6}
+
+.appointment{background:var(--teal);color:#fff;border-radius:30px;padding:60px;margin:0 6% 80px;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.appointment h2{font-size:1.8rem;font-weight:800;margin-bottom:1rem}
+.appointment p{opacity:.9;margin-bottom:1.5rem;line-height:1.7}
+.insurance-badges{display:flex;gap:.8rem;flex-wrap:wrap}
+.insurance-badges span{background:rgba(255,255,255,.15);padding:6px 14px;border-radius:100px;font-size:.72rem}
+.appt-form{background:#fff;border-radius:18px;padding:1.8rem}
+.appt-form input,.appt-form select{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:.85rem;margin-bottom:12px;color:var(--ink)}
+.appt-form button{width:100%;background:var(--ink);color:#fff;border:none;padding:14px;border-radius:10px;font-weight:700;font-size:.85rem;cursor:pointer}
+
+footer{padding:3rem 6%;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--line)}
+footer p{font-size:.78rem;color:var(--dim)}
+
+@media(max-width:900px){
+  .hero,.appointment{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .doctors{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .mmenu.open{display:block;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--paper);z-index:60;padding:6rem 6% 2rem}
+  .mmenu a{display:block;padding:1rem 0;border-bottom:1px solid var(--line);font-size:1.1rem}
+  .services-grid{grid-template-columns:1fr}
+  .appointment{padding:30px;border-radius:20px}
+  .section{padding:50px 6%}
+}
+</style>
+</head>
+<body>
+<div class="demo-bar"><span>⚠ Demo — MK Software</span><a href="https://mksoftware.com.tr/#teklif">Teklif al →</a></div>
+<div class="topbar">📞 Acil durumlar için 7/24: 0312 XXX XX XX</div>
+
+<nav>
+  <div class="logo"><span class="dot"></span>Beyaz Gülüş</div>
+  <div class="nav-links"><a href="#hizmetler">Hizmetler</a><a href="#doktorlar">Doktorlarımız</a><a href="#surec">Süreç</a></div>
+  <a href="#randevu" class="nav-cta">Randevu Al</a>
+  <button class="hamburger" onclick="document.getElementById('mm').classList.toggle('open')"><span></span><span></span><span></span></button>
+</nav>
+<div class="mmenu" id="mm"><a href="#hizmetler">Hizmetler</a><a href="#doktorlar">Doktorlarımız</a><a href="#surec">Süreç</a><a href="#randevu">Randevu Al</a></div>
+
+<section class="hero">
+  <div>
+    <div class="hero-badge">🦷 Ankara'nın Güvenilir Diş Kliniği</div>
+    <h1>Gülüşünüz, <span>uzman ellerde</span></h1>
+    <p>Modern teknoloji ve deneyimli hekim kadromuzla, ağrısız ve konforlu bir tedavi deneyimi sunuyoruz.</p>
+    <div class="hero-btns">
+      <a href="#randevu" class="btn-p">Randevu Al</a>
+      <a href="#hizmetler" class="btn-s">Hizmetlerimiz</a>
+    </div>
+    <div class="hero-stats">
+      <div><strong>12+</strong><span>YIL DENEYİM</span></div>
+      <div><strong>5</strong><span>UZMAN HEKİM</span></div>
+      <div><strong>7/24</strong><span>ACİL HAT</span></div>
+    </div>
+  </div>
+  <div class="hero-img">
+    <img src="https://images.unsplash.com/photo-1519494140681-8b17d830a3e9?auto=format&fit=crop&w=900&q=75" alt="Klinik">
+    <div class="float-card"><div class="ic">✓</div><div><strong>Ağrısız Tedavi</strong><span>Sedasyon seçenekleri mevcut</span></div></div>
+  </div>
+</section>
+
+<section class="section" id="hizmetler">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Hizmetlerimiz</div>
+    <h2>Kapsamlı Diş Sağlığı Hizmetleri</h2>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card"><div class="ic">🦷</div><h3>Genel Diş Hekimliği</h3><p>Muayene, dolgu ve koruyucu tedaviler.</p></div>
+    <div class="svc-card"><div class="ic">✨</div><h3>Estetik Diş Hekimliği</h3><p>Diş beyazlatma, laminate ve gülüş tasarımı.</p></div>
+    <div class="svc-card"><div class="ic">🔧</div><h3>İmplant Tedavisi</h3><p>Kayıp dişler için kalıcı çözümler.</p></div>
+    <div class="svc-card"><div class="ic">👶</div><h3>Çocuk Diş Hekimliği</h3><p>Küçük hastalar için özel yaklaşım.</p></div>
+  </div>
+</section>
+
+<section class="section" id="doktorlar">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Ekibimiz</div>
+    <h2>Doktorlarımızla Tanışın</h2>
+  </div>
+  <div class="doctors">
+    <div class="doc-card">
+      <div class="doc-img"><img src="https://images.unsplash.com/photo-1758691461888-b74515208d7a?auto=format&fit=crop&w=400&q=75" alt=""></div>
+      <h3>Dt. Elif Aydın</h3>
+      <span>Estetik Diş Hekimliği</span>
+    </div>
+    <div class="doc-card">
+      <div class="doc-img"><img src="https://images.unsplash.com/photo-1643660527070-03ed14b41677?auto=format&fit=crop&w=400&q=75" alt=""></div>
+      <h3>Dt. Mert Kaya</h3>
+      <span>İmplantoloji</span>
+    </div>
+    <div class="doc-card">
+      <div class="doc-img"><img src="https://images.unsplash.com/photo-1777269749032-d8d458ae594d?auto=format&fit=crop&w=400&q=75" alt=""></div>
+      <h3>Dt. Zeynep Arslan</h3>
+      <span>Pedodonti</span>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="surec">
+  <div class="process-inner">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Tedavi Süreci</div>
+      <h2>Randevudan Tedaviye</h2>
+    </div>
+    <div class="process-steps">
+      <div class="pstep"><div class="num">1</div><h4>Randevu</h4><p>Online veya telefonla randevu alın</p></div>
+      <div class="pstep"><div class="num">2</div><h4>Muayene</h4><p>Detaylı ağız içi değerlendirme</p></div>
+      <div class="pstep"><div class="num">3</div><h4>Tedavi Planı</h4><p>Size özel plan ve fiyat teklifi</p></div>
+      <div class="pstep"><div class="num">4</div><h4>Tedavi</h4><p>Konforlu ortamda uygulama</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="appointment" id="randevu">
+  <div>
+    <h2>Randevunuzu Bugün Alın</h2>
+    <p>Anlaşmalı olduğumuz sigorta şirketleri ile ödeme kolaylığı sağlıyoruz.</p>
+    <div class="insurance-badges">
+      <span>SGK Anlaşmalı</span><span>Özel Sigorta</span><span>Taksit İmkanı</span>
+    </div>
+  </div>
+  <form class="appt-form" onsubmit="event.preventDefault();this.innerHTML='<p style=\'text-align:center;padding:1rem\'>✓ Randevu talebiniz alındı!</p>'">
+    <input type="text" placeholder="Adınız Soyadınız" required>
+    <input type="tel" placeholder="Telefon" required>
+    <select required><option value="">Hizmet Seçin</option><option>Genel Muayene</option><option>Estetik Diş Hekimliği</option><option>İmplant</option><option>Çocuk Diş Hekimliği</option></select>
+    <button type="submit">Randevu Talebi Gönder</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2026 Beyaz Gülüş Diş Kliniği. Demo sitedir.</p>
+  <p>Çankaya, Ankara · 0312 XXX XX XX</p>
+</footer>
+</body>
+</html>

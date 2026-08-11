@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Köz — Anadolu Ateş Mutfağı</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#1c1712;--paper:#f6efe4;--ember:#c1440e;--ember-dark:#8f3009;--dim:#7a6f60;--line:rgba(28,23,18,.12)}
+body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink)}
+a{text-decoration:none;color:inherit}
+.serif{font-family:'Fraunces',serif}
+.demo-bar{background:var(--ember);color:#fff;font-size:.68rem;padding:8px 5%;display:flex;justify-content:space-between;align-items:center;font-weight:600}
+.demo-bar a{background:var(--ink);color:#fff;padding:4px 12px;font-weight:700}
+
+nav{padding:22px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--paper);z-index:50}
+.logo{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:600;letter-spacing:1px}
+.logo em{color:var(--ember);font-style:italic}
+.nav-links{display:flex;gap:2.2rem}
+.nav-links a{font-size:.82rem;letter-spacing:.5px}
+.nav-cta{background:var(--ember);color:#fff;padding:10px 22px;font-size:.8rem;font-weight:600}
+.hamburger{display:none;background:none;border:none;flex-direction:column;gap:5px;cursor:pointer}
+.hamburger span{width:22px;height:2px;background:var(--ink)}
+.mmenu{display:none}
+
+.hero{padding:70px 6% 40px;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;max-width:1300px;margin:0 auto}
+.hero-eyebrow{font-size:.72rem;letter-spacing:2px;color:var(--ember);margin-bottom:1.2rem;text-transform:uppercase}
+.hero h1{font-size:clamp(2.4rem,5vw,4rem);line-height:1.05;margin-bottom:1.4rem}
+.hero h1 em{color:var(--ember);font-style:italic}
+.hero p{color:var(--dim);font-size:1rem;line-height:1.9;max-width:420px;margin-bottom:2rem}
+.hero-btns{display:flex;gap:1rem}
+.btn-p{background:var(--ink);color:var(--paper);padding:15px 30px;font-size:.83rem;font-weight:600}
+.btn-s{border:1px solid var(--ink);padding:15px 30px;font-size:.83rem}
+.hero-img{position:relative}
+.hero-img img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:sepia(8%) saturate(115%)}
+.hero-img::after{content:'01 — ATEŞ MUTFAĞI';position:absolute;bottom:-30px;left:0;font-size:.68rem;letter-spacing:1px;color:var(--dim);font-family:'Inter'}
+
+.marq{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0;overflow:hidden;margin-top:70px}
+.marq-row{display:flex;width:max-content;animation:mrow 22s linear infinite;gap:3rem}
+@keyframes mrow{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marq span{font-family:'Fraunces',serif;font-style:italic;font-size:1.1rem;color:var(--dim);white-space:nowrap}
+
+.section{padding:90px 6%;max-width:1300px;margin:0 auto}
+.sec-head{text-align:center;margin-bottom:3.5rem}
+.sec-eyebrow{font-size:.72rem;letter-spacing:2px;color:var(--ember);text-transform:uppercase;margin-bottom:1rem}
+.sec-head h2{font-size:clamp(1.8rem,3.6vw,2.6rem)}
+
+.menu-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+.menu-cat{font-family:'Fraunces',serif;font-style:italic;color:var(--ember);font-size:1.2rem;margin-bottom:1.5rem;padding-bottom:.8rem;border-bottom:1px solid var(--line)}
+.menu-item{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:1.4rem}
+.menu-item .name{font-weight:600;font-size:.95rem}
+.menu-item .desc{color:var(--dim);font-size:.78rem;display:block;margin-top:3px;font-weight:400}
+.menu-item .dots{flex:1;border-bottom:1px dotted var(--line);margin:0 8px 6px}
+.menu-item .price{font-family:'Fraunces',serif;font-weight:600;white-space:nowrap}
+
+.gallery{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:180px 180px;gap:10px}
+.gallery img{width:100%;height:100%;object-fit:cover}
+.g1{grid-row:span 2}
+
+.chef{display:grid;grid-template-columns:.8fr 1.2fr;gap:3.5rem;align-items:center;background:var(--ink);color:var(--paper);padding:60px;margin:0 6%}
+.chef img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:50%;filter:grayscale(30%)}
+.chef .sec-eyebrow{color:#d9a066}
+.chef p{color:#c9c0b2;line-height:1.9;margin-bottom:1rem}
+
+.reserve{background:var(--ember);color:#fff;padding:80px 6%;text-align:center}
+.reserve h2{font-size:clamp(1.8rem,3.4vw,2.4rem);margin-bottom:1rem}
+.reserve-form{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:800px;margin:2.5rem auto 0}
+.reserve-form input,.reserve-form select{padding:13px;border:none;font-size:.85rem;font-family:inherit}
+.reserve-form button{grid-column:span 4;background:var(--ink);color:#fff;padding:15px;border:none;font-weight:700;font-size:.85rem;cursor:pointer}
+
+footer{padding:3rem 6%;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--line)}
+footer p{font-size:.78rem;color:var(--dim)}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .menu-wrap{grid-template-columns:1fr;gap:2.5rem}
+  .chef{grid-template-columns:1fr;padding:40px 30px}
+}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .mmenu.open{display:block;position:fixed;top:70px;left:0;right:0;bottom:0;background:var(--paper);z-index:60;padding:2rem 6%}
+  .mmenu a{display:block;padding:1rem 0;border-bottom:1px solid var(--line);font-size:1.1rem}
+  .gallery{grid-template-columns:1fr 1fr;grid-template-rows:140px 140px 140px}
+  .g1{grid-column:span 2;grid-row:span 1}
+  .reserve-form{grid-template-columns:1fr 1fr}
+  .reserve-form button{grid-column:span 2}
+  .section{padding:60px 6%}
+}
+</style>
+</head>
+<body>
+<div class="demo-bar"><span>⚠ Demo — MK Software</span><a href="https://mksoftware.com.tr/#teklif">Teklif al →</a></div>
+
+<nav>
+  <div class="logo">K<em>ö</em>z</div>
+  <div class="nav-links"><a href="#menu">Menü</a><a href="#mutfak">Mutfağımız</a><a href="#rezervasyon">Rezervasyon</a></div>
+  <a href="https://mksoftware.com.tr/#teklif" class="nav-cta">Teklif Al</a>
+  <button class="hamburger" onclick="document.getElementById('mm').classList.toggle('open')"><span></span><span></span><span></span></button>
+</nav>
+<div class="mmenu" id="mm"><a href="#menu">Menü</a><a href="#mutfak">Mutfağımız</a><a href="#rezervasyon">Rezervasyon</a></div>
+
+<section class="hero">
+  <div>
+    <div class="hero-eyebrow">Ankara · Kavaklıdere</div>
+    <h1 class="serif">Ateşin<br>üzerinde <em>Anadolu</em></h1>
+    <p>Odun ateşinde pişen etler, mevsimlik sebzeler ve büyükannemizin tariflerinden bugüne taşıdığımız lezzetler. Her akşam yeniden yakılan bir ocak, her tabakta bir hikaye.</p>
+    <div class="hero-btns">
+      <a href="#rezervasyon" class="btn-p">Rezervasyon Yap</a>
+      <a href="#menu" class="btn-s">Menüyü Gör</a>
+    </div>
+  </div>
+  <div class="hero-img"><img src="https://images.unsplash.com/photo-1663530761401-15eefb544889?auto=format&fit=crop&w=1000&q=75" alt="Köz mutfağı"></div>
+</section>
+
+<div class="marq"><div class="marq-row">
+  <span>Odun Ateşinde Pişirme</span><span>·</span><span>Mevsimlik Sofra</span><span>·</span><span>El Yapımı Hamur İşleri</span><span>·</span><span>Yerli Üretici</span><span>·</span>
+  <span>Odun Ateşinde Pişirme</span><span>·</span><span>Mevsimlik Sofra</span><span>·</span><span>El Yapımı Hamur İşleri</span><span>·</span><span>Yerli Üretici</span><span>·</span>
+</div></div>
+
+<section class="section" id="menu">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Menü</div>
+    <h2 class="serif">Ocağın Seçtikleri</h2>
+  </div>
+  <div class="menu-wrap">
+    <div>
+      <div class="menu-cat">Başlangıçlar</div>
+      <div class="menu-item"><span class="name">Köz Patlıcan Ezmesi<span class="desc">Tahin, nar ekşisi, taze nane</span></span><span class="dots"></span><span class="price">₺185</span></div>
+      <div class="menu-item"><span class="name">Yayla Çorbası<span class="desc">Ev yapımı yoğurt, tereyağı, nane</span></span><span class="dots"></span><span class="price">₺140</span></div>
+      <div class="menu-item"><span class="name">Közlenmiş Kırmızı Biber<span class="desc">Ceviz, sarımsak, zeytinyağı</span></span><span class="dots"></span><span class="price">₺165</span></div>
+      <div class="menu-item"><span class="name">Ev Yapımı Mezeler (4'lü)<span class="desc">Günün seçkisi</span></span><span class="dots"></span><span class="price">₺320</span></div>
+      <div class="menu-cat" style="margin-top:2.5rem">Hamur İşleri</div>
+      <div class="menu-item"><span class="name">Etli Ekmek<span class="desc">İnce hamur, özel kıyma harcı</span></span><span class="dots"></span><span class="price">₺210</span></div>
+      <div class="menu-item"><span class="name">Kayseri Mantısı<span class="desc">Ev yapımı yoğurt, tereyağı sosu</span></span><span class="dots"></span><span class="price">₺245</span></div>
+    </div>
+    <div>
+      <div class="menu-cat">Ana Yemekler</div>
+      <div class="menu-item"><span class="name">Külbastı<span class="desc">Odun ateşinde, közlenmiş sebze eşliğinde</span></span><span class="dots"></span><span class="price">₺580</span></div>
+      <div class="menu-item"><span class="name">Kuzu Tandır<span class="desc">6 saat pişen, kemik üstü</span></span><span class="dots"></span><span class="price">₺650</span></div>
+      <div class="menu-item"><span class="name">Ali Nazik<span class="desc">Közlenmiş patlıcan püresi üzeri kuşbaşı</span></span><span class="dots"></span><span class="price">₺480</span></div>
+      <div class="menu-item"><span class="name">Fırında Levrek<span class="desc">Mevsim sebzeleri, limon</span></span><span class="dots"></span><span class="price">₺520</span></div>
+      <div class="menu-cat" style="margin-top:2.5rem">Tatlılar</div>
+      <div class="menu-item"><span class="name">Fırın Sütlaç<span class="desc">Ev yapımı, tarçınlı</span></span><span class="dots"></span><span class="price">₺140</span></div>
+      <div class="menu-item"><span class="name">Kadayıf Dolması<span class="desc">Antep fıstıklı, şerbetli</span></span><span class="dots"></span><span class="price">₺175</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <img class="g1" src="https://images.unsplash.com/photo-1578474846511-04ba529f0b88?auto=format&fit=crop&w=900&q=70" alt="">
+  <img src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?auto=format&fit=crop&w=600&q=70" alt="">
+  <img src="https://images.unsplash.com/photo-1559329007-40df8a9345d8?auto=format&fit=crop&w=600&q=70" alt="">
+  <img src="https://images.unsplash.com/photo-1560053608-13721e0d69e8?auto=format&fit=crop&w=600&q=70" alt="">
+  <img src="https://images.unsplash.com/photo-1574966739987-65e38db0f7ce?auto=format&fit=crop&w=600&q=70" alt="">
+</section>
+
+<section class="section" id="mutfak">
+  <div class="chef">
+    <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=500&q=75" alt="Mutfak">
+    <div>
+      <div class="sec-eyebrow">Mutfağımız</div>
+      <h2 class="serif" style="font-size:1.8rem;margin-bottom:1.2rem">20 yıllık bir ocağın hikayesi</h2>
+      <p>Köz, 2006'dan beri Ankara'da aynı ocakta, aynı sabırla pişiyor. Kullandığımız her malzeme yerel üreticilerden, her tarif kuşaklar boyunca aktarılmış.</p>
+      <p>Amacımız hızlı değil, doğru pişirmek. Bu yüzden bazı yemeklerimiz saatler alıyor — ama tabağa geldiğinde farkı hissedeceksiniz.</p>
+    </div>
+  </div>
+</section>
+
+<section class="reserve" id="rezervasyon">
+  <h2 class="serif">Bir Masa Ayırtın</h2>
+  <p style="opacity:.9">Hafta içi ve hafta sonu rezervasyon kabul ediyoruz</p>
+  <form class="reserve-form" onsubmit="event.preventDefault();this.innerHTML='<div style=\'grid-column:span 4;padding:20px\'>✓ Rezervasyon talebiniz alındı, teşekkürler!</div>'">
+    <input type="text" placeholder="Adınız" required>
+    <input type="tel" placeholder="Telefon" required>
+    <input type="date" required>
+    <select required><option value="">Kişi Sayısı</option><option>2 Kişi</option><option>4 Kişi</option><option>6 Kişi</option><option>8+ Kişi</option></select>
+    <button type="submit">Rezervasyonu Onayla</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2026 Köz Anadolu Ateş Mutfağı. Demo sitedir.</p>
+  <p>Kavaklıdere, Ankara · 0312 XXX XX XX</p>
+</footer>
+</body>
+</html>

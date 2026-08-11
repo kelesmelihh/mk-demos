@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Erdem & Ortakları Hukuk Bürosu</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#0f1b2d;--navy-light:#17263d;--gold:#a9862f;--paper:#f8f6f1;--dim:#7d8798;--line:rgba(255,255,255,.1)}
+body{font-family:'Inter',sans-serif;background:var(--navy);color:#e8e6df}
+a{text-decoration:none;color:inherit}
+.serif{font-family:'Cormorant Garamond',serif}
+.demo-bar{background:var(--gold);color:var(--navy);font-size:.68rem;padding:8px 5%;display:flex;justify-content:space-between;align-items:center;font-weight:700}
+.demo-bar a{background:var(--navy);color:#fff;padding:4px 12px;font-weight:700}
+
+nav{padding:26px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;letter-spacing:.5px}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;gap:2.4rem}
+.nav-links a{font-size:.8rem;color:#c5c9d4;letter-spacing:.3px}
+.nav-cta{border:1px solid var(--gold);color:var(--gold);padding:11px 24px;font-size:.8rem;letter-spacing:.5px}
+.hamburger{display:none;background:none;border:none;flex-direction:column;gap:5px;cursor:pointer}
+.hamburger span{width:22px;height:2px;background:var(--gold)}
+.mmenu{display:none}
+
+.hero{padding:90px 6% 70px;text-align:center;max-width:900px;margin:0 auto}
+.hero-eyebrow{font-size:.72rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:1.6rem}
+.hero h1{font-size:clamp(2.4rem,5.5vw,4.2rem);font-weight:600;line-height:1.1;margin-bottom:1.6rem}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero p{color:var(--dim);font-size:.98rem;line-height:1.9;max-width:560px;margin:0 auto 2.4rem}
+.hero-btns{display:flex;gap:1rem;justify-content:center}
+.btn-p{background:var(--gold);color:var(--navy);padding:16px 34px;font-size:.82rem;font-weight:700;letter-spacing:.5px}
+.btn-s{border:1px solid var(--line);color:#e8e6df;padding:16px 34px;font-size:.82rem}
+
+.divider{width:60px;height:1px;background:var(--gold);margin:60px auto}
+
+.practice-areas{padding:0 6% 90px;max-width:1200px;margin:0 auto}
+.sec-head{text-align:center;margin-bottom:3.5rem}
+.sec-eyebrow{font-size:.72rem;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:1rem}
+.sec-head h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.4vw,2.6rem);font-weight:600}
+.areas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
+.area-card{background:var(--navy);padding:2.5rem}
+.area-card .num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);margin-bottom:1rem}
+.area-card h3{font-size:1.05rem;font-weight:600;margin-bottom:.8rem}
+.area-card p{font-size:.85rem;color:var(--dim);line-height:1.75}
+
+.partners{background:var(--navy-light);padding:90px 6%}
+.partners-inner{max-width:1100px;margin:0 auto}
+.partners-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem}
+.partner-card{text-align:center}
+.partner-img{aspect-ratio:3/4;overflow:hidden;margin-bottom:1.2rem;filter:grayscale(40%)}
+.partner-img img{width:100%;height:100%;object-fit:cover}
+.partner-card h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;margin-bottom:.3rem}
+.partner-card span{font-size:.78rem;color:var(--gold)}
+
+.process{padding:90px 6%;max-width:1000px;margin:0 auto}
+.pflow{display:flex;flex-direction:column;margin-top:3rem}
+.pstep{display:grid;grid-template-columns:80px 1fr;gap:2rem;padding:2rem 0;border-top:1px solid var(--line)}
+.pstep:last-child{border-bottom:1px solid var(--line)}
+.pstep .num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold)}
+.pstep h4{font-size:1rem;font-weight:600;margin-bottom:.5rem}
+.pstep p{font-size:.85rem;color:var(--dim);line-height:1.75;max-width:500px}
+
+.consult{background:var(--gold);color:var(--navy);padding:80px 6%;text-align:center}
+.consult h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.4vw,2.4rem);margin-bottom:1rem}
+.consult-form{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:700px;margin:2.5rem auto 0}
+.consult-form input,.consult-form select{padding:14px;border:none;font-size:.85rem;font-family:inherit}
+.consult-form button{grid-column:span 3;background:var(--navy);color:var(--gold);padding:15px;border:none;font-weight:700;font-size:.85rem;cursor:pointer}
+
+footer{padding:3rem 6%;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--line)}
+footer p{font-size:.78rem;color:var(--dim)}
+
+@media(max-width:900px){
+  .areas-grid{grid-template-columns:1fr 1fr}
+  .partners-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .mmenu.open{display:block;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--navy);z-index:60;padding:6rem 6% 2rem}
+  .mmenu a{display:block;padding:1rem 0;border-bottom:1px solid var(--line);font-size:1.1rem;color:#e8e6df}
+  .areas-grid{grid-template-columns:1fr}
+  .consult-form{grid-template-columns:1fr}
+  .consult-form button{grid-column:span 1}
+  .pstep{grid-template-columns:50px 1fr;gap:1rem}
+}
+</style>
+</head>
+<body>
+<div class="demo-bar"><span>⚠ Demo — MK Software</span><a href="https://mksoftware.com.tr/#teklif">Teklif al →</a></div>
+
+<nav>
+  <div class="logo">Erdem <span>&</span> Ortakları</div>
+  <div class="nav-links"><a href="#alanlar">Çalışma Alanları</a><a href="#ekip">Ekibimiz</a><a href="#surec">Süreç</a></div>
+  <a href="#danisma" class="nav-cta">Ön Görüşme Talep Et</a>
+  <button class="hamburger" onclick="document.getElementById('mm').classList.toggle('open')"><span></span><span></span><span></span></button>
+</nav>
+<div class="mmenu" id="mm"><a href="#alanlar">Çalışma Alanları</a><a href="#ekip">Ekibimiz</a><a href="#surec">Süreç</a><a href="#danisma">Ön Görüşme</a></div>
+
+<section class="hero">
+  <div class="hero-eyebrow">Ankara — 1998'den Beri</div>
+  <h1 class="serif">Hukuki gücünüz,<br><em>güvenilir ellerde</em></h1>
+  <p>Ticaret hukukundan gayrimenkule, iş hukukundan uyuşmazlık çözümüne kadar geniş bir yelpazede, titiz ve sonuç odaklı bir yaklaşımla temsil ediyoruz.</p>
+  <div class="hero-btns">
+    <a href="#danisma" class="btn-p">Ön Görüşme Talep Et</a>
+    <a href="#alanlar" class="btn-s">Çalışma Alanlarımız</a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="practice-areas" id="alanlar">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Uzmanlık Alanlarımız</div>
+    <h2 class="serif">Çalışma Alanlarımız</h2>
+  </div>
+  <div class="areas-grid">
+    <div class="area-card"><div class="num">01</div><h3>Ticaret Hukuku</h3><p>Şirket kuruluşu, birleşme-devralma ve ticari sözleşmeler.</p></div>
+    <div class="area-card"><div class="num">02</div><h3>İş Hukuku</h3><p>İşçi-işveren uyuşmazlıkları ve iş sözleşmeleri danışmanlığı.</p></div>
+    <div class="area-card"><div class="num">03</div><h3>Gayrimenkul Hukuku</h3><p>Tapu işlemleri, kira sözleşmeleri ve imar uyuşmazlıkları.</p></div>
+    <div class="area-card"><div class="num">04</div><h3>Aile Hukuku</h3><p>Boşanma, velayet ve miras süreçlerinde danışmanlık.</p></div>
+    <div class="area-card"><div class="num">05</div><h3>Uyuşmazlık Çözümü</h3><p>Dava takibi, tahkim ve arabuluculuk süreçleri.</p></div>
+    <div class="area-card"><div class="num">06</div><h3>Fikri Mülkiyet</h3><p>Marka, patent tescili ve telif hakları koruması.</p></div>
+  </div>
+</section>
+
+<section class="partners" id="ekip">
+  <div class="partners-inner">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Ortaklarımız</div>
+      <h2 class="serif">Deneyimli Ekibimiz</h2>
+    </div>
+    <div class="partners-grid">
+      <div class="partner-card">
+        <div class="partner-img"><img src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=crop&w=400&q=75" alt=""></div>
+        <h3 class="serif">Av. Kemal Erdem</h3>
+        <span>Kurucu Ortak — Ticaret Hukuku</span>
+      </div>
+      <div class="partner-card">
+        <div class="partner-img"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=400&q=75" alt=""></div>
+        <h3 class="serif">Av. Selin Aksoy</h3>
+        <span>Ortak — İş Hukuku</span>
+      </div>
+      <div class="partner-card">
+        <div class="partner-img"><img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=400&q=75" alt=""></div>
+        <h3 class="serif">Av. Burak Yıldız</h3>
+        <span>Ortak — Uyuşmazlık Çözümü</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="surec">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Süreç</div>
+    <h2 class="serif">Sizinle Nasıl Çalışırız</h2>
+  </div>
+  <div class="pflow">
+    <div class="pstep"><div class="num">01</div><div><h4>Ön Görüşme</h4><p>Durumunuzu dinler, hukuki açıdan değerlendiririz. İlk görüşme ücretsizdir.</p></div></div>
+    <div class="pstep"><div class="num">02</div><div><h4>Strateji Belirleme</h4><p>Dosyanıza özel bir hukuki strateji ve zaman planı sunarız.</p></div></div>
+    <div class="pstep"><div class="num">03</div><div><h4>Süreç Yönetimi</h4><p>Her aşamada sizi bilgilendirerek süreci profesyonelce yürütürüz.</p></div></div>
+    <div class="pstep"><div class="num">04</div><div><h4>Sonuçlandırma</h4><p>Dosyanız sonuçlanana kadar yanınızda oluruz.</p></div></div>
+  </div>
+</section>
+
+<section class="consult" id="danisma">
+  <h2 class="serif">Ön Görüşme Talep Edin</h2>
+  <p>İlk değerlendirme görüşmesi ücretsizdir</p>
+  <form class="consult-form" onsubmit="event.preventDefault();this.innerHTML='<div style=\'grid-column:span 3;padding:1rem\'>✓ Talebiniz alındı, en kısa sürede dönüş yapacağız.</div>'">
+    <input type="text" placeholder="Adınız Soyadınız" required>
+    <input type="tel" placeholder="Telefon" required>
+    <select required><option value="">Konu Seçin</option><option>Ticaret Hukuku</option><option>İş Hukuku</option><option>Gayrimenkul</option><option>Aile Hukuku</option><option>Diğer</option></select>
+    <button type="submit">Görüşme Talep Et</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2026 Erdem & Ortakları Hukuk Bürosu. Demo sitedir.</p>
+  <p>Çankaya, Ankara · 0312 XXX XX XX</p>
+</footer>
+</body>
+</html>
